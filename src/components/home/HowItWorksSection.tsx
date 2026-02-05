@@ -32,19 +32,19 @@ export function HowItWorksSection() {
         title="Cum functioneaza"
         subtitle="4 pasi simpli de la lead la proof"
       />
-      <div className="grid gap-8 md:grid-cols-4">
+      <div className="grid gap-6 md:grid-cols-4">
         {steps.map((step, index) => (
           <div key={step.title} className="text-center group">
-            <div className="relative mx-auto mb-6">
-              <div className="h-20 w-20 rounded-2xl bg-card shadow-soft border border-border/50 flex items-center justify-center mx-auto transition-all group-hover:shadow-premium group-hover:-translate-y-1">
-                <step.icon className="h-9 w-9 text-primary" />
+            <div className="relative mx-auto mb-4">
+              <div className="h-16 w-16 rounded-xl bg-card shadow-card border border-border-card flex items-center justify-center mx-auto transition-all group-hover:shadow-card-hover group-hover:-translate-y-0.5">
+                <step.icon className="h-7 w-7 text-primary" />
               </div>
-              <div className="absolute -top-2 -right-2 h-9 w-9 rounded-xl bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold shadow-lg">
+              <div className="absolute -top-1.5 -right-1.5 h-7 w-7 rounded-lg bg-primary text-primary-foreground flex items-center justify-center text-xs font-bold shadow-md">
                 {index + 1}
               </div>
             </div>
-            <h3 className="text-xl font-bold text-foreground mb-3">{step.title}</h3>
-            <p className="text-muted-foreground leading-relaxed">{step.description}</p>
+            <h3 className="text-lg font-extrabold text-foreground mb-2 leading-tight">{step.title}</h3>
+            <p className="text-muted-foreground text-sm leading-snug">{step.description}</p>
           </div>
         ))}
       </div>

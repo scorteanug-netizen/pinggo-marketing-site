@@ -42,17 +42,17 @@ export function FeaturesSection() {
       <SectionHeading
         title="Tot ce ai nevoie pentru lead accountability"
       />
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {features.map((feature) => (
-          <Card key={feature.title}>
-            <CardHeader className="pb-3">
-              <div className="h-12 w-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-4">
-                <feature.icon className="h-6 w-6 text-primary" />
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {features.map((feature, i) => (
+          <Card key={feature.title} className={i % 3 === 0 ? "card-accent-orange" : i % 3 === 1 ? "card-accent-blue" : "card-accent-violet"}>
+            <CardHeader className="pb-2">
+              <div className="h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center mb-3">
+                <feature.icon className="h-5 w-5 text-primary" />
               </div>
               <CardTitle>{feature.title}</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
+              <p className="text-muted-foreground text-sm leading-snug">{feature.description}</p>
             </CardContent>
           </Card>
         ))}

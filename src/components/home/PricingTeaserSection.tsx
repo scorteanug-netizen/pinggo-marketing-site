@@ -34,11 +34,11 @@ export function PricingTeaserSection() {
         title="Pricing simplu, fara surprize"
         subtitle="Toate planurile includ setup gratuit si 14 zile trial"
       />
-      <div className="grid gap-6 md:grid-cols-3 max-w-5xl mx-auto">
-        {plans.map((plan) => (
+      <div className="grid gap-5 md:grid-cols-3 max-w-5xl mx-auto">
+        {plans.map((plan, i) => (
           <Card
             key={plan.name}
-            className={`relative ${plan.popular ? "border-2 border-primary shadow-premium ring-1 ring-primary/20" : ""}`}
+            className={`relative ${plan.popular ? "border-t-4 border-t-primary border-2 border-primary shadow-card-hover ring-1 ring-primary/20" : i === 0 ? "card-accent-orange" : i === 2 ? "card-accent-blue" : "card-accent-violet"}`}
           >
             {plan.popular && (
               <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
@@ -47,27 +47,27 @@ export function PricingTeaserSection() {
                 </span>
               </div>
             )}
-            <CardHeader className="text-center pb-3 pt-8">
-              <CardTitle className="text-2xl">{plan.name}</CardTitle>
-              <div className="mt-5">
-                <span className="text-5xl font-extrabold text-foreground">{plan.price}</span>
-                <span className="text-muted-foreground font-medium"> EUR/luna</span>
+            <CardHeader className="text-center pb-2 pt-6">
+              <CardTitle className="text-xl">{plan.name}</CardTitle>
+              <div className="mt-4">
+                <span className="text-4xl font-extrabold text-foreground leading-none">{plan.price}</span>
+                <span className="text-muted-foreground font-medium text-sm"> EUR/luna</span>
               </div>
-              <p className="text-sm text-muted-foreground mt-3">{plan.leads}</p>
+              <p className="text-xs text-muted-foreground mt-2">{plan.leads}</p>
             </CardHeader>
-            <CardContent className="pt-6">
-              <ul className="space-y-4">
+            <CardContent className="pt-4">
+              <ul className="space-y-3">
                 {plan.features.map((feature) => (
-                  <li key={feature} className="flex items-center gap-3">
-                    <div className="h-5 w-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                      <Check className="h-3 w-3 text-primary" />
+                  <li key={feature} className="flex items-center gap-2">
+                    <div className="h-4 w-4 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <Check className="h-2.5 w-2.5 text-primary" />
                     </div>
-                    <span className="font-medium">{feature}</span>
+                    <span className="font-medium text-sm">{feature}</span>
                   </li>
                 ))}
               </ul>
             </CardContent>
-            <CardFooter className="pt-4">
+            <CardFooter className="pt-3">
               <Button
                 className="w-full"
                 variant={plan.popular ? "default" : "outline"}
@@ -81,13 +81,13 @@ export function PricingTeaserSection() {
       </div>
 
       {/* Add-on */}
-      <div className="mt-12 text-center">
-        <div className="inline-flex items-center gap-3 bg-card rounded-2xl px-6 py-4 shadow-soft border border-border/50">
-          <span className="text-muted-foreground">Add-on:</span>
-          <span className="font-bold text-foreground">AI Pack - 49 EUR/luna</span>
-          <span className="text-muted-foreground">(intent detection + draft messages)</span>
+      <div className="mt-8 text-center">
+        <div className="inline-flex items-center gap-2 bg-card rounded-2xl px-5 py-3 shadow-card border border-border-card">
+          <span className="text-muted-foreground text-sm">Add-on:</span>
+          <span className="font-bold text-foreground text-sm">AI Pack - 49 EUR/luna</span>
+          <span className="text-muted-foreground text-sm">(intent detection + draft messages)</span>
         </div>
-        <div className="mt-6">
+        <div className="mt-4">
           <Button variant="link" asChild className="text-accent font-semibold">
             <Link to="/pricing">Vezi pricing complet</Link>
           </Button>

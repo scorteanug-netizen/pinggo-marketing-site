@@ -31,20 +31,20 @@ export function DifferentiationSection() {
         <div className="table-premium">
           {/* Header */}
           <div className="grid grid-cols-2 bg-secondary">
-            <div className="p-5 border-r border-border/50">
-              <span className="font-bold text-muted-foreground">AI Agent</span>
+            <div className="p-4 border-r border-border-card">
+              <span className="font-bold text-sm text-muted-foreground">AI Agent</span>
             </div>
-            <div className="p-5">
-              <span className="font-bold text-primary">Pinggo</span>
+            <div className="p-4">
+              <span className="font-bold text-sm text-primary">Pinggo</span>
             </div>
           </div>
           {/* Rows */}
           {comparisons.map((row, index) => (
-            <div key={index} className="grid grid-cols-2 border-t border-border/50">
-              <div className="p-5 border-r border-border/50 text-muted-foreground">
+            <div key={index} className="grid grid-cols-2 border-t border-border-card">
+              <div className="p-4 border-r border-border-card text-muted-foreground text-sm leading-snug">
                 {row.ai}
               </div>
-              <div className="p-5 text-foreground font-semibold">
+              <div className="p-4 text-foreground font-semibold text-sm leading-snug">
                 {row.pinggo}
               </div>
             </div>

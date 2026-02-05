@@ -31,7 +31,7 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/95 backdrop-blur-md supports-[backdrop-filter]:bg-background/80">
       <Container>
-        <nav className="flex h-18 items-center justify-between py-4">
+        <nav className="flex h-14 items-center justify-between py-3">
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <span className="text-2xl font-extrabold text-foreground tracking-tight">Pinggo</span>

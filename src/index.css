@@ -2,12 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Pinggo Premium Design System
-   - Primary (Orange): #F97316 - CTAs, urgency, highlights
-   - Secondary (Blue): #3B82F6 - links, trust elements
-   - Proof (Teal): #14B8A6 - proof badges only
-   - Background: white with alternating light gray sections
-   - Text: near-black for maximum readability
+/* Pinggo design tokens - Chili Piper-like tight premium
+   - Primary (Orange): CTAs, accent borders
+   - Section spacing: ~20-30% reduced (section-tight)
+   - Cards: crisp shadow, clear border, optional accent top border
+   - Typography: very bold (800-900), tight line-height, editorial max-width
 */
 
 @layer base {
@@ -21,26 +20,21 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    /* Orange accent - primary CTA color */
     --primary: 24.6 95% 53.1%;
     --primary-foreground: 0 0% 100%;
 
-    /* Light gray for alternate sections */
     --secondary: 220 14.3% 95.9%;
     --secondary-foreground: 222.2 47.4% 11.2%;
 
     --muted: 220 14.3% 95.9%;
     --muted-foreground: 215.4 16.3% 36%;
 
-    /* Blue secondary for links and trust */
     --accent: 217.2 91.2% 59.8%;
     --accent-foreground: 0 0% 100%;
 
-    /* Teal/Green for proof badges */
     --proof: 168 76% 42%;
     --proof-foreground: 0 0% 100%;
 
-    /* Highlight blue for special sections */
     --highlight: 217.2 91.2% 50%;
     --highlight-foreground: 0 0% 100%;
 
@@ -48,10 +42,18 @@
     --destructive-foreground: 0 0% 100%;
 
     --border: 214.3 31.8% 91.4%;
+    --border-card: 214.3 31.8% 85%;
     --input: 214.3 31.8% 91.4%;
     --ring: 24.6 95% 53.1%;
 
     --radius: 0.875rem;
+    --radius-card: 1rem;
+    --section-py: 4rem;
+    --section-py-md: 3.5rem;
+    --section-py-lg: 4.5rem;
+    --heading-mb: 1.25rem;
+    --content-gap: 1.5rem;
+    --canvas-opacity: 0.09;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -118,37 +120,60 @@
     @apply bg-background text-foreground antialiased;
   }
 
-  /* Premium Typography */
-  h1, h2 {
-    @apply font-extrabold tracking-tight leading-tight;
+  /* Chili Piper-like typography: very bold, tight line-height */
+  h1, h2, h3 {
+    @apply font-extrabold tracking-tight;
+    font-weight: 800;
   }
 
   h1 {
     @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl;
+    line-height: 1.0;
+    letter-spacing: -0.02em;
   }
 
   h2 {
     @apply text-3xl md:text-4xl lg:text-5xl;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+
+  h3 {
+    @apply text-xl md:text-2xl;
+    line-height: 1.1;
   }
 }
 
 @layer components {
-  /* Premium Card Styles */
+  /* Card base: crisp shadow, clear border, hover lift */
   .card-premium {
-    @apply rounded-2xl border border-border/50 bg-card shadow-md transition-all duration-300;
+    border: 1px solid hsl(var(--border-card));
+    @apply rounded-2xl bg-card shadow-lg transition-all duration-300;
   }
 
   .card-premium:hover {
-    @apply shadow-xl -translate-y-0.5;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
   }
 
-  /* Dot Grid Canvas Pattern */
+  /* Accent border variants for cards (Chili Piper style) */
+  .card-accent-orange {
+    @apply border-t-4 border-t-primary;
+  }
+  .card-accent-blue {
+    @apply border-t-4 border-t-accent;
+  }
+  .card-accent-violet {
+    @apply border-t-4 border-t-[hsl(262,83%,58%)];
+  }
+
+  /* Dot grid: slightly more visible */
   .bg-canvas {
-    background-image: radial-gradient(circle, hsl(var(--foreground) / 0.06) 1px, transparent 1px);
+    background-image: radial-gradient(circle, hsl(var(--foreground) / var(--canvas-opacity)) 1px, transparent 1px);
     background-size: 24px 24px;
   }
 
-  /* Blue Highlight Section with Geometric Shapes */
+  /* Blue Highlight Section */
   .bg-highlight-blue {
     @apply relative overflow-hidden;
     background: linear-gradient(135deg, hsl(217.2 91.2% 50%) 0%, hsl(252 91.2% 55%) 100%);
@@ -168,7 +193,6 @@
     filter: blur(40px);
   }
 
-  /* Geometric shapes for highlight sections */
   .geometric-shapes {
     @apply absolute inset-0 overflow-hidden pointer-events-none;
   }
@@ -187,37 +211,61 @@
     filter: blur(50px);
   }
 
-  /* Proof Badge */
   .badge-proof {
     @apply inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-medium;
     background-color: hsl(var(--proof) / 0.15);
     color: hsl(168 76% 30%);
   }
 
-  /* Text highlight for keywords */
   .text-highlight {
     @apply text-primary font-bold;
   }
 
-  /* Premium Button Shadow */
   .btn-premium {
-    @apply shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300;
+    @apply shadow-md shadow-primary/20 hover:shadow-lg hover:shadow-primary/25 transition-all duration-300;
   }
 
-  /* White card on blue background */
+  /* White card on blue: stronger contrast */
   .card-on-blue {
-    @apply bg-white/95 backdrop-blur-sm shadow-xl border-0;
+    border: 1px solid hsl(0 0% 100% / 0.25);
+    @apply bg-white/95 backdrop-blur-sm shadow-xl;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.12), 0 8px 10px -6px rgba(0, 0, 0, 0.08);
   }
 
-  /* Comparison table premium */
+  .card-on-blue:hover {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.18);
+    transform: translateY(-2px);
+  }
+
   .table-premium {
-    @apply rounded-2xl border border-border/50 overflow-hidden shadow-md bg-card;
+    border: 1px solid hsl(var(--border-card));
+    @apply rounded-2xl overflow-hidden shadow-lg bg-card;
   }
 }
 
 @layer utilities {
-  /* Extra padding for premium spacing */
+  /* Tighter section spacing (Chili Piper-like) */
   .section-premium {
-    @apply py-20 md:py-28 lg:py-32;
+    padding-top: var(--section-py);
+    padding-bottom: var(--section-py);
+  }
+  @media (min-width: 768px) {
+    .section-premium {
+      padding-top: var(--section-py-md);
+      padding-bottom: var(--section-py-md);
+    }
+  }
+  @media (min-width: 1024px) {
+    .section-premium {
+      padding-top: var(--section-py-lg);
+      padding-bottom: var(--section-py-lg);
+    }
+  }
+
+  .prose-width {
+    @apply max-w-2xl;
+  }
+  .prose-width-lg {
+    @apply max-w-3xl;
   }
 }

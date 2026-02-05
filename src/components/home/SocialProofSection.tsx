@@ -37,20 +37,20 @@ export function SocialProofSection() {
         title="Construit pentru echipe care vand din leaduri inbound"
         light
       />
-      <div className="grid gap-6 md:grid-cols-3">
-        {industries.map((industry) => (
-          <Card key={industry.title} className="card-on-blue hover:-translate-y-1">
-            <CardHeader className="pb-3">
-              <div className="h-14 w-14 rounded-2xl bg-accent/10 flex items-center justify-center mb-4">
-                <industry.icon className="h-7 w-7 text-accent" />
+      <div className="grid gap-5 md:grid-cols-3">
+        {industries.map((industry, i) => (
+          <Card key={industry.title} className={`card-on-blue ${i === 0 ? "card-accent-orange" : i === 1 ? "card-accent-blue" : "card-accent-violet"}`}>
+            <CardHeader className="pb-2">
+              <div className="h-11 w-11 rounded-xl bg-accent/10 flex items-center justify-center mb-3">
+                <industry.icon className="h-5 w-5 text-accent" />
               </div>
-              <CardTitle className="text-xl">{industry.title}</CardTitle>
+              <CardTitle className="text-lg">{industry.title}</CardTitle>
             </CardHeader>
             <CardContent>
-              <ul className="space-y-3">
+              <ul className="space-y-2">
                 {industry.benefits.map((benefit, index) => (
-                  <li key={index} className="text-muted-foreground flex items-start gap-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                  <li key={index} className="text-muted-foreground text-sm leading-snug flex items-start gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-primary mt-1.5 flex-shrink-0" />
                     {benefit}
                   </li>
                 ))}
