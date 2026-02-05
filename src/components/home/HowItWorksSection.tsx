@@ -27,24 +27,24 @@ const steps = [
 
 export function HowItWorksSection() {
   return (
-    <Section alternate id="how-it-works">
+    <Section alternate canvas id="how-it-works">
       <SectionHeading
         title="Cum functioneaza"
         subtitle="4 pasi simpli de la lead la proof"
       />
       <div className="grid gap-8 md:grid-cols-4">
         {steps.map((step, index) => (
-          <div key={step.title} className="text-center">
-            <div className="relative mx-auto mb-4">
-              <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
-                <step.icon className="h-8 w-8 text-primary" />
+          <div key={step.title} className="text-center group">
+            <div className="relative mx-auto mb-6">
+              <div className="h-20 w-20 rounded-2xl bg-card shadow-soft border border-border/50 flex items-center justify-center mx-auto transition-all group-hover:shadow-premium group-hover:-translate-y-1">
+                <step.icon className="h-9 w-9 text-primary" />
               </div>
-              <div className="absolute -top-2 -right-2 h-8 w-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold">
+              <div className="absolute -top-2 -right-2 h-9 w-9 rounded-xl bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold shadow-lg">
                 {index + 1}
               </div>
             </div>
-            <h3 className="text-lg font-semibold text-foreground mb-2">{step.title}</h3>
-            <p className="text-sm text-muted-foreground">{step.description}</p>
+            <h3 className="text-xl font-bold text-foreground mb-3">{step.title}</h3>
+            <p className="text-muted-foreground leading-relaxed">{step.description}</p>
           </div>
         ))}
       </div>

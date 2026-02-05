@@ -38,21 +38,21 @@ const features = [
 
 export function FeaturesSection() {
   return (
-    <Section alternate>
+    <Section alternate canvas>
       <SectionHeading
         title="Tot ce ai nevoie pentru lead accountability"
       />
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {features.map((feature) => (
-          <Card key={feature.title} className="border-0 shadow-sm">
-            <CardHeader className="pb-2">
-              <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3">
-                <feature.icon className="h-5 w-5 text-primary" />
+          <Card key={feature.title}>
+            <CardHeader className="pb-3">
+              <div className="h-12 w-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-4">
+                <feature.icon className="h-6 w-6 text-primary" />
               </div>
-              <CardTitle className="text-lg">{feature.title}</CardTitle>
+              <CardTitle>{feature.title}</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-muted-foreground">{feature.description}</p>
+              <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
             </CardContent>
           </Card>
         ))}

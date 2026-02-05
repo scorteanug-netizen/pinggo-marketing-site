@@ -38,34 +38,36 @@ export function PricingTeaserSection() {
         {plans.map((plan) => (
           <Card
             key={plan.name}
-            className={`relative ${plan.popular ? "border-primary shadow-lg" : "border-0 shadow-sm"}`}
+            className={`relative ${plan.popular ? "border-2 border-primary shadow-premium ring-1 ring-primary/20" : ""}`}
           >
             {plan.popular && (
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                <span className="bg-primary text-primary-foreground text-xs font-semibold px-3 py-1 rounded-full">
+              <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+                <span className="bg-primary text-primary-foreground text-xs font-bold px-4 py-1.5 rounded-full shadow-lg">
                   Popular
                 </span>
               </div>
             )}
-            <CardHeader className="text-center pb-2">
-              <CardTitle className="text-xl">{plan.name}</CardTitle>
-              <div className="mt-4">
-                <span className="text-4xl font-bold text-foreground">{plan.price}</span>
-                <span className="text-muted-foreground"> EUR/luna</span>
+            <CardHeader className="text-center pb-3 pt-8">
+              <CardTitle className="text-2xl">{plan.name}</CardTitle>
+              <div className="mt-5">
+                <span className="text-5xl font-extrabold text-foreground">{plan.price}</span>
+                <span className="text-muted-foreground font-medium"> EUR/luna</span>
               </div>
-              <p className="text-sm text-muted-foreground mt-2">{plan.leads}</p>
+              <p className="text-sm text-muted-foreground mt-3">{plan.leads}</p>
             </CardHeader>
-            <CardContent className="pt-4">
-              <ul className="space-y-3">
+            <CardContent className="pt-6">
+              <ul className="space-y-4">
                 {plan.features.map((feature) => (
-                  <li key={feature} className="flex items-center gap-2 text-sm">
-                    <Check className="h-4 w-4 text-primary" />
-                    <span>{feature}</span>
+                  <li key={feature} className="flex items-center gap-3">
+                    <div className="h-5 w-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <Check className="h-3 w-3 text-primary" />
+                    </div>
+                    <span className="font-medium">{feature}</span>
                   </li>
                 ))}
               </ul>
             </CardContent>
-            <CardFooter>
+            <CardFooter className="pt-4">
               <Button
                 className="w-full"
                 variant={plan.popular ? "default" : "outline"}
@@ -79,13 +81,17 @@ export function PricingTeaserSection() {
       </div>
 
       {/* Add-on */}
-      <div className="mt-8 text-center">
-        <p className="text-muted-foreground">
-          Add-on: <span className="font-semibold text-foreground">AI Pack - 49 EUR/luna</span> (intent detection + draft messages)
-        </p>
-        <Button variant="link" asChild className="mt-2">
-          <Link to="/pricing">Vezi pricing complet</Link>
-        </Button>
+      <div className="mt-12 text-center">
+        <div className="inline-flex items-center gap-3 bg-card rounded-2xl px-6 py-4 shadow-soft border border-border/50">
+          <span className="text-muted-foreground">Add-on:</span>
+          <span className="font-bold text-foreground">AI Pack - 49 EUR/luna</span>
+          <span className="text-muted-foreground">(intent detection + draft messages)</span>
+        </div>
+        <div className="mt-6">
+          <Button variant="link" asChild className="text-accent font-semibold">
+            <Link to="/pricing">Vezi pricing complet</Link>
+          </Button>
+        </div>
       </div>
     </Section>
   );

@@ -69,10 +69,10 @@ const Product = () => {
       {/* Hero */}
       <Section>
         <div className="text-center max-w-3xl mx-auto">
-          <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-            Cum functioneaza Pinggo
+          <h1 className="text-foreground">
+            Cum functioneaza <span className="text-highlight">Pinggo</span>
           </h1>
-          <p className="mt-6 text-lg text-muted-foreground">
+          <p className="mt-6 text-lg md:text-xl text-muted-foreground leading-relaxed">
             Trei module care lucreaza impreuna pentru a garanta ca fiecare lead este contactat la timp, cu dovada verificabila.
           </p>
         </div>
@@ -82,20 +82,22 @@ const Product = () => {
       <Section alternate>
         <div className="grid gap-8 lg:grid-cols-3">
           {modules.map((module) => (
-            <Card key={module.title} className="border-0 shadow-sm">
+            <Card key={module.title}>
               <CardHeader>
-                <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                  <module.icon className="h-6 w-6 text-primary" />
+                <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-4">
+                  <module.icon className="h-7 w-7 text-primary" />
                 </div>
                 <CardTitle className="text-xl">{module.title}</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground mb-4">{module.description}</p>
-                <ul className="space-y-2">
+                <p className="text-muted-foreground mb-5 leading-relaxed">{module.description}</p>
+                <ul className="space-y-3">
                   {module.features.map((feature, index) => (
-                    <li key={index} className="flex items-start gap-2 text-sm">
-                      <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                      <span>{feature}</span>
+                    <li key={index} className="flex items-start gap-3">
+                      <div className="h-5 w-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <Check className="h-3 w-3 text-primary" />
+                      </div>
+                      <span className="font-medium">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -106,20 +108,20 @@ const Product = () => {
       </Section>
 
       {/* Workflow */}
-      <Section>
+      <Section canvas>
         <SectionHeading
           title="Workflow pas cu pas"
           subtitle="De la lead nou la first contact proof"
         />
         <div className="max-w-2xl mx-auto">
-          <ol className="space-y-4">
+          <ol className="space-y-5">
             {workflow.map((step, index) => (
-              <li key={index} className="flex items-start gap-4">
-                <div className="h-8 w-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold flex-shrink-0">
+              <li key={index} className="flex items-start gap-5 p-4 rounded-2xl bg-card shadow-soft border border-border/50 transition-all hover:shadow-md hover:-translate-y-0.5">
+                <div className="h-10 w-10 rounded-xl bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold flex-shrink-0 shadow-lg">
                   {index + 1}
                 </div>
-                <div className="flex items-center gap-2 pt-1">
-                  <span className="text-foreground">{step}</span>
+                <div className="flex items-center gap-3 pt-2">
+                  <span className="text-foreground font-medium">{step}</span>
                   {index < workflow.length - 1 && (
                     <ArrowRight className="h-4 w-4 text-muted-foreground hidden sm:block" />
                   )}
@@ -140,26 +142,28 @@ const Product = () => {
           {benefits.map((benefit, index) => (
             <div
               key={index}
-              className="flex items-start gap-3 p-4 rounded-lg bg-background"
+              className="flex items-start gap-4 p-5 rounded-2xl bg-card shadow-soft border border-border/50 transition-all hover:shadow-md hover:-translate-y-0.5"
             >
-              <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-              <span className="text-foreground">{benefit}</span>
+              <div className="h-6 w-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <Check className="h-4 w-4 text-primary" />
+              </div>
+              <span className="text-foreground font-medium">{benefit}</span>
             </div>
           ))}
         </div>
       </Section>
 
       {/* CTA */}
-      <Section>
+      <Section highlightBlue>
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-foreground mb-4">
+          <h2 className="text-white font-extrabold mb-5">
             Incepe cu Pinggo
           </h2>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" asChild>
               <Link to="/contact">Book a demo</Link>
             </Button>
-            <Button size="lg" variant="outline" asChild>
+            <Button size="lg" variant="outlineWhite" asChild>
               <Link to="/pricing">Vezi pricing</Link>
             </Button>
           </div>

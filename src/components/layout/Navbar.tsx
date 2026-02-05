@@ -29,12 +29,12 @@ export function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/95 backdrop-blur-md supports-[backdrop-filter]:bg-background/80">
       <Container>
-        <nav className="flex h-16 items-center justify-between">
+        <nav className="flex h-18 items-center justify-between py-4">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <span className="text-2xl font-bold text-foreground">Pinggo</span>
+            <span className="text-2xl font-extrabold text-foreground tracking-tight">Pinggo</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -44,7 +44,7 @@ export function Navbar() {
                 key={link.href}
                 to={link.href}
                 onClick={() => handleNavClick(link.href)}
-                className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+                className="text-sm font-semibold text-muted-foreground transition-colors hover:text-accent"
               >
                 {link.label}
               </Link>
@@ -63,7 +63,7 @@ export function Navbar() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden"
+            className="md:hidden p-2 rounded-xl hover:bg-secondary transition-colors"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -82,18 +82,18 @@ export function Navbar() {
             isOpen ? "block" : "hidden"
           )}
         >
-          <div className="space-y-1 pb-4">
+          <div className="space-y-1 pb-6">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
                 onClick={() => handleNavClick(link.href)}
-                className="block py-2 text-base font-medium text-muted-foreground hover:text-foreground"
+                className="block py-3 text-base font-semibold text-muted-foreground hover:text-foreground transition-colors"
               >
                 {link.label}
               </Link>
             ))}
-            <div className="flex flex-col gap-2 pt-4">
+            <div className="flex flex-col gap-3 pt-6">
               <Button variant="outline" asChild className="w-full">
                 <Link to="#">Log in</Link>
               </Button>
