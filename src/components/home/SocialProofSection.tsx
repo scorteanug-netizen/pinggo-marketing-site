@@ -32,23 +32,25 @@ const industries = [
 
 export function SocialProofSection() {
   return (
-    <Section alternate>
+    <Section highlightBlue>
       <SectionHeading
         title="Construit pentru echipe care vand din leaduri inbound"
+        light
       />
       <div className="grid gap-6 md:grid-cols-3">
         {industries.map((industry) => (
-          <Card key={industry.title} className="border-0 shadow-sm">
-            <CardHeader className="pb-2">
-              <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                <industry.icon className="h-6 w-6 text-primary" />
+          <Card key={industry.title} className="card-on-blue hover:-translate-y-1">
+            <CardHeader className="pb-3">
+              <div className="h-14 w-14 rounded-2xl bg-accent/10 flex items-center justify-center mb-4">
+                <industry.icon className="h-7 w-7 text-accent" />
               </div>
               <CardTitle className="text-xl">{industry.title}</CardTitle>
             </CardHeader>
             <CardContent>
-              <ul className="space-y-2">
+              <ul className="space-y-3">
                 {industry.benefits.map((benefit, index) => (
-                  <li key={index} className="text-sm text-muted-foreground">
+                  <li key={index} className="text-muted-foreground flex items-start gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
                     {benefit}
                   </li>
                 ))}

@@ -98,10 +98,10 @@ const Pricing = () => {
       {/* Hero */}
       <Section>
         <div className="text-center max-w-3xl mx-auto">
-          <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-            Pricing simplu, fara surprize
+          <h1 className="text-foreground">
+            Pricing simplu, <span className="text-highlight">fara surprize</span>
           </h1>
-          <p className="mt-6 text-lg text-muted-foreground">
+          <p className="mt-6 text-lg md:text-xl text-muted-foreground leading-relaxed">
             Alege planul potrivit pentru echipa ta. Toate planurile includ 14 zile trial gratuit.
           </p>
         </div>
@@ -113,59 +113,59 @@ const Pricing = () => {
           {plans.map((plan) => (
             <Card
               key={plan.name}
-              className={`relative ${plan.popular ? "border-primary shadow-lg" : ""}`}
+              className={`relative ${plan.popular ? "border-2 border-primary shadow-premium ring-1 ring-primary/20" : ""}`}
             >
               {plan.popular && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                  <span className="bg-primary text-primary-foreground text-xs font-semibold px-3 py-1 rounded-full">
+                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+                  <span className="bg-primary text-primary-foreground text-xs font-bold px-4 py-1.5 rounded-full shadow-lg">
                     Most popular
                   </span>
                 </div>
               )}
-              <CardHeader className="text-center">
-                <CardTitle className="text-xl">{plan.name}</CardTitle>
-                <div className="mt-4">
-                  <span className="text-4xl font-bold text-foreground">{plan.price}</span>
-                  <span className="text-muted-foreground"> EUR/luna</span>
+              <CardHeader className="text-center pt-8">
+                <CardTitle className="text-2xl">{plan.name}</CardTitle>
+                <div className="mt-5">
+                  <span className="text-5xl font-extrabold text-foreground">{plan.price}</span>
+                  <span className="text-muted-foreground font-medium"> EUR/luna</span>
                 </div>
-                <p className="text-sm text-muted-foreground mt-2">{plan.leads}</p>
-                <p className="text-sm text-muted-foreground mt-1">{plan.description}</p>
+                <p className="text-sm text-muted-foreground mt-3">{plan.leads}</p>
+                <p className="text-sm text-muted-foreground mt-2 leading-relaxed">{plan.description}</p>
               </CardHeader>
-              <CardContent className="pt-4">
-                <ul className="space-y-3 text-sm">
-                  <li className="flex items-center justify-between">
+              <CardContent className="pt-6">
+                <ul className="space-y-4 text-sm">
+                  <li className="flex items-center justify-between py-2 border-b border-border/50">
                     <span className="text-muted-foreground">Leads/luna</span>
-                    <span className="font-medium">{plan.features.leads}</span>
+                    <span className="font-semibold">{plan.features.leads}</span>
                   </li>
-                  <li className="flex items-center justify-between">
+                  <li className="flex items-center justify-between py-2 border-b border-border/50">
                     <span className="text-muted-foreground">Channels</span>
-                    <span className="font-medium text-right">{plan.features.channels.join(", ")}</span>
+                    <span className="font-semibold text-right">{plan.features.channels.join(", ")}</span>
                   </li>
-                  <li className="flex items-center justify-between">
+                  <li className="flex items-center justify-between py-2 border-b border-border/50">
                     <span className="text-muted-foreground">SLA policies</span>
-                    <span className="font-medium">{plan.features.sla}</span>
+                    <span className="font-semibold">{plan.features.sla}</span>
                   </li>
-                  <li className="flex items-center justify-between">
+                  <li className="flex items-center justify-between py-2 border-b border-border/50">
                     <span className="text-muted-foreground">Routing</span>
-                    <span className="font-medium">
+                    <span className="font-semibold">
                       {plan.features.routing ? plan.features.routing : <X className="h-4 w-4 text-muted-foreground" />}
                     </span>
                   </li>
-                  <li className="flex items-center justify-between">
+                  <li className="flex items-center justify-between py-2 border-b border-border/50">
                     <span className="text-muted-foreground">Escalation</span>
-                    <span className="font-medium">{plan.features.escalation}</span>
+                    <span className="font-semibold">{plan.features.escalation}</span>
                   </li>
-                  <li className="flex items-center justify-between">
+                  <li className="flex items-center justify-between py-2 border-b border-border/50">
                     <span className="text-muted-foreground">Reports</span>
-                    <span className="font-medium">{plan.features.reports}</span>
+                    <span className="font-semibold">{plan.features.reports}</span>
                   </li>
-                  <li className="flex items-center justify-between">
+                  <li className="flex items-center justify-between py-2">
                     <span className="text-muted-foreground">Support</span>
-                    <span className="font-medium">{plan.features.support}</span>
+                    <span className="font-semibold">{plan.features.support}</span>
                   </li>
                 </ul>
               </CardContent>
-              <CardFooter>
+              <CardFooter className="pt-4">
                 <Button
                   className="w-full"
                   variant={plan.popular ? "default" : "outline"}
@@ -180,20 +180,20 @@ const Pricing = () => {
       </Section>
 
       {/* Add-ons */}
-      <Section>
+      <Section canvas>
         <SectionHeading title="Add-ons" subtitle="Functionalitati extra pentru echipe avansate" />
         <div className="grid gap-6 md:grid-cols-3 max-w-4xl mx-auto">
           {addons.map((addon) => (
             <Card key={addon.name} className="text-center">
               <CardHeader>
-                <CardTitle className="text-lg">{addon.name}</CardTitle>
-                <div className="mt-2">
-                  <span className="text-2xl font-bold text-foreground">{addon.price}</span>
-                  <span className="text-muted-foreground"> EUR{addon.unit || "/luna"}</span>
+                <CardTitle className="text-xl">{addon.name}</CardTitle>
+                <div className="mt-3">
+                  <span className="text-3xl font-extrabold text-foreground">{addon.price}</span>
+                  <span className="text-muted-foreground font-medium"> EUR{addon.unit || "/luna"}</span>
                 </div>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-muted-foreground">{addon.description}</p>
+                <p className="text-muted-foreground leading-relaxed">{addon.description}</p>
               </CardContent>
             </Card>
           ))}
@@ -207,14 +207,14 @@ const Pricing = () => {
           {setupFees.map((setup) => (
             <Card key={setup.name} className="text-center">
               <CardHeader>
-                <CardTitle className="text-lg">{setup.name}</CardTitle>
-                <div className="mt-2">
-                  <span className="text-2xl font-bold text-foreground">{setup.price}</span>
-                  <span className="text-muted-foreground"> EUR</span>
+                <CardTitle className="text-xl">{setup.name}</CardTitle>
+                <div className="mt-3">
+                  <span className="text-3xl font-extrabold text-foreground">{setup.price}</span>
+                  <span className="text-muted-foreground font-medium"> EUR</span>
                 </div>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-muted-foreground">{setup.description}</p>
+                <p className="text-muted-foreground leading-relaxed">{setup.description}</p>
               </CardContent>
             </Card>
           ))}
@@ -222,12 +222,12 @@ const Pricing = () => {
       </Section>
 
       {/* CTA */}
-      <Section>
+      <Section highlightBlue>
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-foreground mb-4">
+          <h2 className="text-white font-extrabold mb-4">
             Ai intrebari despre pricing?
           </h2>
-          <p className="text-muted-foreground mb-6">
+          <p className="text-white/80 mb-8 text-lg">
             Discuta cu echipa noastra pentru a gasi planul potrivit.
           </p>
           <Button size="lg" asChild>

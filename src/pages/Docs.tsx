@@ -138,10 +138,10 @@ const Docs = () => {
       {/* Hero */}
       <Section>
         <div className="text-center max-w-3xl mx-auto">
-          <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+          <h1 className="text-foreground">
             Documentation
           </h1>
-          <p className="mt-6 text-lg text-muted-foreground">
+          <p className="mt-6 text-lg md:text-xl text-muted-foreground leading-relaxed">
             Ghiduri de integrare si referinta tehnica pentru Pinggo.
           </p>
         </div>
@@ -150,13 +150,13 @@ const Docs = () => {
       {/* Table of Contents */}
       <Section alternate>
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-xl font-semibold mb-4">Cuprins</h2>
-          <ul className="space-y-2">
+          <h2 className="text-2xl font-bold mb-6">Cuprins</h2>
+          <ul className="space-y-3">
             {docs.map((doc) => (
               <li key={doc.id}>
                 <a
                   href={`#${doc.id}`}
-                  className="text-accent hover:underline"
+                  className="text-accent hover:underline font-medium text-lg transition-colors"
                 >
                   {doc.title}
                 </a>
@@ -168,21 +168,21 @@ const Docs = () => {
 
       {/* Doc Sections */}
       {docs.map((doc, index) => (
-        <Section key={doc.id} alternate={index % 2 === 0} id={doc.id}>
+        <Section key={doc.id} alternate={index % 2 === 0} canvas={index % 2 === 1} id={doc.id}>
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-2xl font-bold text-foreground mb-6">{doc.title}</h2>
+            <h2 className="text-3xl font-extrabold text-foreground mb-8">{doc.title}</h2>
             <div className="prose prose-gray max-w-none">
               {doc.content.split("\n").map((line, i) => {
                 if (line.startsWith("**") && line.endsWith("**")) {
                   return (
-                    <h3 key={i} className="text-lg font-semibold mt-6 mb-2">
+                    <h3 key={i} className="text-xl font-bold mt-8 mb-4 text-foreground">
                       {line.replace(/\*\*/g, "")}
                     </h3>
                   );
                 }
                 if (line.startsWith("- ")) {
                   return (
-                    <li key={i} className="text-muted-foreground ml-4">
+                    <li key={i} className="text-muted-foreground ml-4 mb-2">
                       {line.replace("- ", "")}
                     </li>
                   );
@@ -190,10 +190,10 @@ const Docs = () => {
                 if (line.includes("`") && !line.startsWith("**")) {
                   const parts = line.split("`");
                   return (
-                    <p key={i} className="text-muted-foreground my-2">
+                    <p key={i} className="text-muted-foreground my-3 leading-relaxed">
                       {parts.map((part, j) =>
                         j % 2 === 1 ? (
-                          <code key={j} className="bg-secondary px-1.5 py-0.5 rounded text-sm font-mono">
+                          <code key={j} className="bg-secondary px-2 py-1 rounded-lg text-sm font-mono font-medium text-foreground">
                             {part}
                           </code>
                         ) : (
@@ -205,7 +205,7 @@ const Docs = () => {
                 }
                 if (line.trim()) {
                   return (
-                    <p key={i} className="text-muted-foreground my-2">
+                    <p key={i} className="text-muted-foreground my-3 leading-relaxed">
                       {line}
                     </p>
                   );
@@ -215,12 +215,12 @@ const Docs = () => {
             </div>
 
             {doc.hasCode && (
-              <Card className="mt-6">
+              <Card className="mt-8">
                 <CardHeader>
-                  <CardTitle className="text-sm font-medium">Sample Payload</CardTitle>
+                  <CardTitle className="text-lg">Sample Payload</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <pre className="bg-foreground text-background p-4 rounded-lg overflow-x-auto text-sm">
+                  <pre className="bg-foreground text-background p-5 rounded-xl overflow-x-auto text-sm leading-relaxed">
                     <code>{webhookPayload}</code>
                   </pre>
                 </CardContent>

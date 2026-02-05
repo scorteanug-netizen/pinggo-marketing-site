@@ -16,59 +16,61 @@ const footerLinks = {
 
 export function Footer() {
   return (
-    <footer className="border-t bg-background py-12">
+    <footer className="border-t border-border/50 bg-secondary/50">
       <Container>
-        <div className="grid gap-8 md:grid-cols-4">
-          {/* Brand */}
-          <div className="md:col-span-2">
-            <Link to="/" className="text-2xl font-bold text-foreground">
-              Pinggo
-            </Link>
-            <p className="mt-4 text-sm text-muted-foreground max-w-xs">
-              First Contact Proof + SLA Enforcement. Romania-first, EU-ready.
+        <div className="py-16">
+          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+            {/* Brand */}
+            <div className="lg:col-span-2">
+              <Link to="/" className="inline-block">
+                <span className="text-2xl font-extrabold text-foreground tracking-tight">Pinggo</span>
+              </Link>
+              <p className="mt-4 text-muted-foreground max-w-md leading-relaxed">
+                Romania-first, EU-ready. Garantam ca fiecare lead este contactat la timp, cu dovada verificabila si escaladare automata.
+              </p>
+            </div>
+
+            {/* Product Links */}
+            <div>
+              <h4 className="font-bold text-foreground mb-5">Product</h4>
+              <ul className="space-y-3">
+                {footerLinks.product.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      to={link.href}
+                      className="text-muted-foreground hover:text-accent transition-colors font-medium"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Company Links */}
+            <div>
+              <h4 className="font-bold text-foreground mb-5">Company</h4>
+              <ul className="space-y-3">
+                {footerLinks.company.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      to={link.href}
+                      className="text-muted-foreground hover:text-accent transition-colors font-medium"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Bottom */}
+          <div className="mt-14 pt-8 border-t border-border/50">
+            <p className="text-sm text-muted-foreground">
+              &copy; {new Date().getFullYear()} Pinggo. Romania-first, EU-ready.
             </p>
           </div>
-
-          {/* Product Links */}
-          <div>
-            <h3 className="font-semibold text-foreground mb-4">Product</h3>
-            <ul className="space-y-2">
-              {footerLinks.product.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    to={link.href}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Company Links */}
-          <div>
-            <h3 className="font-semibold text-foreground mb-4">Company</h3>
-            <ul className="space-y-2">
-              {footerLinks.company.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    to={link.href}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        {/* Bottom Bar */}
-        <div className="mt-12 border-t pt-8 text-center">
-          <p className="text-sm text-muted-foreground">
-            Pinggo - Romania-first, EU-ready
-          </p>
         </div>
       </Container>
     </footer>

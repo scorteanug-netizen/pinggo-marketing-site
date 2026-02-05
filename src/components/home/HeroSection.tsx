@@ -5,34 +5,40 @@ import { Container } from "@/components/layout/Container";
 
 export function HeroSection() {
   return (
-    <section className="py-16 md:py-24 bg-background">
+    <section className="section-premium bg-background">
       <Container>
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
           {/* Left Column - Content */}
           <div>
-            <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl">
-              First Contact Proof + SLA Enforcement
+            <h1 className="text-foreground">
+              First Contact <span className="text-highlight">Proof</span> + <span className="text-highlight">SLA</span> Enforcement
             </h1>
-            <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
+            <p className="mt-6 text-lg md:text-xl text-muted-foreground leading-relaxed">
               Garantam ca fiecare lead este contactat la timp, cu dovada verificabila si escaladare automata. Functioneaza cu sau fara CRM.
             </p>
             
-            <ul className="mt-8 space-y-4">
-              <li className="flex items-start gap-3">
-                <Check className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
-                <span className="text-foreground">Clock stop doar pe proof (WhatsApp, email)</span>
+            <ul className="mt-10 space-y-4">
+              <li className="flex items-start gap-4">
+                <div className="h-6 w-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <Check className="h-4 w-4 text-primary" />
+                </div>
+                <span className="text-foreground text-lg">Clock stop doar pe proof (WhatsApp, email)</span>
               </li>
-              <li className="flex items-start gap-3">
-                <Check className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
-                <span className="text-foreground">Reminder, reassign, manager escalation</span>
+              <li className="flex items-start gap-4">
+                <div className="h-6 w-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <Check className="h-4 w-4 text-primary" />
+                </div>
+                <span className="text-foreground text-lg">Reminder, reassign, manager escalation</span>
               </li>
-              <li className="flex items-start gap-3">
-                <Check className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
-                <span className="text-foreground">Rapoarte saptamanale: TTFC, breaches, ownership</span>
+              <li className="flex items-start gap-4">
+                <div className="h-6 w-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <Check className="h-4 w-4 text-primary" />
+                </div>
+                <span className="text-foreground text-lg">Rapoarte saptamanale: TTFC, breaches, ownership</span>
               </li>
             </ul>
 
-            <div className="mt-10 flex flex-col sm:flex-row gap-4">
+            <div className="mt-12 flex flex-col sm:flex-row gap-4">
               <Button size="lg" asChild>
                 <Link to="/contact">Book a demo</Link>
               </Button>
@@ -44,46 +50,46 @@ export function HeroSection() {
 
           {/* Right Column - Product Card Mock */}
           <div className="relative">
-            <div className="rounded-xl border bg-card shadow-lg p-6">
+            <div className="card-premium rounded-2xl p-8 shadow-premium">
               {/* Card Header */}
-              <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center justify-between mb-8">
                 <div>
-                  <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Lead SLA</span>
-                  <h3 className="text-lg font-semibold text-foreground mt-1">SLA: 30 min (High intent)</h3>
+                  <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Lead SLA</span>
+                  <h3 className="text-xl font-bold text-foreground mt-2">SLA: 30 min (High intent)</h3>
                 </div>
-                <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Clock className="h-6 w-6 text-primary" />
+                <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center">
+                  <Clock className="h-7 w-7 text-primary" />
                 </div>
               </div>
 
               {/* Badge */}
-              <div className="inline-flex items-center gap-2 rounded-full bg-green-100 px-3 py-1 text-sm font-medium text-green-800 mb-4">
+              <div className="badge-proof mb-6">
                 <Check className="h-4 w-4" />
                 Proof: WhatsApp sent
               </div>
 
               {/* Owner */}
-              <div className="flex items-center gap-3 py-4 border-t">
-                <div className="h-8 w-8 rounded-full bg-accent/20 flex items-center justify-center">
-                  <User className="h-4 w-4 text-accent" />
+              <div className="flex items-center gap-4 py-5 border-t border-border/50">
+                <div className="h-10 w-10 rounded-xl bg-accent/15 flex items-center justify-center">
+                  <User className="h-5 w-5 text-accent" />
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-foreground">Owner: Ioana</p>
-                  <p className="text-xs text-muted-foreground">Assigned 5 min ago</p>
+                  <p className="text-base font-semibold text-foreground">Owner: Ioana</p>
+                  <p className="text-sm text-muted-foreground">Assigned 5 min ago</p>
                 </div>
               </div>
 
               {/* Mini Chart Placeholder */}
-              <div className="mt-4 pt-4 border-t">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs font-medium text-muted-foreground">TTFC Trend</span>
-                  <TrendingUp className="h-4 w-4 text-green-600" />
+              <div className="mt-5 pt-5 border-t border-border/50">
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-sm font-semibold text-muted-foreground">TTFC Trend</span>
+                  <TrendingUp className="h-5 w-5 text-proof" />
                 </div>
-                <div className="flex items-end gap-1 h-12">
+                <div className="flex items-end gap-1.5 h-16">
                   {[40, 60, 35, 80, 55, 70, 45, 65, 50, 75, 60, 85].map((height, i) => (
                     <div
                       key={i}
-                      className="flex-1 rounded-t bg-primary/20"
+                      className="flex-1 rounded-t-sm bg-primary/20 transition-all hover:bg-primary/40"
                       style={{ height: `${height}%` }}
                     />
                   ))}

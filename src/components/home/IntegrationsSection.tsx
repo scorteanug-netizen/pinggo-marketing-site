@@ -13,17 +13,18 @@ const integrations = [
 
 export function IntegrationsSection() {
   return (
-    <Section>
+    <Section highlightBlue>
       <SectionHeading
         title="Integrari din prima zi"
         subtitle="CRM optional. Conectezi HubSpot/Pipedrive/Zoho prin Make/Zapier in v1."
+        light
       />
-      <div className="flex flex-wrap justify-center gap-3">
+      <div className="flex flex-wrap justify-center gap-4">
         {integrations.map((integration) => (
           <Badge
             key={integration}
             variant="secondary"
-            className="text-base px-4 py-2 font-medium"
+            className="text-base px-6 py-3 font-semibold bg-white/95 text-foreground shadow-lg border-0 rounded-xl hover:bg-white transition-all hover:-translate-y-0.5"
           >
             {integration}
           </Badge>

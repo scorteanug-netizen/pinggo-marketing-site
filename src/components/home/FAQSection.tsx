@@ -41,13 +41,17 @@ export function FAQSection() {
         title="Intrebari frecvente"
       />
       <div className="max-w-3xl mx-auto">
-        <Accordion type="single" collapsible className="w-full">
+        <Accordion type="single" collapsible className="w-full space-y-4">
           {faqs.map((faq, index) => (
-            <AccordionItem key={index} value={`item-${index}`}>
-              <AccordionTrigger className="text-left">
+            <AccordionItem 
+              key={index} 
+              value={`item-${index}`}
+              className="bg-card rounded-2xl border border-border/50 px-6 shadow-soft data-[state=open]:shadow-md transition-all"
+            >
+              <AccordionTrigger className="text-left font-semibold text-lg py-5 hover:no-underline">
                 {faq.question}
               </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
+              <AccordionContent className="text-muted-foreground pb-5 text-base leading-relaxed">
                 {faq.answer}
               </AccordionContent>
             </AccordionItem>
