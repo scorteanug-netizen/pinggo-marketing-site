@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import { Check, Clock, TrendingUp, User } from "lucide-react";
+import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/layout/Container";
-import { AccentCard } from "@/components/AccentCard";
 import { Accent } from "@/components/Accent";
+import { PinggoVenn } from "@/components/PinggoVenn";
 
 export function HeroSection() {
   return (
@@ -50,50 +50,9 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Right Column - Product Card Mock */}
-          <div className="relative">
-            <AccentCard accent="orange" variant="top" className="border-slate-200 shadow-xl hover:shadow-2xl">
-              <div className="flex items-center justify-between mb-5">
-                <div>
-                  <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Termen lead</span>
-                  <h3 className="text-lg font-extrabold text-foreground mt-1 leading-tight">Termen: 30 min (Intent ridicat)</h3>
-                </div>
-                <div className="h-11 w-11 rounded-xl bg-primary/10 flex items-center justify-center">
-                  <Clock className="h-5 w-5 text-primary" />
-                </div>
-              </div>
-
-              <div className="badge-proof mb-4">
-                <Check className="h-4 w-4" />
-                Dovada: trimis pe WhatsApp
-              </div>
-
-              <div className="flex items-center gap-3 py-4 border-t border-border-card">
-                <div className="h-9 w-9 rounded-lg bg-accent/15 flex items-center justify-center">
-                  <User className="h-4 w-4 text-accent" />
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-foreground leading-tight">Responsabil: Ioana</p>
-                  <p className="text-xs text-muted-foreground">Asignat acum 5 min</p>
-                </div>
-              </div>
-
-              <div className="mt-4 pt-4 border-t border-border-card">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs font-semibold text-muted-foreground">TTFC Trend</span>
-                  <TrendingUp className="h-4 w-4 text-proof" />
-                </div>
-                <div className="flex items-end gap-1.5 h-16">
-                  {[40, 60, 35, 80, 55, 70, 45, 65, 50, 75, 60, 85].map((height, i) => (
-                    <div
-                      key={i}
-                      className="flex-1 rounded-t-sm bg-primary/20 transition-all hover:bg-primary/40"
-                      style={{ height: `${height}%` }}
-                    />
-                  ))}
-                </div>
-              </div>
-            </AccentCard>
+          {/* Right Column - Venn diagram */}
+          <div className="relative flex items-center justify-center">
+            <PinggoVenn />
           </div>
         </div>
       </Container>
