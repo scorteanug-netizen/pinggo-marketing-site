@@ -22,11 +22,12 @@ export function AccentCard({ children, accent, variant, className }: AccentCardP
   return (
     <div
       className={cn(
-        "rounded-2xl bg-white border border-slate-200 shadow-lg overflow-hidden",
-        "transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl",
+        "rounded-2xl bg-white border border-slate-200 shadow-xl overflow-hidden",
+        "ring-1 ring-black/5",
+        "transition-all duration-300 hover:-translate-y-0.5 hover:shadow-2xl",
         "p-6",
-        variant === "top" && `border-t-4 ${borderColor}`,
-        variant === "left" && `border-l-4 ${borderColor}`,
+        variant === "top" && `border-t-[6px] ${borderColor}`,
+        variant === "left" && `border-l-[6px] ${borderColor}`,
         className
       )}
     >

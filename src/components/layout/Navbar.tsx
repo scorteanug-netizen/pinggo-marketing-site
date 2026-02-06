@@ -31,7 +31,7 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/95 backdrop-blur-md supports-[backdrop-filter]:bg-background/80">
       <Container>
-        <nav className="flex h-14 items-center justify-between py-3">
+        <nav className="flex h-12 items-center justify-between py-2">
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <span className="text-2xl font-extrabold text-foreground tracking-tight">Pinggo</span>
@@ -44,7 +44,7 @@ export function Navbar() {
                 key={link.href}
                 to={link.href}
                 onClick={() => handleNavClick(link.href)}
-                className="text-sm font-semibold text-muted-foreground transition-colors hover:text-accent"
+                className="text-sm font-semibold text-muted-foreground transition-colors hover:text-orange-500"
               >
                 {link.label}
               </Link>
@@ -56,7 +56,7 @@ export function Navbar() {
             <Button variant="ghost" asChild>
               <Link to="#">Log in</Link>
             </Button>
-            <Button asChild>
+            <Button asChild className="shadow-md hover:shadow-lg hover:brightness-105 transition-all">
               <Link to="/contact">Book a demo</Link>
             </Button>
           </div>

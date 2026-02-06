@@ -49,9 +49,9 @@
 
     --radius: 0.875rem;
     --radius-card: 1rem;
-    --section-py: 3rem;
-    --section-py-md: 2.5rem;
-    --section-py-lg: 3.5rem;
+    --section-py: 2.5rem;
+    --section-py-md: 2.25rem;
+    --section-py-lg: 3rem;
     --heading-mb: 1.25rem;
     --content-gap: 1.5rem;
     --canvas-opacity: 0.09;
@@ -218,7 +218,7 @@
   }
 
   .text-highlight {
-    @apply text-primary font-bold;
+    @apply text-orange-500 font-extrabold;
   }
 
   .btn-premium {

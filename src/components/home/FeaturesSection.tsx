@@ -44,7 +44,7 @@ export function FeaturesSection() {
       <SectionHeading
         title="Tot ce ai nevoie pentru lead accountability"
       />
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {features.map((feature, i) => (
           <AccentCard key={feature.title} accent={accents[i % 4]} variant="top">
             <div className="pb-2">

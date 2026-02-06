@@ -18,8 +18,8 @@ export function Footer() {
   return (
     <footer className="border-t border-border/50 bg-secondary/50">
       <Container>
-        <div className="py-16">
-          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="py-14">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {/* Brand */}
             <div className="lg:col-span-2">
               <Link to="/" className="inline-block">

@@ -21,7 +21,8 @@ export function AccentPanel({ children, accent = "orange", className }: AccentPa
     <div
       className={cn(
         "rounded-3xl bg-white border border-slate-200 shadow-xl overflow-hidden",
-        "border-t-4",
+        "ring-1 ring-black/5",
+        "border-t-[6px]",
         accentBorderMap[accent],
         className
       )}

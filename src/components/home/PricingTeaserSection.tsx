@@ -37,7 +37,7 @@ export function PricingTeaserSection() {
         title="Pricing simplu, fara surprize"
         subtitle="Toate planurile includ setup gratuit si 14 zile trial"
       />
-      <div className="grid gap-6 md:grid-cols-3 max-w-5xl mx-auto">
+      <div className="grid gap-5 md:grid-cols-3 max-w-5xl mx-auto">
         {plans.map((plan) => (
           <AccentCard
             key={plan.name}
@@ -85,13 +85,13 @@ export function PricingTeaserSection() {
 
       {/* Add-on */}
       <div className="mt-6 text-center">
-        <div className="inline-flex items-center gap-2 bg-white rounded-2xl px-5 py-3 shadow-lg border border-slate-200">
+        <div className="inline-flex items-center gap-2 bg-white rounded-2xl px-5 py-3 shadow-xl border border-slate-200 ring-1 ring-black/5">
           <span className="text-muted-foreground text-sm">Add-on:</span>
           <span className="font-bold text-foreground text-sm">AI Pack - 49 EUR/luna</span>
           <span className="text-muted-foreground text-sm">(intent detection + draft messages)</span>
         </div>
         <div className="mt-4">
-          <Button variant="link" asChild className="text-accent font-semibold">
+          <Button variant="link" asChild className="text-orange-500 font-semibold hover:text-orange-600">
             <Link to="/pricing">Vezi pricing complet</Link>
           </Button>
         </div>

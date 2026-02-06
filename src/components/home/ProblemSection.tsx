@@ -21,7 +21,7 @@ export function ProblemSection() {
           </>
         }
       />
-      <div className="grid gap-6 sm:grid-cols-2 max-w-3xl mx-auto">
+      <div className="grid gap-5 sm:grid-cols-2 max-w-3xl mx-auto">
         {problems.map((problem, index) => (
           <AccentCard
             key={index}

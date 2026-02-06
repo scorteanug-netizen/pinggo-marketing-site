@@ -9,7 +9,7 @@ export function HeroSection() {
   return (
     <section className="section-premium bg-background">
       <Container>
-        <div className="grid gap-6 lg:grid-cols-2 lg:gap-8 items-center">
+        <div className="grid gap-5 lg:grid-cols-2 lg:gap-6 items-center">
           {/* Left Column - Content */}
           <div className="max-w-xl">
             <h1 className="text-slate-950 font-display font-extrabold text-5xl md:text-7xl leading-[0.95] tracking-[-0.03em]">

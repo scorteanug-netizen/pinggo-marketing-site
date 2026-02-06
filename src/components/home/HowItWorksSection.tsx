@@ -34,7 +34,7 @@ export function HowItWorksSection() {
         subtitle="4 pasi simpli de la lead la proof"
       />
       <AccentPanel accent="teal" className="p-6 md:p-8">
-        <div className="grid gap-6 md:grid-cols-4">
+        <div className="grid gap-5 md:grid-cols-4">
           {steps.map((step, index) => (
             <div key={step.title} className="text-center group">
               <div className="relative mx-auto mb-4">

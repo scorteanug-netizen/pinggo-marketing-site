@@ -41,7 +41,7 @@ export function SocialProofSection() {
         title={<>Construit pentru echipe care vand din <Accent>leaduri inbound</Accent></>}
         light
       />
-      <div className="grid gap-6 md:grid-cols-3">
+      <div className="grid gap-5 md:grid-cols-3">
         {industries.map((industry) => (
           <AccentCard key={industry.title} accent={industry.accent} variant="top" className="border-white/25 bg-white/95 shadow-xl hover:shadow-2xl">
             <div className="pb-2">
