@@ -1,9 +1,9 @@
 import { Layout } from "@/components/layout/Layout";
 import { HeroSection } from "@/components/home/HeroSection";
+import { EcosistemSection } from "@/components/home/EcosistemSection";
 import { ConfigureziPinggoSection } from "@/components/home/ConfigureziPinggoSection";
 import { SocialProofSection } from "@/components/home/SocialProofSection";
 import { ProblemSection } from "@/components/home/ProblemSection";
-import { UnSingurSistemSection } from "@/components/home/UnSingurSistemSection";
 import { HowItWorksSection } from "@/components/home/HowItWorksSection";
 import { DifferentiationSection } from "@/components/home/DifferentiationSection";
 import { FeaturesSection } from "@/components/home/FeaturesSection";
@@ -16,10 +16,10 @@ const Index = () => {
   return (
     <Layout>
       <HeroSection />
+      <EcosistemSection />
       <ConfigureziPinggoSection />
       <SocialProofSection />
       <ProblemSection />
-      <UnSingurSistemSection />
       <HowItWorksSection />
       <DifferentiationSection />
       <FeaturesSection />
