@@ -18,24 +18,23 @@ export function ConfigureziPinggoSection() {
 
   return (
     <section className="configurezi-section relative overflow-hidden pt-12 pb-12 md:pt-14 md:pb-14">
-      {/* Background: deep blue/purple + soft geometric waves */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#1e3a5f] via-[#252550] to-[#2d1b4e]" aria-hidden />
-      <div className="configurezi-section-waves absolute inset-0 pointer-events-none" aria-hidden />
-      <div className="absolute inset-0 pointer-events-none opacity-[0.04]" style={{ backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)", backgroundSize: "20px 20px" }} aria-hidden />
+      {/* Light canvas base + dot grid (in CSS) */}
+      {/* Top accent: soft blue/purple band behind content */}
+      <div className="configurezi-section-top-accent absolute inset-x-0 top-0 h-[260px] pointer-events-none" aria-hidden />
 
       <Container className="relative z-10">
         {/* Headline + subheadline */}
         <div className="text-center mb-8 md:mb-10">
-          <h2 className="font-heading font-extrabold text-3xl md:text-4xl lg:text-5xl text-white leading-tight tracking-tight">
+          <h2 className="font-heading font-extrabold text-3xl md:text-4xl lg:text-5xl text-slate-900 leading-tight tracking-tight">
             Configurezi Pinggo cum vrei.
           </h2>
-          <p className="mt-2.5 text-white/85 text-base md:text-lg max-w-2xl mx-auto leading-snug">
+          <p className="mt-2.5 text-slate-600 text-base md:text-lg max-w-2xl mx-auto leading-snug">
             Setezi reguli, termene si escaladari pentru fiecare tip de lead. Fara cod.
           </p>
         </div>
 
         {/* Module picker bar (white, rounded, shadow) */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 p-3 md:p-4 bg-white rounded-2xl shadow-xl border border-white/20 mb-6 md:mb-8">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 p-3 md:p-4 bg-white rounded-2xl shadow-[0_8px_30px_rgba(15,23,42,0.12)] border border-slate-200/80 mb-6 md:mb-8">
           <div className="flex items-center gap-1 overflow-x-auto pb-1 sm:pb-0 min-w-0">
             {MODULES.map((m) => (
               <button
@@ -60,14 +59,14 @@ export function ConfigureziPinggoSection() {
 
         {/* Mockup image + caption */}
         <div className="flex flex-col items-center">
-          <div className="w-full max-w-4xl rounded-2xl overflow-hidden shadow-2xl ring-1 ring-black/10 border border-white/10 bg-white/5">
+          <div className="w-full max-w-4xl rounded-2xl overflow-hidden shadow-2xl ring-1 ring-black/10 border border-slate-200/80 bg-white">
             <img
               src="/workflow.png"
               alt="Flux de lucru Pinggo"
               className="w-full h-auto object-contain block"
             />
           </div>
-          <p className="mt-4 text-center text-white/90 text-sm md:text-base max-w-xl mx-auto leading-snug">
+          <p className="mt-4 text-center text-slate-600 text-sm md:text-base max-w-xl mx-auto leading-snug">
             {current.caption}
           </p>
         </div>
