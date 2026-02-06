@@ -121,9 +121,9 @@
     @apply bg-background text-foreground antialiased leading-relaxed font-body;
   }
 
-  /* Chili Piper-like: display font for headings, very bold, tight */
+  /* Headings use Fraunces */
   h1, h2, h3 {
-    @apply font-display;
+    @apply font-heading;
   }
 
   h1 {

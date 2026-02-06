@@ -12,7 +12,7 @@ export function SectionHeading({ title, subtitle, className, centered = true, li
   return (
     <div className={cn("mb-4 md:mb-5", centered && "text-center", className)}>
       <h2 className={cn(
-        "font-display font-extrabold tracking-tight leading-[1.0] tracking-[-0.02em] [-webkit-font-smoothing:antialiased]",
+        "font-heading font-extrabold tracking-tight leading-[1.0] tracking-[-0.02em] [-webkit-font-smoothing:antialiased]",
         light ? "text-white" : "text-slate-950"
       )}>
         {title}
