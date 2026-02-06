@@ -1,60 +1,84 @@
-import { Clock, CheckCircle, AlertTriangle, List, GitBranch, BarChart3 } from "lucide-react";
+import { Clock, Timer, AlertTriangle, UserCheck, CheckCircle, BarChart3 } from "lucide-react";
 import { Section } from "@/components/layout/Section";
 import { SectionHeading } from "@/components/layout/SectionHeading";
-import { AccentCard } from "@/components/AccentCard";
+import { Accent } from "@/components/Accent";
+import { cn } from "@/lib/utils";
 
-const accents = ["orange", "blue", "violet", "teal"] as const;
+const BORDER_COLORS = [
+  "border-t-2 border-t-orange-500",
+  "border-t-2 border-t-blue-500",
+  "border-t-2 border-t-violet-500",
+  "border-t-2 border-t-teal-500",
+  "border-t-2 border-t-orange-500",
+  "border-t-2 border-t-blue-500",
+] as const;
 
 const features = [
   {
     icon: Clock,
-    title: "Politici de timp de raspuns",
-    description: "Definesti termene pe tip de lead, sursa sau valoare. Include ore de lucru.",
+    title: "Termene pe tip de lead",
+    description: "Setezi termene diferite dupa sursa, intent sau valoare. Include ore de lucru.",
   },
   {
-    icon: CheckCircle,
-    title: "Dovezi",
-    description: "Inregistram automat primul contact: WhatsApp, e-mail, apel.",
+    icon: Timer,
+    title: "Cronometru pe fiecare lead",
+    description: "Fiecare lead primeste un termen limita, vizibil pentru echipa si manager.",
   },
   {
     icon: AlertTriangle,
-    title: "Escaladare",
-    description: "Memento, reasignare, alerta la manager. Configurabil pe fiecare flux.",
+    title: "Escaladare automata",
+    description: "Memento la timp, reasignare cand e nevoie, alerta la manager daca se depaseste.",
   },
   {
-    icon: List,
-    title: "Istoric lead",
-    description: "Jurnal complet: cine, cand, ce a facut. Util pentru raportare.",
+    icon: UserCheck,
+    title: "Spune cine e responsabil",
+    description: "Stii mereu cine are leadul si cand a fost preluat. Fara discutii.",
   },
   {
-    icon: GitBranch,
-    title: "Constructor de reguli",
-    description: "Sabloane si reguli simple. Fara cod, configurare rapida.",
+    icon: CheckCircle,
+    title: "Dovada primului contact",
+    description: "Cronometrul se opreste doar la dovada: WhatsApp, e-mail sau apel inregistrat.",
   },
   {
     icon: BarChart3,
     title: "Raport saptamanal",
-    description: "Timp pana la primul contact, intarzieri, responsabil. Trimise pe e-mail sau Slack.",
+    description: "Vezi intarzieri, termene depasite si responsabili. Trimise automat pe e-mail sau Slack.",
   },
 ];
 
 export function FeaturesSection() {
   return (
-    <Section alternate canvas>
+    <Section alternate canvas className="features-section-tight">
       <SectionHeading
-        title="Tot ce ai nevoie pentru responsabilitate pe leaduri"
+        title={
+          <>
+            In sfarsit, <Accent>un singur sistem</Accent> care nu lasa leadurile sa se piarda.
+          </>
+        }
+        subtitle="Termene clare, dovezi verificabile si escaladare automata. Ca sa fie executie, nu presupuneri."
       />
-      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {features.map((feature, i) => (
-          <AccentCard key={feature.title} accent={accents[i % 4]} variant="top">
+          <div
+            key={feature.title}
+            className={cn(
+              "rounded-2xl bg-white border border-slate-200 overflow-hidden",
+              "shadow-[0_8px_30px_rgba(15,23,42,0.08)] hover:shadow-[0_12px_40px_-8px_rgba(15,23,42,0.12)]",
+              "transition-all duration-300 hover:-translate-y-0.5",
+              "p-5",
+              BORDER_COLORS[i]
+            )}
+          >
             <div className="pb-2">
               <div className="h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center mb-3">
                 <feature.icon className="h-5 w-5 text-primary" />
               </div>
-              <h3 className="text-lg font-extrabold leading-tight tracking-tight text-foreground">{feature.title}</h3>
+              <h3 className="text-xl font-extrabold leading-tight tracking-tight text-slate-900">
+                {feature.title}
+              </h3>
             </div>
             <p className="text-slate-600 text-sm leading-snug">{feature.description}</p>
-          </AccentCard>
+          </div>
         ))}
       </div>
     </Section>
