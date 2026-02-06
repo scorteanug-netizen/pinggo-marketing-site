@@ -14,10 +14,10 @@ export function FinalCTASection() {
         </p>
         <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
           <Button size="lg" asChild>
-            <Link to="/contact">Book a demo</Link>
+            <Link to="/contact">Solicita demo</Link>
           </Button>
           <Button size="lg" variant="outlineWhite" asChild>
-            <Link to="/contact">Start trial</Link>
+            <Link to="/contact">Incepe testarea</Link>
           </Button>
         </div>
       </div>

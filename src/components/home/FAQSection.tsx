@@ -10,27 +10,27 @@ import {
 const faqs = [
   {
     question: "Avem deja CRM. De ce ne trebuie Pinggo?",
-    answer: "CRM-ul stocheaza date. Pinggo garanteaza executia. Poti folosi Pinggo in paralel cu orice CRM - noi ne ocupam de SLA, escaladare si proof, CRM-ul ramane sursa de adevar pentru date.",
+    answer: "CRM-ul stocheaza date. Pinggo garanteaza executia. Poti folosi Pinggo in paralel cu orice CRM: noi ne ocupam de termen de raspuns, escaladare si dovada, CRM-ul ramane sursa de adevar pentru date.",
   },
   {
     question: "Putem folosi Pinggo fara CRM?",
-    answer: "Da. Pinggo functioneaza standalone. Leadurile intra prin webhook sau email forwarding, fara sa ai nevoie de CRM. Ideal pentru echipe mici sau agentii.",
+    answer: "Da. Pinggo functioneaza singur. Leadurile intra prin webhook sau redirectionare e-mail, fara CRM. Ideal pentru echipe mici sau agentii.",
   },
   {
-    question: "Ce inseamna proof de first contact?",
-    answer: "Proof = eveniment verificabil ca agentul a contactat lead-ul. Poate fi un mesaj WhatsApp trimis, un email out, sau un call log. Fara proof, SLA-ul ramane deschis.",
+    question: "Ce inseamna dovada de primul contact?",
+    answer: "Dovada = eveniment verificabil ca agentul a contactat lead-ul. Poate fi un mesaj WhatsApp trimis, un e-mail trimis sau un apel. Fara dovada, termenul ramane deschis.",
   },
   {
     question: "Se poate folosi cu WhatsApp?",
-    answer: "Da. Integram cu WhatsApp Business API. Cand agentul trimite un mesaj pe WhatsApp, Pinggo inregistreaza automat proof-ul si opreste ceasul SLA.",
+    answer: "Da. Integram cu WhatsApp Business API. Cand agentul trimite un mesaj pe WhatsApp, Pinggo inregistreaza automat dovada si opreste cronometrul.",
   },
   {
-    question: "Cum functioneaza after-hours?",
-    answer: "SLA-ul se calculeaza doar pe business hours. Daca un lead vine la 23:00, ceasul porneste a doua zi la 09:00. Configurezi programul pe echipa sau agent.",
+    question: "Cum functioneaza in afara orelor de lucru?",
+    answer: "Termenul se calculeaza doar pe ore de lucru. Daca un lead vine la 23:00, cronometrul porneste a doua zi la 09:00. Configurezi programul pe echipa sau agent.",
   },
   {
-    question: "Putem seta SLA-uri diferite pe tipuri de leaduri?",
-    answer: "Da. Poti defini SLA diferite pe sursa (Facebook, Google, website), tip (high intent, low intent), valoare estimata, sau orice camp custom din payload.",
+    question: "Putem seta termene diferite pe tipuri de leaduri?",
+    answer: "Da. Poti defini termene diferite pe sursa (Facebook, Google, site), tip (intent ridicat sau scazut), valoare estimata sau orice camp din payload.",
   },
 ];
 
@@ -43,8 +43,8 @@ export function FAQSection() {
       <div className="max-w-3xl mx-auto">
         <Accordion type="single" collapsible className="w-full space-y-3">
           {faqs.map((faq, index) => (
-            <AccordionItem 
-              key={index} 
+            <AccordionItem
+              key={index}
               value={`item-${index}`}
               className="bg-card rounded-2xl border border-border-card px-5 shadow-card data-[state=open]:shadow-card-hover transition-all"
             >

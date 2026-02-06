@@ -13,10 +13,10 @@ export function HeroSection() {
           {/* Left Column - Content */}
           <div className="max-w-xl">
             <h1 className="text-slate-950 font-display font-extrabold text-5xl md:text-7xl leading-[0.95] tracking-[-0.03em]">
-              First Contact <Accent>Proof</Accent> + SLA Enforcement
+              <Accent>Dovada</Accent> primului contact + respectarea timpului de raspuns
             </h1>
             <p className="mt-3 text-base md:text-lg text-slate-600 leading-relaxed max-w-xl">
-              Garantam ca fiecare lead este contactat la timp, cu dovada verificabila si escaladare automata. Functioneaza cu sau fara CRM.
+              Ne asiguram ca fiecare lead este preluat la timp, cu dovada verificabila si escaladare automata. Functioneaza cu sau fara CRM.
             </p>
             
             <ul className="mt-4 space-y-2">
@@ -24,28 +24,28 @@ export function HeroSection() {
                 <div className="h-5 w-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                   <Check className="h-3.5 w-3.5 text-primary" />
                 </div>
-                <span className="text-slate-700 text-base leading-snug font-body">Clock stop doar pe proof (WhatsApp, email)</span>
+                <span className="text-slate-700 text-base leading-snug font-body">Cronometrul se opreste doar la dovada (WhatsApp, e-mail, apel)</span>
               </li>
               <li className="flex items-start gap-3">
                 <div className="h-5 w-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                   <Check className="h-3.5 w-3.5 text-primary" />
                 </div>
-                <span className="text-slate-700 text-base leading-snug font-body">Reminder, reassign, manager escalation</span>
+                <span className="text-slate-700 text-base leading-snug font-body">Memento, reasignare si escaladare la manager</span>
               </li>
               <li className="flex items-start gap-3">
                 <div className="h-5 w-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                   <Check className="h-3.5 w-3.5 text-primary" />
                 </div>
-                <span className="text-slate-700 text-base leading-snug font-body">Rapoarte saptamanale: TTFC, breaches, ownership</span>
+                <span className="text-slate-700 text-base leading-snug font-body">Raport saptamanal: timp pana la primul contact (TTFC), intarzieri, responsabil</span>
               </li>
             </ul>
 
             <div className="mt-6 flex flex-col sm:flex-row gap-3">
               <Button size="lg" asChild>
-                <Link to="/contact">Book a demo</Link>
+                <Link to="/contact">Solicita demo</Link>
               </Button>
               <Button size="lg" variant="outline" asChild>
-                <Link to="/contact">Start trial</Link>
+                <Link to="/contact">Incepe testarea</Link>
               </Button>
             </div>
           </div>
@@ -53,35 +53,31 @@ export function HeroSection() {
           {/* Right Column - Product Card Mock */}
           <div className="relative">
             <AccentCard accent="orange" variant="top" className="border-slate-200 shadow-xl hover:shadow-2xl">
-              {/* Card Header */}
               <div className="flex items-center justify-between mb-5">
                 <div>
-                  <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Lead SLA</span>
-                  <h3 className="text-lg font-extrabold text-foreground mt-1 leading-tight">SLA: 30 min (High intent)</h3>
+                  <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Termen lead</span>
+                  <h3 className="text-lg font-extrabold text-foreground mt-1 leading-tight">Termen: 30 min (Intent ridicat)</h3>
                 </div>
                 <div className="h-11 w-11 rounded-xl bg-primary/10 flex items-center justify-center">
                   <Clock className="h-5 w-5 text-primary" />
                 </div>
               </div>
 
-              {/* Badge */}
               <div className="badge-proof mb-4">
                 <Check className="h-4 w-4" />
-                Proof: WhatsApp sent
+                Dovada: trimis pe WhatsApp
               </div>
 
-              {/* Owner */}
               <div className="flex items-center gap-3 py-4 border-t border-border-card">
                 <div className="h-9 w-9 rounded-lg bg-accent/15 flex items-center justify-center">
                   <User className="h-4 w-4 text-accent" />
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-foreground leading-tight">Owner: Ioana</p>
-                  <p className="text-xs text-muted-foreground">Assigned 5 min ago</p>
+                  <p className="text-sm font-semibold text-foreground leading-tight">Responsabil: Ioana</p>
+                  <p className="text-xs text-muted-foreground">Asignat acum 5 min</p>
                 </div>
               </div>
 
-              {/* Mini Chart Placeholder */}
               <div className="mt-4 pt-4 border-t border-border-card">
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-xs font-semibold text-muted-foreground">TTFC Trend</span>

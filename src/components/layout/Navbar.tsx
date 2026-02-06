@@ -6,10 +6,10 @@ import { Container } from "./Container";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { href: "/product", label: "Product" },
-  { href: "/#how-it-works", label: "How it works" },
-  { href: "/pricing", label: "Pricing" },
-  { href: "/docs", label: "Docs" },
+  { href: "/product", label: "Produs" },
+  { href: "/#how-it-works", label: "Cum functioneaza" },
+  { href: "/pricing", label: "Preturi" },
+  { href: "/docs", label: "Documentatie" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -54,10 +54,10 @@ export function Navbar() {
           {/* Desktop CTAs */}
           <div className="hidden md:flex md:items-center md:gap-4">
             <Button variant="ghost" asChild>
-              <Link to="#">Log in</Link>
+              <Link to="#">Conectare</Link>
             </Button>
             <Button asChild className="shadow-md hover:shadow-lg hover:brightness-105 transition-all">
-              <Link to="/contact">Book a demo</Link>
+              <Link to="/contact">Solicita demo</Link>
             </Button>
           </div>
 
@@ -95,10 +95,10 @@ export function Navbar() {
             ))}
             <div className="flex flex-col gap-3 pt-6">
               <Button variant="outline" asChild className="w-full">
-                <Link to="#">Log in</Link>
+                <Link to="#">Conectare</Link>
               </Button>
               <Button asChild className="w-full">
-                <Link to="/contact">Book a demo</Link>
+                <Link to="/contact">Solicita demo</Link>
               </Button>
             </div>
           </div>

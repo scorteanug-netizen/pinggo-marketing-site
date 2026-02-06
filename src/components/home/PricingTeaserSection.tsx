@@ -7,25 +7,25 @@ import { AccentCard } from "@/components/AccentCard";
 
 const plans = [
   {
-    name: "Start",
+    name: "Pornire",
     price: "149",
     leads: "300 leads/luna",
-    features: ["Email", "Slack notifications", "Basic SLA"],
+    features: ["E-mail", "Notificari in Slack", "Termen de raspuns"],
     accent: "orange" as const,
   },
   {
-    name: "Growth",
+    name: "Crestere",
     price: "249",
     leads: "1,000 leads/luna",
-    features: ["WhatsApp", "Email", "Slack", "Custom SLA"],
+    features: ["WhatsApp", "E-mail", "Slack", "Termene personalizate"],
     popular: true,
     accent: "orange" as const,
   },
   {
-    name: "Pro",
+    name: "Avansat",
     price: "499",
     leads: "3,000 leads/luna",
-    features: ["Routing avansat", "Escalation chains", "Priority support"],
+    features: ["Routing avansat", "Lanturi de escaladare", "Suport prioritar"],
     accent: "blue" as const,
   },
 ];
@@ -34,8 +34,8 @@ export function PricingTeaserSection() {
   return (
     <Section alternate>
       <SectionHeading
-        title="Pricing simplu, fara surprize"
-        subtitle="Toate planurile includ setup gratuit si 14 zile trial"
+        title="Pret simplu, fara surprize"
+        subtitle="Toate planurile includ testare 14 zile."
       />
       <div className="grid gap-5 md:grid-cols-3 max-w-5xl mx-auto">
         {plans.map((plan) => (
@@ -83,12 +83,11 @@ export function PricingTeaserSection() {
         ))}
       </div>
 
-      {/* Add-on */}
       <div className="mt-6 text-center">
         <div className="inline-flex items-center gap-2 bg-white rounded-2xl px-5 py-3 shadow-xl border border-slate-200 ring-1 ring-black/5">
-          <span className="text-muted-foreground text-sm">Add-on:</span>
+          <span className="text-muted-foreground text-sm">Supliment:</span>
           <span className="font-bold text-foreground text-sm">AI Pack - 49 EUR/luna</span>
-          <span className="text-muted-foreground text-sm">(intent detection + draft messages)</span>
+          <span className="text-muted-foreground text-sm">(detectie intent + mesaje draft)</span>
         </div>
         <div className="mt-4">
           <Button variant="link" asChild className="text-orange-500 font-semibold hover:text-orange-600">

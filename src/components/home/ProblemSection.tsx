@@ -5,10 +5,10 @@ import { AccentCard } from "@/components/AccentCard";
 import { Accent } from "@/components/Accent";
 
 const problems = [
-  "Lead neasumat - nimeni nu stie cine se ocupa",
-  "Lead intarziat - contactat dupa ore sau zile",
-  "Fara dovada - nu stii daca a fost contactat real",
-  "Fara escaladare - problemele se descopera prea tarziu",
+  "Lead nepreluat: nu e clar cine raspunde",
+  "Lead intarziat: contactat dupa ore sau zile",
+  "Fara dovada: nu stii daca s-a raspuns cu adevarat",
+  "Fara escaladare: problema se vede prea tarziu",
 ];
 
 export function ProblemSection() {

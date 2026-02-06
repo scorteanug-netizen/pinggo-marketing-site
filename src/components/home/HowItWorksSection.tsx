@@ -6,23 +6,23 @@ import { AccentPanel } from "@/components/AccentPanel";
 const steps = [
   {
     icon: Webhook,
-    title: "Intake",
-    description: "Leadurile intra prin webhook sau email forwarding. Zero setup manual.",
+    title: "Preluare",
+    description: "Leadurile intra prin webhook sau redirectionare e-mail. Configurare rapida.",
   },
   {
     icon: Clock,
-    title: "SLA Clock",
-    description: "Deadline calculat pe business hours. Fiecare lead are un timer.",
+    title: "Cronometru",
+    description: "Termen calculat pe ore de lucru. Fiecare lead are un cronometru.",
   },
   {
     icon: AlertTriangle,
-    title: "Escalare",
-    description: "Reminder la 50%, reassign la 75%, manager alert la 100%.",
+    title: "Escaladare",
+    description: "Memento la 50%, reasignare la 75%, alerta la manager la 100%.",
   },
   {
     icon: CheckCircle,
-    title: "Proof",
-    description: "Clock se opreste doar pe eveniment verificabil: WhatsApp, email, call.",
+    title: "Dovada",
+    description: "Cronometrul se opreste doar la eveniment verificabil: WhatsApp, e-mail, apel.",
   },
 ];
 
@@ -31,7 +31,7 @@ export function HowItWorksSection() {
     <Section alternate canvas id="how-it-works">
       <SectionHeading
         title="Cum functioneaza"
-        subtitle="4 pasi simpli de la lead la proof"
+        subtitle="4 pasi simpli, de la lead la dovada"
       />
       <AccentPanel accent="teal" className="p-6 md:p-8">
         <div className="grid gap-5 md:grid-cols-4">

@@ -8,49 +8,49 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 
 const plans = [
   {
-    name: "Start",
+    name: "Pornire",
     price: "149",
     leads: "300 leads/luna",
-    description: "Pentru echipe mici care vor sa inceapa cu SLA tracking",
+    description: "Pentru echipe mici care vor sa inceapa cu urmarirea termenului",
     features: {
       leads: "300",
-      channels: ["Email", "Slack"],
-      sla: "Basic (1 policy)",
+      channels: ["E-mail", "Slack"],
+      sla: "Termen de raspuns (1 politica)",
       routing: false,
-      escalation: "Basic",
-      reports: "Weekly email",
-      support: "Email",
+      escalation: "Simplu",
+      reports: "Raport saptamanal pe e-mail",
+      support: "E-mail",
     },
   },
   {
-    name: "Growth",
+    name: "Crestere",
     price: "249",
     leads: "1,000 leads/luna",
     description: "Pentru echipe in crestere cu volume mai mari",
     popular: true,
     features: {
       leads: "1,000",
-      channels: ["WhatsApp", "Email", "Slack"],
-      sla: "Custom (5 policies)",
-      routing: "Basic",
-      escalation: "Advanced",
-      reports: "Weekly + dashboard",
-      support: "Priority email",
+      channels: ["WhatsApp", "E-mail", "Slack"],
+      sla: "Termene personalizate (5 politici)",
+      routing: "Simplu",
+      escalation: "Avansat",
+      reports: "Saptamanal + dashboard",
+      support: "E-mail prioritar",
     },
   },
   {
-    name: "Pro",
+    name: "Avansat",
     price: "499",
     leads: "3,000 leads/luna",
-    description: "Pentru agentii si echipe enterprise",
+    description: "Pentru agentii si echipe mari",
     features: {
       leads: "3,000",
-      channels: ["WhatsApp", "Email", "Slack", "Webhook"],
-      sla: "Unlimited policies",
-      routing: "Advanced + rules",
-      escalation: "Full chain",
-      reports: "Real-time + API",
-      support: "Dedicated manager",
+      channels: ["WhatsApp", "E-mail", "Slack", "Webhook"],
+      sla: "Politici nelimitate",
+      routing: "Avansat + reguli",
+      escalation: "Lant complet",
+      reports: "In timp real + API",
+      support: "Manager dedicat",
     },
   },
 ];
@@ -59,10 +59,10 @@ const addons = [
   {
     name: "AI Pack",
     price: "49",
-    description: "Intent detection + draft message suggestions",
+    description: "Detectie intent + sugestii mesaje draft",
   },
   {
-    name: "Extra leads",
+    name: "Leaduri extra",
     price: "0.15",
     unit: "/lead",
     description: "Peste limita planului",
@@ -76,19 +76,19 @@ const addons = [
 
 const setupFees = [
   {
-    name: "Self-service",
+    name: "Singur",
     price: "0",
-    description: "Setup pe cont propriu cu documentatie",
+    description: "Configurare pe cont propriu cu documentatie",
   },
   {
-    name: "Assisted setup",
+    name: "Asistat",
     price: "199",
-    description: "Call de 1 ora + configurare initiala",
+    description: "Apel 1 ora + configurare initiala",
   },
   {
-    name: "Done-for-you",
+    name: "Complet",
     price: "399",
-    description: "Setup complet + training echipa",
+    description: "Configurare completa + training echipa",
   },
 ];
 
@@ -99,10 +99,10 @@ const Pricing = () => {
       <Section>
         <div className="text-center max-w-2xl mx-auto">
           <h1 className="text-foreground tracking-[-0.02em] leading-[1.0]">
-            Pricing simplu, <span className="text-highlight">fara surprize</span>
+            Pricing simplu, <span className="text-orange-500 font-extrabold">fara surprize</span>
           </h1>
           <p className="mt-4 text-base md:text-lg text-muted-foreground leading-snug">
-            Alege planul potrivit pentru echipa ta. Toate planurile includ 14 zile trial gratuit.
+            Alege planul potrivit pentru echipa ta. Toate planurile includ 14 zile testare gratuita.
           </p>
         </div>
       </Section>
@@ -118,7 +118,7 @@ const Pricing = () => {
               {plan.popular && (
                 <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
                   <span className="bg-primary text-primary-foreground text-xs font-bold px-4 py-1.5 rounded-full shadow-lg">
-                    Most popular
+                    Popular
                   </span>
                 </div>
               )}
@@ -134,33 +134,33 @@ const Pricing = () => {
               <CardContent className="pt-4">
                 <ul className="space-y-2 text-sm">
                   <li className="flex items-center justify-between py-1.5 border-b border-border-card">
-                    <span className="text-muted-foreground">Leads/luna</span>
+                    <span className="text-muted-foreground">Leaduri/luna</span>
                     <span className="font-semibold">{plan.features.leads}</span>
                   </li>
                   <li className="flex items-center justify-between py-1.5 border-b border-border-card">
-                    <span className="text-muted-foreground">Channels</span>
+                    <span className="text-muted-foreground">Canale</span>
                     <span className="font-semibold text-right">{plan.features.channels.join(", ")}</span>
                   </li>
                   <li className="flex items-center justify-between py-1.5 border-b border-border-card">
-                    <span className="text-muted-foreground">SLA policies</span>
+                    <span className="text-muted-foreground">Politici termen</span>
                     <span className="font-semibold">{plan.features.sla}</span>
                   </li>
                   <li className="flex items-center justify-between py-1.5 border-b border-border-card">
-                    <span className="text-muted-foreground">Routing</span>
+                    <span className="text-muted-foreground">Repartizare</span>
                     <span className="font-semibold">
                       {plan.features.routing ? plan.features.routing : <X className="h-4 w-4 text-muted-foreground" />}
                     </span>
                   </li>
                   <li className="flex items-center justify-between py-1.5 border-b border-border-card">
-                    <span className="text-muted-foreground">Escalation</span>
+                    <span className="text-muted-foreground">Escaladare</span>
                     <span className="font-semibold">{plan.features.escalation}</span>
                   </li>
                   <li className="flex items-center justify-between py-1.5 border-b border-border-card">
-                    <span className="text-muted-foreground">Reports</span>
+                    <span className="text-muted-foreground">Rapoarte</span>
                     <span className="font-semibold">{plan.features.reports}</span>
                   </li>
                   <li className="flex items-center justify-between py-1.5">
-                    <span className="text-muted-foreground">Support</span>
+                    <span className="text-muted-foreground">Suport</span>
                     <span className="font-semibold">{plan.features.support}</span>
                   </li>
                 </ul>
@@ -171,7 +171,7 @@ const Pricing = () => {
                   variant={plan.popular ? "default" : "outline"}
                   asChild
                 >
-                  <Link to="/contact">Start trial</Link>
+                  <Link to="/contact">Incepe testarea</Link>
                 </Button>
               </CardFooter>
             </Card>
@@ -181,7 +181,7 @@ const Pricing = () => {
 
       {/* Add-ons */}
       <Section canvas>
-        <SectionHeading title="Add-ons" subtitle="Functionalitati extra pentru echipe avansate" />
+        <SectionHeading title="Suplimente" subtitle="Functionalitati extra pentru echipe avansate" />
         <div className="grid gap-5 md:grid-cols-3 max-w-4xl mx-auto">
           {addons.map((addon, i) => (
             <Card key={addon.name} className={`text-center ${i === 0 ? "card-accent-orange" : i === 1 ? "card-accent-blue" : "card-accent-violet"}`}>
@@ -202,7 +202,7 @@ const Pricing = () => {
 
       {/* Setup Fees */}
       <Section alternate>
-        <SectionHeading title="Setup" subtitle="Alege nivelul de suport pentru configurare" />
+        <SectionHeading title="Configurare" subtitle="Alege nivelul de suport pentru configurare" />
         <div className="grid gap-5 md:grid-cols-3 max-w-4xl mx-auto">
           {setupFees.map((setup, i) => (
             <Card key={setup.name} className={`text-center ${i === 0 ? "card-accent-orange" : i === 1 ? "card-accent-blue" : "card-accent-violet"}`}>
@@ -231,7 +231,7 @@ const Pricing = () => {
             Discuta cu echipa noastra pentru a gasi planul potrivit.
           </p>
           <Button size="lg" asChild>
-            <Link to="/contact">Book a demo</Link>
+            <Link to="/contact">Solicita demo</Link>
           </Button>
         </div>
       </Section>

@@ -5,15 +5,15 @@ import { AccentPanel } from "@/components/AccentPanel";
 const comparisons = [
   {
     ai: "Conversatie automata",
-    pinggo: "Ownership + SLA cu deadline",
+    pinggo: "Responsabil + termen clar",
   },
   {
     ai: "Un singur canal",
-    pinggo: "Cross-channel proof (WhatsApp, email, call)",
+    pinggo: "Dovada pe mai multe canale (WhatsApp, e-mail, apel)",
   },
   {
-    ai: "Notify la eroare",
-    pinggo: "Enforcement cu escaladare si audit",
+    ai: "Notifica la eroare",
+    pinggo: "Impune respectarea termenului si audit",
   },
 ];
 
@@ -26,7 +26,7 @@ export function DifferentiationSection() {
             AI raspunde. Pinggo garanteaza <span className="text-highlight">executia.</span>
           </>
         }
-        subtitle="De ce SLA enforcement bate AI-ul in vanzari B2B"
+        subtitle="De ce respectarea termenului bate automatizarea fara control"
       />
       <div className="max-w-3xl mx-auto">
         <AccentPanel accent="violet">

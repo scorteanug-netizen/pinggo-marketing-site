@@ -10,8 +10,7 @@ const industries = [
     title: "Agentii",
     accent: "orange" as const,
     benefits: [
-      "SLA diferite pe client si campanie",
-      "Proof pe fiecare lead pentru raportare",
+      "Termene diferite pe client si campanie. Dovada pe fiecare lead pentru raportare.",
     ],
   },
   {
@@ -19,8 +18,7 @@ const industries = [
     title: "Clinici",
     accent: "blue" as const,
     benefits: [
-      "Contactare in maxim 15 minute",
-      "Escalare automata la manager",
+      "Contactare rapida, fara leaduri uitate. Escaladare automata la manager.",
     ],
   },
   {
@@ -28,8 +26,7 @@ const industries = [
     title: "Imobiliare",
     accent: "violet" as const,
     benefits: [
-      "Routing pe zona sau tip proprietate",
-      "Reassign automat daca agentul nu raspunde",
+      "Repartizare pe zona sau tip proprietate. Reasignare automata daca nu exista raspuns.",
     ],
   },
 ];
@@ -50,14 +47,9 @@ export function SocialProofSection() {
               </div>
               <h3 className="text-lg font-extrabold leading-tight tracking-tight text-foreground">{industry.title}</h3>
             </div>
-            <ul className="space-y-2">
-              {industry.benefits.map((benefit, index) => (
-                <li key={index} className="text-muted-foreground text-sm leading-snug flex items-start gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-primary mt-1.5 flex-shrink-0" />
-                  {benefit}
-                </li>
-              ))}
-            </ul>
+            <p className="text-muted-foreground text-sm leading-snug">
+              {industry.benefits[0]}
+            </p>
           </AccentCard>
         ))}
       </div>
