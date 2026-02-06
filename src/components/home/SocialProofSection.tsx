@@ -1,12 +1,13 @@
 import { Building2, Stethoscope, Home } from "lucide-react";
 import { Section } from "@/components/layout/Section";
 import { SectionHeading } from "@/components/layout/SectionHeading";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { AccentCard } from "@/components/AccentCard";
 
 const industries = [
   {
     icon: Building2,
     title: "Agentii",
+    accent: "orange" as const,
     benefits: [
       "SLA diferite pe client si campanie",
       "Proof pe fiecare lead pentru raportare",
@@ -15,6 +16,7 @@ const industries = [
   {
     icon: Stethoscope,
     title: "Clinici",
+    accent: "blue" as const,
     benefits: [
       "Contactare in maxim 15 minute",
       "Escalare automata la manager",
@@ -23,6 +25,7 @@ const industries = [
   {
     icon: Home,
     title: "Imobiliare",
+    accent: "violet" as const,
     benefits: [
       "Routing pe zona sau tip proprietate",
       "Reassign automat daca agentul nu raspunde",
@@ -37,26 +40,24 @@ export function SocialProofSection() {
         title="Construit pentru echipe care vand din leaduri inbound"
         light
       />
-      <div className="grid gap-5 md:grid-cols-3">
-        {industries.map((industry, i) => (
-          <Card key={industry.title} className={`card-on-blue ${i === 0 ? "card-accent-orange" : i === 1 ? "card-accent-blue" : "card-accent-violet"}`}>
-            <CardHeader className="pb-2">
+      <div className="grid gap-6 md:grid-cols-3">
+        {industries.map((industry) => (
+          <AccentCard key={industry.title} accent={industry.accent} variant="top" className="border-white/25 bg-white/95 shadow-xl hover:shadow-2xl">
+            <div className="pb-2">
               <div className="h-11 w-11 rounded-xl bg-accent/10 flex items-center justify-center mb-3">
                 <industry.icon className="h-5 w-5 text-accent" />
               </div>
-              <CardTitle className="text-lg">{industry.title}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-2">
-                {industry.benefits.map((benefit, index) => (
-                  <li key={index} className="text-muted-foreground text-sm leading-snug flex items-start gap-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-primary mt-1.5 flex-shrink-0" />
-                    {benefit}
-                  </li>
-                ))}
-              </ul>
-            </CardContent>
-          </Card>
+              <h3 className="text-lg font-extrabold leading-tight tracking-tight text-foreground">{industry.title}</h3>
+            </div>
+            <ul className="space-y-2">
+              {industry.benefits.map((benefit, index) => (
+                <li key={index} className="text-muted-foreground text-sm leading-snug flex items-start gap-2">
+                  <span className="h-1.5 w-1.5 rounded-full bg-primary mt-1.5 flex-shrink-0" />
+                  {benefit}
+                </li>
+              ))}
+            </ul>
+          </AccentCard>
         ))}
       </div>
     </Section>

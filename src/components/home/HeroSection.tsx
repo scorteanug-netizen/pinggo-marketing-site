@@ -2,12 +2,13 @@ import { Link } from "react-router-dom";
 import { Check, Clock, TrendingUp, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/layout/Container";
+import { AccentCard } from "@/components/AccentCard";
 
 export function HeroSection() {
   return (
     <section className="section-premium bg-background">
       <Container>
-        <div className="grid gap-8 lg:grid-cols-2 lg:gap-10 items-center">
+        <div className="grid gap-6 lg:grid-cols-2 lg:gap-8 items-center">
           {/* Left Column - Content */}
           <div className="max-w-2xl">
             <h1 className="text-foreground tracking-[-0.02em] leading-[1.0]">
@@ -50,7 +51,7 @@ export function HeroSection() {
 
           {/* Right Column - Product Card Mock */}
           <div className="relative">
-            <div className="card-premium rounded-2xl p-6 border border-border-card shadow-card hover:shadow-card-hover">
+            <AccentCard accent="orange" variant="top" className="border-slate-200 shadow-xl hover:shadow-2xl">
               {/* Card Header */}
               <div className="flex items-center justify-between mb-5">
                 <div>
@@ -95,7 +96,7 @@ export function HeroSection() {
                   ))}
                 </div>
               </div>
-            </div>
+            </AccentCard>
           </div>
         </div>
       </Container>

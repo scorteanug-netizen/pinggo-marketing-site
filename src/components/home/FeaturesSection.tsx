@@ -1,7 +1,9 @@
 import { Clock, CheckCircle, AlertTriangle, List, GitBranch, BarChart3 } from "lucide-react";
 import { Section } from "@/components/layout/Section";
 import { SectionHeading } from "@/components/layout/SectionHeading";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { AccentCard } from "@/components/AccentCard";
+
+const accents = ["orange", "blue", "violet", "teal"] as const;
 
 const features = [
   {
@@ -42,19 +44,17 @@ export function FeaturesSection() {
       <SectionHeading
         title="Tot ce ai nevoie pentru lead accountability"
       />
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {features.map((feature, i) => (
-          <Card key={feature.title} className={i % 3 === 0 ? "card-accent-orange" : i % 3 === 1 ? "card-accent-blue" : "card-accent-violet"}>
-            <CardHeader className="pb-2">
+          <AccentCard key={feature.title} accent={accents[i % 4]} variant="top">
+            <div className="pb-2">
               <div className="h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center mb-3">
                 <feature.icon className="h-5 w-5 text-primary" />
               </div>
-              <CardTitle>{feature.title}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground text-sm leading-snug">{feature.description}</p>
-            </CardContent>
-          </Card>
+              <h3 className="text-lg font-extrabold leading-tight tracking-tight text-foreground">{feature.title}</h3>
+            </div>
+            <p className="text-slate-600 text-sm leading-snug">{feature.description}</p>
+          </AccentCard>
         ))}
       </div>
     </Section>

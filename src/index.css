@@ -48,9 +48,9 @@
 
     --radius: 0.875rem;
     --radius-card: 1rem;
-    --section-py: 4rem;
-    --section-py-md: 3.5rem;
-    --section-py-lg: 4.5rem;
+    --section-py: 3rem;
+    --section-py-md: 2.5rem;
+    --section-py-lg: 3.5rem;
     --heading-mb: 1.25rem;
     --content-gap: 1.5rem;
     --canvas-opacity: 0.09;
@@ -117,25 +117,25 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply bg-background text-foreground antialiased leading-relaxed;
   }
 
   /* Chili Piper-like typography: very bold, tight line-height */
   h1, h2, h3 {
-    @apply font-extrabold tracking-tight;
+    @apply font-extrabold leading-tight tracking-tight;
     font-weight: 800;
   }
 
   h1 {
     @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl;
     line-height: 1.0;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.025em;
   }
 
   h2 {
     @apply text-3xl md:text-4xl lg:text-5xl;
     line-height: 1.05;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.025em;
   }
 
   h3 {
