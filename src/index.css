@@ -283,3 +283,29 @@
 .marquee-inner .marquee-track {
   animation: marquee-scroll 45s linear infinite;
 }
+
+/* Configurezi section: Chili Piper-style deep blue/purple + soft waves */
+.configurezi-section-waves::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: -10%;
+  width: 50%;
+  max-width: 480px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 65%);
+  filter: blur(48px);
+}
+.configurezi-section-waves::after {
+  content: "";
+  position: absolute;
+  bottom: -15%;
+  right: -5%;
+  width: 45%;
+  max-width: 420px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(147, 51, 234, 0.15) 0%, transparent 60%);
+  filter: blur(56px);
+}
