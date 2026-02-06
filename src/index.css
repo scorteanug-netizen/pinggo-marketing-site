@@ -12,7 +12,8 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 222.2 47% 11%;
+    --accent-hero: 24.6 95% 53.1%;
 
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
@@ -117,30 +118,29 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased leading-relaxed;
+    @apply bg-background text-foreground antialiased leading-relaxed font-body;
   }
 
-  /* Chili Piper-like typography: very bold, tight line-height */
+  /* Chili Piper-like: display font for headings, very bold, tight */
   h1, h2, h3 {
-    @apply font-extrabold leading-tight tracking-tight;
-    font-weight: 800;
+    @apply font-display;
   }
 
   h1 {
-    @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl;
-    line-height: 1.0;
-    letter-spacing: -0.025em;
+    @apply font-extrabold text-5xl md:text-7xl leading-[0.95] tracking-[-0.03em];
   }
 
   h2 {
-    @apply text-3xl md:text-4xl lg:text-5xl;
-    line-height: 1.05;
-    letter-spacing: -0.025em;
+    @apply font-extrabold text-4xl md:text-5xl leading-[1.0] tracking-[-0.02em];
   }
 
   h3 {
-    @apply text-xl md:text-2xl;
-    line-height: 1.1;
+    @apply font-bold leading-[1.1] text-xl md:text-2xl;
+  }
+
+  p.prose-width,
+  .prose-width p {
+    @apply text-base md:text-lg text-slate-600 leading-relaxed max-w-2xl;
   }
 }
 

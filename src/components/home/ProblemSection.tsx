@@ -2,6 +2,7 @@ import { XCircle } from "lucide-react";
 import { Section } from "@/components/layout/Section";
 import { SectionHeading } from "@/components/layout/SectionHeading";
 import { AccentCard } from "@/components/AccentCard";
+import { Accent } from "@/components/Accent";
 
 const problems = [
   "Lead neasumat - nimeni nu stie cine se ocupa",
@@ -16,8 +17,7 @@ export function ProblemSection() {
       <SectionHeading
         title={
           <>
-            Leadurile nu se pierd din lipsa de trafic.{" "}
-            <span className="text-highlight">Se pierd din lipsa de executie.</span>
+            Leadurile nu se pierd din lipsa de trafic. Se pierd din lipsa de <Accent>executie.</Accent>
           </>
         }
       />

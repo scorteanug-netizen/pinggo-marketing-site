@@ -12,16 +12,16 @@ export function SectionHeading({ title, subtitle, className, centered = true, li
   return (
     <div className={cn("mb-5 md:mb-6", centered && "text-center", className)}>
       <h2 className={cn(
-        "font-extrabold tracking-tight leading-[1.05] [-webkit-font-smoothing:antialiased]",
-        light ? "text-white" : "text-foreground"
+        "font-display font-extrabold tracking-tight leading-[1.0] tracking-[-0.02em] [-webkit-font-smoothing:antialiased]",
+        light ? "text-white" : "text-slate-950"
       )}>
         {title}
       </h2>
       {subtitle && (
         <p className={cn(
-          "mt-3 text-base md:text-lg max-w-2xl leading-snug",
+          "mt-3 text-base md:text-lg max-w-2xl leading-relaxed font-body",
           centered && "mx-auto",
-          light ? "text-white/80" : "text-muted-foreground"
+          light ? "text-white/80" : "text-slate-600"
         )}>
           {subtitle}
         </p>

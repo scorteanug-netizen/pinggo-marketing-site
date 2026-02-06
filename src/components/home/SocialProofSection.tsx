@@ -2,6 +2,7 @@ import { Building2, Stethoscope, Home } from "lucide-react";
 import { Section } from "@/components/layout/Section";
 import { SectionHeading } from "@/components/layout/SectionHeading";
 import { AccentCard } from "@/components/AccentCard";
+import { Accent } from "@/components/Accent";
 
 const industries = [
   {
@@ -37,7 +38,7 @@ export function SocialProofSection() {
   return (
     <Section highlightBlue>
       <SectionHeading
-        title="Construit pentru echipe care vand din leaduri inbound"
+        title={<>Construit pentru echipe care vand din <Accent>leaduri inbound</Accent></>}
         light
       />
       <div className="grid gap-6 md:grid-cols-3">

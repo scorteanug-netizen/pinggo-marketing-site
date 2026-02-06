@@ -3,6 +3,7 @@ import { Check, Clock, TrendingUp, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/layout/Container";
 import { AccentCard } from "@/components/AccentCard";
+import { Accent } from "@/components/Accent";
 
 export function HeroSection() {
   return (
@@ -10,36 +11,36 @@ export function HeroSection() {
       <Container>
         <div className="grid gap-6 lg:grid-cols-2 lg:gap-8 items-center">
           {/* Left Column - Content */}
-          <div className="max-w-2xl">
-            <h1 className="text-foreground tracking-[-0.02em] leading-[1.0]">
-              First Contact <span className="text-highlight">Proof</span> + <span className="text-highlight">SLA</span> Enforcement
+          <div className="max-w-xl">
+            <h1 className="text-slate-950 font-display font-extrabold text-5xl md:text-7xl leading-[0.95] tracking-[-0.03em]">
+              First Contact <Accent>Proof</Accent> + SLA Enforcement
             </h1>
-            <p className="mt-4 text-base md:text-lg text-muted-foreground leading-snug max-w-xl">
+            <p className="mt-3 text-base md:text-lg text-slate-600 leading-relaxed max-w-xl">
               Garantam ca fiecare lead este contactat la timp, cu dovada verificabila si escaladare automata. Functioneaza cu sau fara CRM.
             </p>
             
-            <ul className="mt-6 space-y-3">
+            <ul className="mt-4 space-y-2">
               <li className="flex items-start gap-3">
                 <div className="h-5 w-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                   <Check className="h-3.5 w-3.5 text-primary" />
                 </div>
-                <span className="text-foreground text-base leading-snug">Clock stop doar pe proof (WhatsApp, email)</span>
+                <span className="text-slate-700 text-base leading-snug font-body">Clock stop doar pe proof (WhatsApp, email)</span>
               </li>
               <li className="flex items-start gap-3">
                 <div className="h-5 w-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                   <Check className="h-3.5 w-3.5 text-primary" />
                 </div>
-                <span className="text-foreground text-base leading-snug">Reminder, reassign, manager escalation</span>
+                <span className="text-slate-700 text-base leading-snug font-body">Reminder, reassign, manager escalation</span>
               </li>
               <li className="flex items-start gap-3">
                 <div className="h-5 w-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                   <Check className="h-3.5 w-3.5 text-primary" />
                 </div>
-                <span className="text-foreground text-base leading-snug">Rapoarte saptamanale: TTFC, breaches, ownership</span>
+                <span className="text-slate-700 text-base leading-snug font-body">Rapoarte saptamanale: TTFC, breaches, ownership</span>
               </li>
             </ul>
 
-            <div className="mt-8 flex flex-col sm:flex-row gap-3">
+            <div className="mt-6 flex flex-col sm:flex-row gap-3">
               <Button size="lg" asChild>
                 <Link to="/contact">Book a demo</Link>
               </Button>
