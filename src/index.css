@@ -269,3 +269,17 @@
     @apply max-w-3xl;
   }
 }
+
+/* Top marquee banner animation */
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-inner .marquee-track {
+  animation: marquee-scroll 45s linear infinite;
+}
