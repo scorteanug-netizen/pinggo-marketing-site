@@ -71,3 +71,22 @@ Yes, you can!
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
 Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+
+## Platform login URL
+
+Button-ul `Conectare` din navbar foloseste `VITE_PLATFORM_URL`.
+Fara aceasta variabila:
+- pe localhost merge la `http://localhost:3001/login`
+- in productie merge la `https://app.pinggo.ro/login`
+
+Seteaza in `.env`:
+
+```sh
+VITE_PLATFORM_URL=http://localhost:3001/login
+```
+
+In productie, foloseste URL-ul complet al platformei (cu protocol), de exemplu:
+
+```sh
+VITE_PLATFORM_URL=https://app.pinggo.ro/login
+```

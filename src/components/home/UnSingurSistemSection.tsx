@@ -1,39 +1,79 @@
+import { Clock, Timer, AlertTriangle, UserCheck, CheckCircle, BarChart3 } from "lucide-react";
 import { Section } from "@/components/layout/Section";
 import { SectionHeading } from "@/components/layout/SectionHeading";
-import { AccentPanel } from "@/components/AccentPanel";
+import { cn } from "@/lib/utils";
 
-const bullets = [
-  "Calificare simpla: reguli pe sursa, formular, campanie",
-  "Repartizare automata: round robin sau pe reguli",
-  "Termen de raspuns: diferit pe tip de lead, in orele de lucru",
-  "Escaladare: memento, reasignare, alerta manager",
-  "Dovada: WhatsApp, e-mail, apel",
+const BORDER_COLORS = [
+  "border-t-2 border-t-orange-500",
+  "border-t-2 border-t-blue-500",
+  "border-t-2 border-t-violet-500",
+  "border-t-2 border-t-teal-500",
+  "border-t-2 border-t-orange-500",
+  "border-t-2 border-t-blue-500",
+] as const;
+
+const ITEMS = [
+  {
+    icon: Clock,
+    title: "Termene pe tip de lead",
+    description: "Setezi termene diferite dupa sursa, intent sau valoare. Include ore de lucru.",
+  },
+  {
+    icon: Timer,
+    title: "Cronometru pe fiecare lead",
+    description: "Fiecare lead primeste un termen limita, vizibil pentru echipa si manager.",
+  },
+  {
+    icon: AlertTriangle,
+    title: "Escaladare automata",
+    description: "Memento la timp, reasignare cand e nevoie, alerta la manager daca se depaseste.",
+  },
+  {
+    icon: UserCheck,
+    title: "Spune cine e responsabil",
+    description: "Stii mereu cine are leadul si cand a fost preluat. Fara discutii.",
+  },
+  {
+    icon: CheckCircle,
+    title: "Dovada primului contact",
+    description: "Cronometrul se opreste doar la dovada: WhatsApp, e-mail sau apel inregistrat.",
+  },
+  {
+    icon: BarChart3,
+    title: "Raport saptamanal",
+    description: "Vezi intarzieri, termene depasite si responsabili. Trimise automat pe e-mail sau Slack.",
+  },
 ];
 
 export function UnSingurSistemSection() {
   return (
     <Section alternate canvas>
       <SectionHeading
-        title="In sfarsit, un singur sistem care nu lasa leadurile sa se piarda"
-        subtitle="Pinggo aduce intr-un singur loc: preluare, repartizare, termen de raspuns si dovada primului contact."
+        title="In sfarsit, un singur sistem care nu lasa leadurile sa se piarda."
+        subtitle="Termene clare, dovezi verificabile si escaladare automata. Ca sa fie executie, nu presupuneri."
       />
-      <div className="max-w-3xl mx-auto">
-        <AccentPanel accent="orange" className="p-6 md:p-8">
-          <p className="text-slate-600 text-base leading-relaxed mb-6">
-            Preia leaduri din formular, e-mail sau webhook. Le repartizezi automat, setezi termene pe tip de lead si ore de lucru, iar Pinggo urmareste pana cand exista dovada verificabila de primul contact. Daca nu se raspunde la timp, trimite memento, reasigneaza si escaladeaza la manager.
-          </p>
-          <ul className="space-y-2 mb-6">
-            {bullets.map((item, i) => (
-              <li key={i} className="flex items-start gap-2 text-slate-700 text-sm leading-snug">
-                <span className="h-1.5 w-1.5 rounded-full bg-orange-500 mt-1.5 flex-shrink-0" />
-                {item}
-              </li>
-            ))}
-          </ul>
-          <p className="font-extrabold text-slate-950 text-lg leading-snug">
-            Tu aduci leaduri. Pinggo garanteaza executia.
-          </p>
-        </AccentPanel>
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {ITEMS.map((item, i) => (
+          <div
+            key={item.title}
+            className={cn(
+              "rounded-2xl bg-white border-2 border-slate-200 p-5",
+              "shadow-[0_8px_30px_rgba(15,23,42,0.08)] hover:shadow-[0_12px_40px_-8px_rgba(15,23,42,0.12)]",
+              "transition-all duration-300 hover:-translate-y-0.5",
+              BORDER_COLORS[i]
+            )}
+          >
+            <div className="pb-2">
+              <div className="h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center mb-3">
+                <item.icon className="h-5 w-5 text-primary" />
+              </div>
+              <h3 className="text-xl font-extrabold leading-tight tracking-tight text-slate-900">
+                {item.title}
+              </h3>
+            </div>
+            <p className="text-slate-600 text-sm leading-snug">{item.description}</p>
+          </div>
+        ))}
       </div>
     </Section>
   );

@@ -5,6 +5,43 @@ import { Button } from "@/components/ui/button";
 import { Container } from "./Container";
 import { cn } from "@/lib/utils";
 
+const LOCAL_PLATFORM_URL = "http://localhost:3001/login";
+const PROD_PLATFORM_URL = "https://app.pinggo.ro/login";
+
+function getDefaultPlatformUrl() {
+  if (typeof window === "undefined") {
+    return PROD_PLATFORM_URL;
+  }
+
+  const isLocalHost = /^(localhost|127(?:\.\d{1,3}){3}|::1)$/i.test(window.location.hostname);
+  return isLocalHost ? LOCAL_PLATFORM_URL : PROD_PLATFORM_URL;
+}
+
+function getPlatformLoginUrl() {
+  const fallbackUrl = getDefaultPlatformUrl();
+  const configuredUrl = import.meta.env.VITE_PLATFORM_URL?.trim();
+  if (!configuredUrl) {
+    return fallbackUrl;
+  }
+
+  const hasProtocol = /^[a-zA-Z][a-zA-Z\d+\-.]*:\/\//.test(configuredUrl);
+  const isLocalHost = /^(localhost|127(?:\.\d{1,3}){3}|\[::1\])(?::\d+)?(\/|$)/i.test(configuredUrl);
+  const candidateUrl = hasProtocol
+    ? configuredUrl
+    : `${isLocalHost ? "http" : "https"}://${configuredUrl}`;
+
+  try {
+    const parsedUrl = new URL(candidateUrl);
+    if (!parsedUrl.pathname || parsedUrl.pathname === "/") {
+      parsedUrl.pathname = "/login";
+    }
+
+    return parsedUrl.toString();
+  } catch {
+    return fallbackUrl;
+  }
+}
+
 const navLinks = [
   { href: "/product", label: "Produs" },
   { href: "/#how-it-works", label: "Cum functioneaza" },
@@ -16,6 +53,7 @@ const navLinks = [
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const platformLoginUrl = getPlatformLoginUrl();
 
   const handleNavClick = (href: string) => {
     setIsOpen(false);
@@ -34,7 +72,7 @@ export function Navbar() {
         <nav className="flex h-12 items-center justify-between py-2">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <span className="text-2xl font-extrabold text-foreground tracking-tight">Pinggo</span>
+            <img src="/PINGGO_LOGO.png?v=2" alt="Pinggo" className="h-8 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
@@ -54,7 +92,7 @@ export function Navbar() {
           {/* Desktop CTAs */}
           <div className="hidden md:flex md:items-center md:gap-4">
             <Button variant="ghost" asChild>
-              <Link to="#">Conectare</Link>
+              <a href={platformLoginUrl} target="_blank" rel="noopener noreferrer">Conectare</a>
             </Button>
             <Button asChild className="shadow-md hover:shadow-lg hover:brightness-105 transition-all">
               <Link to="/contact">Solicita demo</Link>
@@ -95,7 +133,7 @@ export function Navbar() {
             ))}
             <div className="flex flex-col gap-3 pt-6">
               <Button variant="outline" asChild className="w-full">
-                <Link to="#">Conectare</Link>
+                <a href={platformLoginUrl} target="_blank" rel="noopener noreferrer">Conectare</a>
               </Button>
               <Button asChild className="w-full">
                 <Link to="/contact">Solicita demo</Link>

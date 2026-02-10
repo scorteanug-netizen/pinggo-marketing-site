@@ -18,6 +18,18 @@ export default {
         heading: ["Fraunces", "system-ui", "serif"],
       },
       colors: {
+        orange: {
+          50: "#fff4ef",
+          100: "#ffe8dd",
+          200: "#ffd0bb",
+          300: "#ffb092",
+          400: "#ff885f",
+          500: "#ff5621",
+          600: "#f04c1a",
+          700: "#c93d13",
+          800: "#a43615",
+          900: "#872f16",
+        },
         border: "hsl(var(--border))",
         "border-card": "hsl(var(--border-card))",
         input: "hsl(var(--input))",

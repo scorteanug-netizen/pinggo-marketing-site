@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ArrowRight, Zap } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 const BANNER_HEIGHT = 44;
 const STORAGE_KEY = "pinggo_banner_closed";
@@ -67,7 +67,12 @@ function MarqueeContent() {
         |
       </span>
       <span className="flex items-center gap-1.5 text-xs sm:text-sm font-medium">
-        <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-orange-400 flex-shrink-0" />
+        <img
+          src="/PINGGO_LOGO.png?v=2"
+          alt="Pinggo"
+          className="h-3.5 w-auto sm:h-4 flex-shrink-0"
+          loading="eager"
+        />
         Pinggo: dovada primului contact + termene respectate
       </span>
       <span className="text-white/40 text-lg px-2" aria-hidden>

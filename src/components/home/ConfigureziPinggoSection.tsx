@@ -59,13 +59,11 @@ export function ConfigureziPinggoSection() {
 
         {/* Mockup image + caption */}
         <div className="flex flex-col items-center">
-          <div className="w-full max-w-4xl rounded-2xl overflow-hidden shadow-2xl ring-1 ring-black/10 border border-slate-200/80 bg-white">
-            <img
-              src="/workflow.png"
-              alt="Flux de lucru Pinggo"
-              className="w-full h-auto object-contain block"
-            />
-          </div>
+          <img
+            src="/form_routing.png"
+            alt="Flux de lucru Pinggo"
+            className="w-full max-w-4xl h-auto object-contain block my-6"
+          />
           <p className="mt-4 text-center text-slate-600 text-sm md:text-base max-w-xl mx-auto leading-snug">
             {current.caption}
           </p>

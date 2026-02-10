@@ -3,7 +3,6 @@ import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/layout/Container";
 import { Accent } from "@/components/Accent";
-import { PinggoVenn } from "@/components/PinggoVenn";
 
 export function HeroSection() {
   return (
@@ -50,9 +49,14 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Right Column - Venn diagram */}
-          <div className="relative flex items-center justify-center">
-            <PinggoVenn />
+          {/* Right Column - custom image */}
+          <div className="relative flex items-center justify-center min-h-[320px] md:min-h-[420px] w-full overflow-visible">
+            <img
+              src="/PINGGO.png?v=2"
+              alt="Diagrama Pinggo"
+              className="w-full max-w-[360px] md:max-w-[560px] h-auto"
+              loading="eager"
+            />
           </div>
         </div>
       </Container>
