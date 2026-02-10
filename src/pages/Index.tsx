@@ -6,6 +6,7 @@ import { UnSingurSistemSection } from "@/components/home/UnSingurSistemSection";
 import { SocialProofSection } from "@/components/home/SocialProofSection";
 import { ProblemSection } from "@/components/home/ProblemSection";
 import { HowItWorksSection } from "@/components/home/HowItWorksSection";
+import { CeVedeManagerulSection } from "@/components/home/CeVedeManagerulSection";
 import { IntegrationsSection } from "@/components/home/IntegrationsSection";
 import { PricingTeaserSection } from "@/components/home/PricingTeaserSection";
 import { FAQSection } from "@/components/home/FAQSection";
@@ -21,6 +22,7 @@ const Index = () => {
       <SocialProofSection />
       <ProblemSection />
       <HowItWorksSection />
+      <CeVedeManagerulSection />
       <IntegrationsSection />
       <PricingTeaserSection />
       <FAQSection />

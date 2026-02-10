@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
-import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/layout/Container";
-import { Accent } from "@/components/Accent";
 
 export function HeroSection() {
   return (
@@ -12,39 +10,21 @@ export function HeroSection() {
           {/* Left Column - Content */}
           <div className="max-w-xl">
             <h1 className="text-slate-950 font-heading font-extrabold text-5xl md:text-7xl leading-[0.95] tracking-[-0.03em]">
-              Nu lasa <Accent>leadurile</Accent> sa se raceasca.
+              Răspuns în 15 secunde. Programare automată.
+              <br />
+              Știi exact cine a preluat.
             </h1>
             <p className="mt-3 text-base md:text-lg text-slate-600 leading-relaxed max-w-xl">
-              Preiei, repartizezi si urmaresti leadurile pana la primul contact, cu dovada verificabila. Dintr-un singur sistem.
+              Pinggo preia fiecare lead pe WhatsApp, pune 2-3 întrebări,
+              și programează. Dacă ceva nu merge, escaldează automat.
             </p>
-            
-            <ul className="mt-4 space-y-2">
-              <li className="flex items-start gap-3">
-                <div className="h-5 w-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <Check className="h-3.5 w-3.5 text-primary" />
-                </div>
-                <span className="text-slate-700 text-base leading-snug font-body">Dovada: WhatsApp, e-mail, apel</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="h-5 w-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <Check className="h-3.5 w-3.5 text-primary" />
-                </div>
-                <span className="text-slate-700 text-base leading-snug font-body">Memento, reasignare, alerta manager</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="h-5 w-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <Check className="h-3.5 w-3.5 text-primary" />
-                </div>
-                <span className="text-slate-700 text-base leading-snug font-body">Raport saptamanal: TTFC, intarzieri, responsabil</span>
-              </li>
-            </ul>
 
             <div className="mt-6 flex flex-col sm:flex-row gap-3">
               <Button size="lg" asChild>
-                <Link to="/contact">Solicita demo</Link>
+                <Link to="/contact">Solicită demo</Link>
               </Button>
               <Button size="lg" variant="outline" asChild>
-                <Link to="/contact">Incepe testarea</Link>
+                <Link to="/contact">Începe testarea</Link>
               </Button>
             </div>
           </div>

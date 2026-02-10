@@ -1,4 +1,4 @@
-import { Webhook, Clock, AlertTriangle, CheckCircle } from "lucide-react";
+import { Webhook, Zap, Calendar, AlertTriangle } from "lucide-react";
 import { Section } from "@/components/layout/Section";
 import { SectionHeading } from "@/components/layout/SectionHeading";
 import { AccentPanel } from "@/components/AccentPanel";
@@ -6,23 +6,23 @@ import { AccentPanel } from "@/components/AccentPanel";
 const steps = [
   {
     icon: Webhook,
-    title: "Preluare",
-    description: "Leadurile intra prin webhook sau redirectionare e-mail. Configurare rapida.",
+    title: "Leadul intră",
+    description: "Din formular, Facebook Ads, sau WhatsApp. Se conectează în 5 minute, fără să schimbi nimic.",
   },
   {
-    icon: Clock,
-    title: "Cronometru",
-    description: "Termen calculat pe ore de lucru. Fiecare lead are un cronometru.",
+    icon: Zap,
+    title: "Răspuns instant",
+    description: "Clientul primește mesaj pe WhatsApp în 15 secunde. Întrebări scurte + propunere programare.",
+  },
+  {
+    icon: Calendar,
+    title: "Programare automată",
+    description: "Slot ales → calendar actualizat → confirmare trimisă. Fără apeluri, fără așteptare.",
   },
   {
     icon: AlertTriangle,
-    title: "Escaladare",
-    description: "Memento la 50%, reasignare la 75%, alerta la manager la 100%.",
-  },
-  {
-    icon: CheckCircle,
-    title: "Dovada",
-    description: "Cronometrul se opreste doar la eveniment verificabil: WhatsApp, e-mail, apel.",
+    title: "Dacă ceva nu merge",
+    description: "Clientul nu răspunde? Follow-up automat. Agentul nu preia? Reasignare + alertă manager. Niciun lead nu se pierde.",
   },
 ];
 
