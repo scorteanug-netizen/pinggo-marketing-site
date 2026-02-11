@@ -26,7 +26,7 @@ export function Footer() {
                 <span className="text-2xl font-extrabold text-foreground tracking-tight">Pinggo</span>
               </Link>
               <p className="mt-4 text-muted-foreground max-w-md leading-relaxed">
-                Romania-first, EU-ready. Garantam ca fiecare lead este contactat la timp, cu dovada verificabila si escaladare automata.
+                Romania-first, EU-ready. Garantăm că fiecare lead este contactat la timp, cu dovadă de contact și escaladare automată.
               </p>
             </div>
 

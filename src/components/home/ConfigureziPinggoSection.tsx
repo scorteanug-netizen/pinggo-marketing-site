@@ -9,7 +9,7 @@ const MODULES = [
   { id: "repartizare", label: "Repartizare", caption: "Repartizare dupa agent, program sau regula." },
   { id: "termen", label: "Termen", caption: "Termen diferit in functie de intent si sursa." },
   { id: "escaladare", label: "Escaladare", caption: "Memento, reasignare, alerta manager." },
-  { id: "dovada", label: "Dovada", caption: "Cronometrul se opreste doar la dovada verificabila." },
+  { id: "dovada", label: "Confirmare", caption: "Cronometrul se oprește doar la dovada de contact." },
 ] as const;
 
 export function ConfigureziPinggoSection() {

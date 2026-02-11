@@ -1,4 +1,4 @@
-import { Clock, Timer, AlertTriangle, UserCheck, CheckCircle, BarChart3 } from "lucide-react";
+import { Zap, MessageSquare, Calendar, AlertTriangle, Eye, BarChart3 } from "lucide-react";
 import { Section } from "@/components/layout/Section";
 import { SectionHeading } from "@/components/layout/SectionHeading";
 import { cn } from "@/lib/utils";
@@ -14,34 +14,34 @@ const BORDER_COLORS = [
 
 const ITEMS = [
   {
-    icon: Clock,
-    title: "Termene pe tip de lead",
-    description: "Setezi termene diferite dupa sursa, intent sau valoare. Include ore de lucru.",
+    icon: Zap,
+    title: "Răspuns automat în 15 secunde",
+    description: "Fiecare lead primește confirmare instant pe WhatsApp, chiar dacă echipa e ocupată.",
   },
   {
-    icon: Timer,
-    title: "Cronometru pe fiecare lead",
-    description: "Fiecare lead primeste un termen limita, vizibil pentru echipa si manager.",
+    icon: MessageSquare,
+    title: "Conversație ghidată pe WhatsApp",
+    description: "Pinggo pune 2-3 întrebări și colectează informațiile necesare automat.",
+  },
+  {
+    icon: Calendar,
+    title: "Programare directă în Google Calendar",
+    description: "Clientul alege slotul, Pinggo creează întâlnirea automat.",
   },
   {
     icon: AlertTriangle,
-    title: "Escaladare automata",
-    description: "Memento la timp, reasignare cand e nevoie, alerta la manager daca se depaseste.",
+    title: "Escaladare dacă nimeni nu preia",
+    description: "Dacă lead-ul nu e preluat în 10 minute, Pinggo alertează managerul.",
   },
   {
-    icon: UserCheck,
-    title: "Spune cine e responsabil",
-    description: "Stii mereu cine are leadul si cand a fost preluat. Fara discutii.",
-  },
-  {
-    icon: CheckCircle,
-    title: "Dovada primului contact",
-    description: "Cronometrul se opreste doar la dovada: WhatsApp, e-mail sau apel inregistrat.",
+    icon: Eye,
+    title: "Vezi exact cine a preluat și când",
+    description: "Istoric complet: cine a răspuns, la ce oră, ce s-a discutat.",
   },
   {
     icon: BarChart3,
-    title: "Raport saptamanal",
-    description: "Vezi intarzieri, termene depasite si responsabili. Trimise automat pe e-mail sau Slack.",
+    title: "Raport săptămânal: leaduri, răspunsuri, programări",
+    description: "Email automat vinerea cu statistici: câte leaduri, câte răspunsuri, cât de repede.",
   },
 ];
 
@@ -50,7 +50,7 @@ export function UnSingurSistemSection() {
     <Section alternate canvas>
       <SectionHeading
         title="In sfarsit, un singur sistem care nu lasa leadurile sa se piarda."
-        subtitle="Termene clare, dovezi verificabile si escaladare automata. Ca sa fie executie, nu presupuneri."
+        subtitle="Răspuns instant, programare automată și escaladare. Ca să fie execuție, nu presupuneri."
       />
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {ITEMS.map((item, i) => (

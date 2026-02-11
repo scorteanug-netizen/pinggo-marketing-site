@@ -59,14 +59,14 @@ Conecteaza Slack pentru a primi notificari in timp real.
 4. Selecteaza channel-ul pentru notificari
 5. Configureaza ce tipuri de alerte vrei sa primesti:
    - New lead assigned
-   - SLA warning (50%)
-   - SLA breach imminent (75%)
-   - SLA breached (100%)
-   - Proof received
+   - Avertizare termen (50%)
+   - Termen aproape depășit (75%)
+   - Termen depășit (100%)
+   - Confirmare contact primită
 
 **Comenzi Slack:**
 - \`/pinggo status\` - vezi leadurile tale active
-- \`/pinggo proof [lead_id]\` - marcheaza lead ca contactat
+- \`/pinggo confirm [lead_id]\` - marchează lead ca contactat
     `,
     hasCode: false,
   },
@@ -74,7 +74,7 @@ Conecteaza Slack pentru a primi notificari in timp real.
     id: "whatsapp",
     title: "WhatsApp Connect",
     content: `
-Integreaza WhatsApp Business pentru proof automat.
+Integrează WhatsApp Business pentru confirmare automată de contact.
 
 **Pasi de conectare:**
 
@@ -84,12 +84,12 @@ Integreaza WhatsApp Business pentru proof automat.
 4. Configureaza webhook-ul din provider catre Pinggo
 5. Mapeaza numarul de telefon al agentilor
 
-**Cum functioneaza proof-ul:**
+**Cum funcționează confirmarea:**
 
-Cand un agent trimite un mesaj WhatsApp catre lead:
+Când un agent trimite un mesaj WhatsApp către lead:
 1. Provider-ul trimite webhook la Pinggo
-2. Pinggo verifica: from = agent, to = lead phone
-3. Daca match, clock stop + proof logged
+2. Pinggo verifică: from = agent, to = lead phone
+3. Dacă match, termen închis + confirmare înregistrată
 
 **Supported providers:**
 - Twilio

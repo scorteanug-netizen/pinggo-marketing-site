@@ -25,7 +25,7 @@ const Terms = () => {
             <div className="p-6 rounded-2xl bg-secondary/50 border border-border/50">
               <h2 className="text-2xl font-bold text-foreground mb-4">2. Description of Service</h2>
               <p className="text-muted-foreground leading-relaxed">
-                Pinggo provides SLA enforcement and first contact proof tracking for sales teams. Our service includes lead intake, SLA monitoring, escalation automation, and reporting.
+                Pinggo provides response time management and first contact tracking for sales teams. Our service includes lead intake, response monitoring, escalation automation, and reporting.
               </p>
             </div>
 

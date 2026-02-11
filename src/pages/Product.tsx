@@ -10,57 +10,57 @@ const modules = [
   {
     icon: Webhook,
     title: "Intake",
-    description: "Leadurile intra in sistem prin webhook sau email forwarding. Suportam orice sursa: Facebook Ads, Google Ads, website forms, Typeform, JotForm, etc.",
+    description: "Leadurile intră în sistem prin webhook sau email forwarding. Suportăm orice sursă: Facebook Ads, Google Ads, website forms, Typeform, JotForm, etc.",
     features: [
       "Webhook universal cu JSON payload",
       "Email forwarding cu parsing automat",
       "Deduplicare pe email sau telefon",
-      "Mapping flexibil de campuri",
+      "Mapping flexibil de câmpuri",
     ],
   },
   {
     icon: Clock,
-    title: "SLA Engine",
-    description: "Fiecare lead primeste un deadline bazat pe reguli configurabile. Ceasul ruleaza doar pe business hours.",
+    title: "Reguli de răspuns",
+    description: "Fiecare lead primește un termen de răspuns bazat pe reguli configurabile. Ceasul rulează doar pe ore de lucru.",
     features: [
-      "SLA diferite pe sursa, tip, sau valoare",
-      "Business hours per echipa sau agent",
-      "Reminder automat la 50% din SLA",
-      "Reassign la 75%, escalare la 100%",
+      "Termene diferite pe sursă, tip, sau valoare",
+      "Ore de lucru per echipă sau agent",
+      "Reminder automat la 50% din termen",
+      "Reasignare la 75%, escaladare la 100%",
     ],
   },
   {
     icon: CheckCircle,
-    title: "Proof",
-    description: "Ceasul se opreste doar cand exista dovada verificabila de contact. Fara proof, SLA-ul ramane deschis.",
+    title: "Confirmare contact",
+    description: "Ceasul se oprește doar când există dovadă de contact. Fără confirmare, termenul rămâne deschis.",
     features: [
-      "WhatsApp message sent",
+      "Mesaj WhatsApp trimis",
       "Email outbound tracked",
-      "Call log integration",
-      "Manual proof cu nota",
+      "Integrare call log",
+      "Confirmare manuală cu notă",
     ],
   },
 ];
 
 const workflow = [
-  "Lead-ul intra prin webhook sau email forwarding",
-  "Pinggo aplica reguli de routing si assigneaza owner",
-  "Ceasul SLA porneste (business hours only)",
-  "Agent primeste notificare pe Slack/email",
+  "Lead-ul intră prin webhook sau email forwarding",
+  "Pinggo aplică reguli de alocare și asignează responsabil",
+  "Termenul de răspuns pornește (doar ore de lucru)",
+  "Agentul primește notificare pe Slack/email",
   "La 50%: reminder automat",
-  "La 75%: reassign catre backup",
-  "La 100%: manager alert",
-  "Agent contacteaza si trimite proof",
-  "Clock stop. Lead marcat ca contacted.",
+  "La 75%: reasignare către backup",
+  "La 100%: alertă manager",
+  "Agentul contactează și trimite confirmare",
+  "Termen închis. Lead marcat ca contactat.",
 ];
 
 const benefits = [
   "Zero leaduri pierdute sau uitate",
-  "Timp mediu de raspuns sub 30 minute",
-  "Proof verificabil pentru fiecare lead",
-  "Escaladare automata fara interventie manuala",
-  "Rapoarte saptamanale cu KPIs",
-  "Audit trail complet pentru compliance",
+  "Timp mediu de răspuns sub 30 minute",
+  "Dovadă de contact pentru fiecare lead",
+  "Escaladare automată fără intervenție manuală",
+  "Rapoarte săptămânale cu statistici",
+  "Istoric complet pentru fiecare lead",
 ];
 
 const Product = () => {
@@ -73,7 +73,7 @@ const Product = () => {
             Cum functioneaza <span className="text-highlight">Pinggo</span>
           </h1>
           <p className="mt-6 text-lg md:text-xl text-muted-foreground leading-relaxed">
-            Trei module care lucreaza impreuna pentru a garanta ca fiecare lead este contactat la timp, cu dovada verificabila.
+            Trei module care lucrează împreună pentru a garanta că fiecare lead este contactat la timp, cu dovadă de contact.
           </p>
         </div>
       </Section>
@@ -111,7 +111,7 @@ const Product = () => {
       <Section canvas>
         <SectionHeading
           title="Workflow pas cu pas"
-          subtitle="De la lead nou la first contact proof"
+          subtitle="De la lead nou la confirmare contact"
         />
         <div className="max-w-2xl mx-auto">
           <ol className="space-y-5">

@@ -10,46 +10,46 @@ const plans = [
   {
     name: "Pornire",
     price: "149",
-    leads: "300 leads/luna",
-    description: "Pentru echipe mici care vor sa inceapa cu urmarirea termenului",
+    leads: "Până la 100 leaduri/lună",
+    description: "Pentru echipe mici care vor răspuns automat din prima zi",
     features: {
-      leads: "300",
-      channels: ["E-mail", "Slack"],
-      sla: "Termen de raspuns (1 politica)",
-      routing: false,
+      leads: "100",
+      channels: ["WhatsApp", "E-mail", "Slack"],
+      sla: "Reguli de răspuns (1 regulă)",
+      routing: "Răspuns automat inclus",
       escalation: "Simplu",
-      reports: "Raport saptamanal pe e-mail",
+      reports: "Raport săptămânal pe e-mail",
       support: "E-mail",
     },
   },
   {
-    name: "Crestere",
+    name: "Creștere",
     price: "249",
-    leads: "1,000 leads/luna",
-    description: "Pentru echipe in crestere cu volume mai mari",
+    leads: "Până la 500 leaduri/lună",
+    description: "Pentru echipe în creștere cu volume mai mari",
     popular: true,
     features: {
-      leads: "1,000",
+      leads: "500",
       channels: ["WhatsApp", "E-mail", "Slack"],
-      sla: "Termene personalizate (5 politici)",
-      routing: "Simplu",
-      escalation: "Avansat",
-      reports: "Saptamanal + dashboard",
+      sla: "Reguli personalizate (5 reguli)",
+      routing: "Alocare automată echipei",
+      escalation: "Escaladare automată la manager",
+      reports: "Rapoarte săptămânale email + dashboard",
       support: "E-mail prioritar",
     },
   },
   {
     name: "Avansat",
     price: "499",
-    leads: "3,000 leads/luna",
-    description: "Pentru agentii si echipe mari",
+    leads: "Până la 3,000 leaduri/lună",
+    description: "Pentru agenții și echipe mari",
     features: {
       leads: "3,000",
       channels: ["WhatsApp", "E-mail", "Slack", "Webhook"],
-      sla: "Politici nelimitate",
-      routing: "Avansat + reguli",
-      escalation: "Lant complet",
-      reports: "In timp real + API",
+      sla: "Reguli nelimitate",
+      routing: "Avansat + reguli custom",
+      escalation: "Lanț complet de escaladare",
+      reports: "În timp real + API",
       support: "Manager dedicat",
     },
   },
@@ -59,7 +59,7 @@ const addons = [
   {
     name: "AI Pack",
     price: "49",
-    description: "Detectie intent + sugestii mesaje draft",
+    description: "Conversație ghidată + programare automată în calendar",
   },
   {
     name: "Leaduri extra",
@@ -67,28 +67,23 @@ const addons = [
     unit: "/lead",
     description: "Peste limita planului",
   },
-  {
-    name: "WhatsApp Business",
-    price: "29",
-    description: "Conexiune directa la WhatsApp Business API",
-  },
 ];
 
 const setupFees = [
   {
-    name: "Singur",
+    name: "Setup inclus",
     price: "0",
-    description: "Configurare pe cont propriu cu documentatie",
+    description: "Configurare de bază inclusă gratuit în toate planurile",
   },
   {
     name: "Asistat",
     price: "199",
-    description: "Apel 1 ora + configurare initiala",
+    description: "Apel 1 oră + configurare inițială",
   },
   {
     name: "Complet",
     price: "399",
-    description: "Configurare completa + training echipa",
+    description: "Configurare completă + training echipă",
   },
 ];
 
@@ -142,11 +137,11 @@ const Pricing = () => {
                     <span className="font-semibold text-right">{plan.features.channels.join(", ")}</span>
                   </li>
                   <li className="flex items-center justify-between py-1.5 border-b border-border-card">
-                    <span className="text-muted-foreground">Politici termen</span>
+                    <span className="text-muted-foreground">Reguli de răspuns</span>
                     <span className="font-semibold">{plan.features.sla}</span>
                   </li>
                   <li className="flex items-center justify-between py-1.5 border-b border-border-card">
-                    <span className="text-muted-foreground">Repartizare</span>
+                    <span className="text-muted-foreground">Alocare automată</span>
                     <span className="font-semibold">
                       {plan.features.routing ? plan.features.routing : <X className="h-4 w-4 text-muted-foreground" />}
                     </span>
@@ -182,9 +177,9 @@ const Pricing = () => {
       {/* Add-ons */}
       <Section canvas>
         <SectionHeading title="Suplimente" subtitle="Functionalitati extra pentru echipe avansate" />
-        <div className="grid gap-5 md:grid-cols-3 max-w-4xl mx-auto">
+        <div className="grid gap-5 md:grid-cols-2 max-w-3xl mx-auto">
           {addons.map((addon, i) => (
-            <Card key={addon.name} className={`text-center ${i === 0 ? "card-accent-orange" : i === 1 ? "card-accent-blue" : "card-accent-violet"}`}>
+            <Card key={addon.name} className={`text-center ${i === 0 ? "card-accent-orange" : "card-accent-blue"}`}>
               <CardHeader>
                 <CardTitle className="text-lg">{addon.name}</CardTitle>
                 <div className="mt-2">

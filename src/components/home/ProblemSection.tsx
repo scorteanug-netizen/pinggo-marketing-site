@@ -5,10 +5,10 @@ import { AccentCard } from "@/components/AccentCard";
 import { Accent } from "@/components/Accent";
 
 const problems = [
-  "Lead nepreluat: nu e clar cine raspunde",
-  "Lead intarziat: contactat dupa ore sau zile",
-  "Fara dovada: nu stii daca s-a raspuns cu adevarat",
-  "Fara escaladare: problema se vede prea tarziu",
+  "Ai plătit 50 lei pe lead-ul din Facebook. A răspuns cineva în 5 minute?",
+  "Clientul a scris pe WhatsApp la 10:14. A primit răspuns la 17:30.",
+  "Lead-ul a întrebat de preț. Răspunsul a fost 'Vă sun eu'. Nu a sunat nimeni.",
+  "5 leads astăzi. 2 alocate lui Alex. Alex e în concediu de 3 zile.",
 ];
 
 export function ProblemSection() {

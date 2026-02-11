@@ -6,23 +6,23 @@ import { AccentPanel } from "@/components/AccentPanel";
 const steps = [
   {
     icon: Webhook,
-    title: "Leadul intră",
-    description: "Din formular, Facebook Ads, sau WhatsApp. Se conectează în 5 minute, fără să schimbi nimic.",
+    title: "Lead intră",
+    description: "Lead-ul vine din Facebook/Google/site și ajunge în Pinggo instant.",
   },
   {
     icon: Zap,
-    title: "Răspuns instant",
-    description: "Clientul primește mesaj pe WhatsApp în 15 secunde. Întrebări scurte + propunere programare.",
+    title: "Răspuns automat în 15 secunde",
+    description: "Pinggo trimite răspuns pe WhatsApp automat: 'Bună! Când doriți programarea?'",
   },
   {
     icon: Calendar,
     title: "Programare automată",
-    description: "Slot ales → calendar actualizat → confirmare trimisă. Fără apeluri, fără așteptare.",
+    description: "Clientul alege un slot. Pinggo sincronizează în Google Calendar automat.",
   },
   {
     icon: AlertTriangle,
-    title: "Dacă ceva nu merge",
-    description: "Clientul nu răspunde? Follow-up automat. Agentul nu preia? Reasignare + alertă manager. Niciun lead nu se pierde.",
+    title: "Dacă ceva nu merge, escaladare",
+    description: "Dacă nimeni nu răspunde în 10 minute, Pinggo alertează managerul automat.",
   },
 ];
 
@@ -31,7 +31,7 @@ export function HowItWorksSection() {
     <Section alternate canvas id="how-it-works">
       <SectionHeading
         title="Cum functioneaza"
-        subtitle="4 pasi simpli, de la lead la dovada"
+        subtitle="4 pasi simpli, de la lead la programare"
       />
       <AccentPanel accent="teal" className="p-6 md:p-8">
         <div className="grid gap-5 md:grid-cols-4">

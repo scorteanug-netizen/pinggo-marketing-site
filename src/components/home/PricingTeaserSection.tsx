@@ -9,23 +9,23 @@ const plans = [
   {
     name: "Pornire",
     price: "149",
-    leads: "300 leads/luna",
-    features: ["E-mail", "Notificari in Slack", "Termen de raspuns"],
+    leads: "Până la 100 leaduri/lună",
+    features: ["WhatsApp inclus", "Răspuns automat", "Raport săptămânal"],
     accent: "orange" as const,
   },
   {
-    name: "Crestere",
+    name: "Creștere",
     price: "249",
-    leads: "1,000 leads/luna",
-    features: ["WhatsApp", "E-mail", "Slack", "Termene personalizate"],
+    leads: "Până la 500 leaduri/lună",
+    features: ["WhatsApp + E-mail", "Escaladare automată la manager", "Rapoarte săptămânale email"],
     popular: true,
     accent: "orange" as const,
   },
   {
     name: "Avansat",
     price: "499",
-    leads: "3,000 leads/luna",
-    features: ["Routing avansat", "Lanturi de escaladare", "Suport prioritar"],
+    leads: "Până la 3,000 leaduri/lună",
+    features: ["Alocare avansată + reguli", "Lanț complet de escaladare", "Manager dedicat"],
     accent: "blue" as const,
   },
 ];
@@ -87,7 +87,7 @@ export function PricingTeaserSection() {
         <div className="inline-flex items-center gap-2 bg-white rounded-2xl px-5 py-3 shadow-xl border border-slate-200 ring-1 ring-black/5">
           <span className="text-muted-foreground text-sm">Supliment:</span>
           <span className="font-bold text-foreground text-sm">AI Pack - 49 EUR/luna</span>
-          <span className="text-muted-foreground text-sm">(detectie intent + mesaje draft)</span>
+          <span className="text-muted-foreground text-sm">(conversație ghidată + programare automată)</span>
         </div>
         <div className="mt-4">
           <Button variant="link" asChild className="text-orange-500 font-semibold hover:text-orange-600">
