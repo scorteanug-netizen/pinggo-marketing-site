@@ -7,17 +7,17 @@ export function HeroSection() {
   return (
     <section className="section-premium bg-background">
       <Container>
-        <div className="grid gap-5 lg:grid-cols-2 lg:gap-6 items-center">
+        <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,1.35fr)_minmax(0,0.65fr)]">
           {/* Left Column - Content */}
-          <div className="max-w-xl">
-            <h1 className="text-slate-950 font-heading font-extrabold text-5xl md:text-7xl leading-[0.95] tracking-[-0.03em]">
-              Răspuns în{' '}
-              <span className="text-orange-500">15 secunde</span> pe WhatsApp.{' '}
-              <span className="text-blue-500">Programare automată</span>.
+          <div className="max-w-2xl lg:max-w-none">
+            <h1 className="text-slate-950 font-heading font-extrabold text-5xl md:text-6xl lg:text-[4rem] xl:text-[4.3rem] leading-[0.95] tracking-[-0.03em]">
+              <span className="block lg:whitespace-nowrap">
+                Răspuns în <span className="text-orange-500">15 secunde</span>
+              </span>
+              <span className="block text-black lg:whitespace-nowrap">Programare automată</span>
             </h1>
             <p className="mt-3 text-base md:text-lg text-slate-600 leading-relaxed max-w-xl">
-              Fiecare lead primește{' '}
-              <span className="font-semibold text-orange-500">răspuns instant</span>,
+              Fiecare lead primește <span className="font-semibold text-orange-500">răspuns instant</span>,
               se programează automat, și știi exact cine a preluat.
             </p>
 
@@ -52,45 +52,49 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Right Column - Icon Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {/* Card 1 - Răspuns instant */}
-            <div className="flex flex-col items-center text-center p-6 bg-gradient-to-br from-orange-50 to-white rounded-xl border border-orange-200 shadow-md hover:shadow-lg transition-shadow">
-              <div className="p-3 bg-orange-500 rounded-full mb-3 shadow-lg">
-                <MessageSquare className="w-6 h-6 text-white" />
+          {/* Right Column - Pyramid Cards */}
+          <div className="mx-auto w-full max-w-md">
+            <div className="grid grid-cols-2 gap-6 md:gap-8">
+              {/* Top card */}
+              <div className="col-span-2 flex justify-center">
+                <div className="w-full max-w-[220px] flex flex-col items-center text-center p-6 md:p-8 rounded-xl border border-gray-200 bg-white shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-orange-500 hover:shadow-lg">
+                  <div className="p-3 bg-orange-500 rounded-full mb-3 shadow-lg">
+                    <MessageSquare className="w-6 h-6 text-white" />
+                  </div>
+                  <p className="font-semibold text-slate-900 text-sm mb-1">
+                    Răspuns instant
+                  </p>
+                  <p className="text-xs text-slate-600">
+                    Sub 15 secunde
+                  </p>
+                </div>
               </div>
-              <p className="font-semibold text-slate-900 text-sm mb-1">
-                Răspuns instant
-              </p>
-              <p className="text-xs text-slate-600">
-                Sub 15 secunde
-              </p>
-            </div>
 
-            {/* Card 2 - Programare automată */}
-            <div className="flex flex-col items-center text-center p-6 bg-gradient-to-br from-blue-50 to-white rounded-xl border border-blue-200 shadow-md hover:shadow-lg transition-shadow">
-              <div className="p-3 bg-blue-500 rounded-full mb-3 shadow-lg">
-                <Calendar className="w-6 h-6 text-white" />
+              {/* Bottom left card */}
+              <div className="flex flex-col items-center text-center p-6 md:p-8 rounded-xl border border-gray-200 bg-white shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-violet-500 hover:shadow-lg">
+                <div className="p-3 bg-violet-500 rounded-full mb-3 shadow-lg">
+                  <Calendar className="w-6 h-6 text-white" />
+                </div>
+                <p className="font-semibold text-slate-900 text-sm mb-1">
+                  Programare automată
+                </p>
+                <p className="text-xs text-slate-600">
+                  În Google Calendar
+                </p>
               </div>
-              <p className="font-semibold text-slate-900 text-sm mb-1">
-                Programare automată
-              </p>
-              <p className="text-xs text-slate-600">
-                În Google Calendar
-              </p>
-            </div>
 
-            {/* Card 3 - Vizibilitate totală */}
-            <div className="flex flex-col items-center text-center p-6 bg-gradient-to-br from-violet-50 to-white rounded-xl border border-violet-200 shadow-md hover:shadow-lg transition-shadow">
-              <div className="p-3 bg-violet-500 rounded-full mb-3 shadow-lg">
-                <BarChart3 className="w-6 h-6 text-white" />
+              {/* Bottom right card */}
+              <div className="flex flex-col items-center text-center p-6 md:p-8 rounded-xl border border-gray-200 bg-white shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-orange-500 hover:shadow-lg">
+                <div className="p-3 bg-orange-500 rounded-full mb-3 shadow-lg">
+                  <BarChart3 className="w-6 h-6 text-white" />
+                </div>
+                <p className="font-semibold text-slate-900 text-sm mb-1">
+                  Vizibilitate totală
+                </p>
+                <p className="text-xs text-slate-600">
+                  Știi cine preia
+                </p>
               </div>
-              <p className="font-semibold text-slate-900 text-sm mb-1">
-                Vizibilitate totală
-              </p>
-              <p className="text-xs text-slate-600">
-                Știi cine preia
-              </p>
             </div>
           </div>
         </div>

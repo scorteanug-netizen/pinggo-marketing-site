@@ -21,13 +21,12 @@ export function ProblemSection() {
           </>
         }
       />
-      <div className="grid gap-5 sm:grid-cols-2 max-w-3xl mx-auto">
+      <div className="grid gap-6 md:gap-8 sm:grid-cols-2 max-w-3xl mx-auto">
         {problems.map((problem, index) => (
           <AccentCard
             key={index}
             accent={index % 2 === 0 ? "orange" : "gray"}
             variant="left"
-            className="bg-rose-50 border-slate-200"
           >
             <div className="flex items-start gap-3">
               <XCircle className="h-5 w-5 text-destructive flex-shrink-0 mt-0.5" />

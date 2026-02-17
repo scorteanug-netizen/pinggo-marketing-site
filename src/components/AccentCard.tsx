@@ -1,14 +1,6 @@
 import { cn } from "@/lib/utils";
 
-const accentBorderMap = {
-  orange: "border-orange-500",
-  blue: "border-blue-500",
-  violet: "border-violet-500",
-  teal: "border-teal-500",
-  gray: "border-slate-300",
-} as const;
-
-export type AccentColor = keyof typeof accentBorderMap;
+export type AccentColor = "orange" | "blue" | "violet" | "teal" | "gray";
 
 interface AccentCardProps {
   children: React.ReactNode;
@@ -18,16 +10,14 @@ interface AccentCardProps {
 }
 
 export function AccentCard({ children, accent, variant, className }: AccentCardProps) {
-  const borderColor = accentBorderMap[accent];
+  void accent;
+  void variant;
   return (
     <div
       className={cn(
-        "rounded-2xl bg-white border border-slate-200 shadow-xl overflow-hidden",
-        "ring-1 ring-black/5",
-        "transition-all duration-300 hover:-translate-y-0.5 hover:shadow-2xl",
-        "p-6",
-        variant === "top" && `border-t-[6px] ${borderColor}`,
-        variant === "left" && `border-l-[6px] ${borderColor}`,
+        "rounded-xl bg-white border border-gray-200",
+        "shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-orange-500 hover:shadow-lg",
+        "p-6 md:p-8",
         className
       )}
     >

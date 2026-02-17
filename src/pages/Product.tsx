@@ -116,7 +116,7 @@ const Product = () => {
         <div className="max-w-2xl mx-auto">
           <ol className="space-y-5">
             {workflow.map((step, index) => (
-              <li key={index} className="flex items-start gap-5 p-4 rounded-2xl bg-card shadow-soft border border-border/50 transition-all hover:shadow-md hover:-translate-y-0.5">
+              <li key={index} className="flex items-start gap-5 rounded-2xl border border-border/50 bg-card p-6 shadow-soft transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
                 <div className="h-10 w-10 rounded-xl bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold flex-shrink-0 shadow-lg">
                   {index + 1}
                 </div>
@@ -138,11 +138,11 @@ const Product = () => {
           title="What you get"
           subtitle="Beneficii concrete din prima zi"
         />
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 max-w-4xl mx-auto">
+        <div className="grid gap-6 lg:gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-4xl mx-auto">
           {benefits.map((benefit, index) => (
             <div
               key={index}
-              className="flex items-start gap-4 p-5 rounded-2xl bg-card shadow-soft border border-border/50 transition-all hover:shadow-md hover:-translate-y-0.5"
+              className="flex items-start gap-4 rounded-2xl border border-border/50 bg-card p-6 md:p-8 shadow-soft transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
             >
               <div className="h-6 w-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                 <Check className="h-4 w-4 text-primary" />

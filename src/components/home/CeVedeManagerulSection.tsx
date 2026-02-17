@@ -18,11 +18,11 @@ export function CeVedeManagerulSection() {
         subtitle="Vizibilitate completă, fără întrebări. Totul la un click."
       />
       <div className="max-w-2xl mx-auto">
-        <ul className="space-y-4">
+        <ul className="space-y-6">
           {items.map((item, index) => (
             <li
               key={index}
-              className="flex items-center gap-4 rounded-xl bg-white border-2 border-slate-200 p-4 shadow-[0_4px_20px_rgba(15,23,42,0.06)] hover:shadow-[0_8px_30px_rgba(15,23,42,0.1)] hover:border-primary/20 transition-all duration-200"
+              className="flex items-center gap-4 rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-orange-500 hover:shadow-lg"
             >
               <div className="h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
                 <Check className="h-5 w-5 text-primary" />

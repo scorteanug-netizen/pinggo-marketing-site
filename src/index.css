@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Pinggo design tokens - Chili Piper-like tight premium
+/* Pinggo design tokens - Chili Piper-like premium
    - Primary (Orange): CTAs, accent borders
    - Section spacing: ~20-30% reduced (section-tight)
    - Cards: crisp shadow, clear border, optional accent top border
@@ -11,9 +11,23 @@
 
 @layer base {
   :root {
+    --orange-500: #F97316;
+    --orange-600: #EA580C;
+    --violet-500: #8B5CF6;
+    --violet-600: #7C3AED;
+    --gray-50: #F9FAFB;
+    --gray-100: #F3F4F6;
+    --gray-200: #E5E7EB;
+    --gray-500: #6B7280;
+    --gray-700: #374151;
+    --gray-900: #111827;
+    --green-500: #10B981;
+    --red-500: #EF4444;
+    --yellow-500: #F59E0B;
+
     --background: 0 0% 100%;
-    --foreground: 222.2 47% 11%;
-    --accent-hero: 14.3 100% 56.5%;
+    --foreground: 221.2 39.3% 11%;
+    --accent-hero: 24.6 95% 53.1%;
 
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
@@ -21,37 +35,40 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 14.3 100% 56.5%;
+    --primary: 24.6 95% 53.1%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 220 14.3% 95.9%;
     --secondary-foreground: 222.2 47.4% 11.2%;
 
     --muted: 220 14.3% 95.9%;
-    --muted-foreground: 215.4 16.3% 36%;
+    --muted-foreground: 220.9 8.9% 46.1%;
 
-    --accent: 217.2 91.2% 59.8%;
+    --accent: 258.3 89.5% 66.3%;
     --accent-foreground: 0 0% 100%;
 
-    --proof: 168 76% 42%;
+    --proof: 160.1 84.1% 39.4%;
     --proof-foreground: 0 0% 100%;
 
-    --highlight: 217.2 91.2% 50%;
+    --highlight: 258.3 89.5% 66.3%;
     --highlight-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --border-card: 214.3 31.8% 85%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 14.3 100% 56.5%;
+    --border: 220 13% 91%;
+    --border-card: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 24.6 95% 53.1%;
 
     --radius: 0.875rem;
     --radius-card: 1rem;
-    --section-py: 2.5rem;
-    --section-py-md: 2.25rem;
-    --section-py-lg: 3rem;
+    --section-py: 4rem;
+    --section-py-md: 5rem;
+    --section-py-lg: 6rem;
     --heading-mb: 1.25rem;
     --content-gap: 1.5rem;
     --canvas-opacity: 0.09;
@@ -63,7 +80,7 @@
     --sidebar-accent: 240 4.8% 95.9%;
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 24.6 95% 53.1%;
   }
 
   .dark {
@@ -76,7 +93,7 @@
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 14.3 100% 56.5%;
+    --primary: 24.6 95% 53.1%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 217.2 32.6% 17.5%;
@@ -85,13 +102,13 @@
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 217.2 91.2% 59.8%;
+    --accent: 258.3 89.5% 66.3%;
     --accent-foreground: 0 0% 100%;
 
-    --proof: 168 76% 42%;
+    --proof: 160.1 84.1% 39.4%;
     --proof-foreground: 0 0% 100%;
 
-    --highlight: 217.2 91.2% 50%;
+    --highlight: 258.3 89.5% 66.3%;
     --highlight-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 30.6%;
@@ -99,7 +116,7 @@
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 14.3 100% 56.5%;
+    --ring: 24.6 95% 53.1%;
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -108,7 +125,7 @@
     --sidebar-accent: 240 3.7% 15.9%;
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 24.6 95% 53.1%;
   }
 }
 
@@ -145,26 +162,13 @@
 }
 
 @layer components {
-  /* Card base: crisp shadow, clear border, hover lift */
+  /* Card base: consistent marketing card style */
   .card-premium {
-    border: 1px solid hsl(var(--border-card));
-    @apply rounded-2xl bg-card shadow-lg transition-all duration-300;
+    @apply rounded-xl border border-gray-200 bg-card shadow-sm transition-all duration-200;
   }
 
   .card-premium:hover {
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
-    transform: translateY(-2px);
-  }
-
-  /* Accent border variants for cards (Chili Piper style) */
-  .card-accent-orange {
-    @apply border-t-4 border-t-primary;
-  }
-  .card-accent-blue {
-    @apply border-t-4 border-t-accent;
-  }
-  .card-accent-violet {
-    @apply border-t-4 border-t-[hsl(262,83%,58%)];
+    @apply -translate-y-1 border-orange-500 shadow-lg;
   }
 
   /* Dot grid: slightly more visible */
@@ -173,10 +177,10 @@
     background-size: 24px 24px;
   }
 
-  /* Blue Highlight Section */
+  /* Accent gradient section */
   .bg-highlight-blue {
     @apply relative overflow-hidden;
-    background: linear-gradient(135deg, hsl(217.2 91.2% 50%) 0%, hsl(252 91.2% 55%) 100%);
+    background: linear-gradient(135deg, var(--orange-500) 0%, var(--violet-500) 100%);
   }
 
   .bg-highlight-blue::before {
@@ -244,7 +248,7 @@
 }
 
 @layer utilities {
-  /* Tighter section spacing (Chili Piper-like) */
+  /* Premium section spacing */
   .section-premium {
     padding-top: var(--section-py);
     padding-bottom: var(--section-py);
@@ -267,6 +271,19 @@
   }
   .prose-width-lg {
     @apply max-w-3xl;
+  }
+
+  .link-underline {
+    @apply relative inline-block;
+  }
+
+  .link-underline::after {
+    content: "";
+    @apply absolute -bottom-0.5 left-0 h-0.5 w-0 bg-orange-500 transition-all duration-300;
+  }
+
+  .link-underline:hover::after {
+    @apply w-full;
   }
 }
 
@@ -294,8 +311,176 @@
 
 .configurezi-section-top-accent {
   z-index: 0;
-  background: radial-gradient(ellipse 120% 100% at 50% -20%, rgba(99, 102, 241, 0.28) 0%, rgba(139, 92, 246, 0.22) 40%, transparent 70%);
+  background: radial-gradient(ellipse 120% 100% at 50% -20%, rgba(249, 115, 22, 0.24) 0%, rgba(139, 92, 246, 0.22) 42%, transparent 72%);
   filter: blur(40px);
+}
+
+/* Dashboard preview section: violet -> indigo -> blue with organic blobs */
+.dashboard-preview-section {
+  position: relative;
+  overflow: hidden;
+  padding: 6rem 0;
+  min-height: 800px;
+  background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 25%, #6366F1 60%, #3B82F6 100%);
+}
+
+.dashboard-preview-section::before {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: 900px;
+  height: 900px;
+  top: -300px;
+  left: -250px;
+  z-index: 0;
+  border-radius: 45% 55% 60% 40% / 50% 45% 55% 50%;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.4) 0%, transparent 70%);
+  filter: blur(80px);
+  animation: dashboard-blob-float-slow 30s ease-in-out infinite;
+}
+
+.dashboard-preview-section::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: 800px;
+  height: 800px;
+  bottom: -250px;
+  right: -200px;
+  z-index: 0;
+  border-radius: 55% 45% 40% 60% / 45% 55% 45% 55%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, transparent 70%);
+  filter: blur(80px);
+  animation: dashboard-blob-float-slow 25s ease-in-out infinite reverse;
+}
+
+.dashboard-preview-section .blob-center {
+  position: absolute;
+  pointer-events: none;
+  top: 50%;
+  left: 50%;
+  width: 600px;
+  height: 600px;
+  z-index: 0;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.25) 0%, transparent 70%);
+  filter: blur(100px);
+  animation: dashboard-blob-pulse 15s ease-in-out infinite;
+}
+
+.dashboard-preview-content {
+  position: relative;
+  z-index: 10;
+}
+
+.dashboard-screenshot {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  background: white;
+  transform: translateY(0);
+  transition: all 0.3s ease;
+  box-shadow:
+    0 25px 50px -12px rgba(0, 0, 0, 0.4),
+    0 10px 20px -5px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.dashboard-screenshot:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 35px 60px -15px rgba(0, 0, 0, 0.5),
+    0 15px 25px -8px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.15);
+}
+
+.stats-card-on-gradient {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.stats-card-on-gradient:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 1);
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.15);
+}
+
+.stats-card-on-gradient .stat-number {
+  margin-bottom: 0.5rem;
+  font-size: 2.5rem;
+  line-height: 1;
+  font-weight: 700;
+  color: #111827;
+}
+
+.stats-card-on-gradient .stat-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+@keyframes dashboard-blob-float-slow {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  33% {
+    transform: translate(50px, -50px) rotate(120deg) scale(1.1);
+  }
+  66% {
+    transform: translate(-40px, 40px) rotate(240deg) scale(0.95);
+  }
+}
+
+@keyframes dashboard-blob-pulse {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.35;
+    transform: translate(-50%, -50%) scale(1.15);
+  }
+}
+
+@media (max-width: 767px) {
+  .dashboard-preview-section {
+    min-height: auto;
+    padding: 4rem 0;
+  }
+
+  .dashboard-preview-section .blob-center {
+    width: 420px;
+    height: 420px;
+  }
+
+  .stats-card-on-gradient .stat-number {
+    font-size: 2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dashboard-preview-section::before,
+  .dashboard-preview-section::after,
+  .dashboard-preview-section .blob-center {
+    animation: none !important;
+  }
+
+  .dashboard-screenshot,
+  .stats-card-on-gradient {
+    transition: none !important;
+  }
 }
 
 /* Features section: ~20% tighter vertical spacing */
@@ -351,4 +536,105 @@
 }
 .pinggo-venn-center-text {
   font-size: 17px;
+}
+
+/* How it works: chat flow animation */
+@keyframes pinggo-how-bubble {
+  0%,
+  12% {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+    filter: blur(1px);
+  }
+  20%,
+  72% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+  82%,
+  100% {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.99);
+    filter: blur(1px);
+  }
+}
+
+@keyframes pinggo-how-step {
+  0%,
+  16% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  24%,
+  78% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  88%,
+  100% {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes pinggo-how-live {
+  0%,
+  100% {
+    opacity: 0.95;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(0.72);
+  }
+}
+
+@keyframes pinggo-how-typing-dot {
+  0%,
+  80%,
+  100% {
+    opacity: 0.3;
+    transform: translateY(0);
+  }
+  40% {
+    opacity: 1;
+    transform: translateY(-2px);
+  }
+}
+
+.how-chat-message {
+  animation: pinggo-how-bubble 8.8s cubic-bezier(0.2, 0.7, 0.2, 1) infinite both;
+}
+
+.how-flow-step {
+  animation: pinggo-how-step 8.8s ease-in-out infinite both;
+}
+
+.how-flow-live-dot {
+  animation: pinggo-how-live 1.2s ease-in-out infinite;
+}
+
+.how-typing-dot {
+  animation: pinggo-how-typing-dot 1.2s ease-in-out infinite;
+}
+
+.how-typing-dot:nth-child(2) {
+  animation-delay: 0.16s;
+}
+
+.how-typing-dot:nth-child(3) {
+  animation-delay: 0.32s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .how-chat-message,
+  .how-flow-step,
+  .how-flow-live-dot,
+  .how-typing-dot {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
 }

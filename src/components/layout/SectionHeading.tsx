@@ -10,7 +10,7 @@ interface SectionHeadingProps {
 
 export function SectionHeading({ title, subtitle, className, centered = true, light = false }: SectionHeadingProps) {
   return (
-    <div className={cn("mb-4 md:mb-5", centered && "text-center", className)}>
+    <div className={cn("mb-8 md:mb-10", centered && "text-center", className)}>
       <h2 className={cn(
         "font-heading font-extrabold tracking-tight leading-[1.0] tracking-[-0.02em] [-webkit-font-smoothing:antialiased]",
         light ? "text-white" : "text-slate-950"

@@ -38,7 +38,7 @@ export function Footer() {
                   <li key={link.href}>
                     <Link
                       to={link.href}
-                      className="text-muted-foreground hover:text-accent transition-colors font-medium"
+                      className="link-underline font-medium text-muted-foreground transition-colors hover:text-orange-500"
                     >
                       {link.label}
                     </Link>
@@ -55,7 +55,7 @@ export function Footer() {
                   <li key={link.href}>
                     <Link
                       to={link.href}
-                      className="text-muted-foreground hover:text-accent transition-colors font-medium"
+                      className="link-underline font-medium text-muted-foreground transition-colors hover:text-orange-500"
                     >
                       {link.label}
                     </Link>

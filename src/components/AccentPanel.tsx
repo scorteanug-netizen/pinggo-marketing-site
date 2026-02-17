@@ -1,14 +1,6 @@
 import { cn } from "@/lib/utils";
 
-const accentBorderMap = {
-  orange: "border-t-orange-500",
-  blue: "border-t-blue-500",
-  violet: "border-t-violet-500",
-  teal: "border-t-teal-500",
-  gray: "border-t-slate-300",
-} as const;
-
-export type AccentPanelColor = keyof typeof accentBorderMap;
+export type AccentPanelColor = "orange" | "blue" | "violet" | "teal" | "gray";
 
 interface AccentPanelProps {
   children: React.ReactNode;
@@ -17,13 +9,12 @@ interface AccentPanelProps {
 }
 
 export function AccentPanel({ children, accent = "orange", className }: AccentPanelProps) {
+  void accent;
   return (
     <div
       className={cn(
-        "rounded-3xl bg-white border border-slate-200 shadow-xl overflow-hidden",
-        "ring-1 ring-black/5",
-        "border-t-[6px]",
-        accentBorderMap[accent],
+        "rounded-xl bg-white border border-gray-200",
+        "shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-orange-500 hover:shadow-lg",
         className
       )}
     >

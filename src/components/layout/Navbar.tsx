@@ -78,14 +78,14 @@ export function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex md:items-center md:gap-8">
             {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                to={link.href}
-                onClick={() => handleNavClick(link.href)}
-                className="text-sm font-semibold text-muted-foreground transition-colors hover:text-orange-500"
-              >
-                {link.label}
-              </Link>
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  onClick={() => handleNavClick(link.href)}
+                  className="link-underline text-sm font-semibold text-muted-foreground transition-colors hover:text-orange-500"
+                >
+                  {link.label}
+                </Link>
             ))}
           </div>
 
@@ -101,7 +101,7 @@ export function Navbar() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 rounded-xl hover:bg-secondary transition-colors"
+            className="md:hidden rounded-xl p-2 transition-all duration-200 hover:scale-105 hover:bg-secondary"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -122,15 +122,15 @@ export function Navbar() {
         >
           <div className="space-y-1 pb-6">
             {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                to={link.href}
-                onClick={() => handleNavClick(link.href)}
-                className="block py-3 text-base font-semibold text-muted-foreground hover:text-foreground transition-colors"
-              >
-                {link.label}
-              </Link>
-            ))}
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  onClick={() => handleNavClick(link.href)}
+                  className="block py-3 text-base font-semibold text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <span className="link-underline">{link.label}</span>
+                </Link>
+              ))}
             <div className="flex flex-col gap-3 pt-6">
               <Button variant="outline" asChild className="w-full">
                 <a href={platformLoginUrl} target="_blank" rel="noopener noreferrer">Conectare</a>

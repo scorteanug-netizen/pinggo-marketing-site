@@ -12,6 +12,10 @@ const plans = [
     price: "149",
     leads: "Până la 100 leaduri/lună",
     description: "Pentru echipe mici care vor răspuns automat din prima zi",
+    iconBg: "bg-orange-100",
+    iconColor: "text-orange-600",
+    hoverBorder: "hover:border-orange-500",
+    hoverShadow: "hover:shadow-[0_4px_12px_rgba(249,115,22,0.15)]",
     features: {
       leads: "100",
       channels: ["WhatsApp", "E-mail", "Slack"],
@@ -28,6 +32,10 @@ const plans = [
     leads: "Până la 500 leaduri/lună",
     description: "Pentru echipe în creștere cu volume mai mari",
     popular: true,
+    iconBg: "bg-orange-100",
+    iconColor: "text-orange-600",
+    hoverBorder: "hover:border-orange-500",
+    hoverShadow: "hover:shadow-[0_4px_12px_rgba(249,115,22,0.15)]",
     features: {
       leads: "500",
       channels: ["WhatsApp", "E-mail", "Slack"],
@@ -43,6 +51,10 @@ const plans = [
     price: "499",
     leads: "Până la 3,000 leaduri/lună",
     description: "Pentru agenții și echipe mari",
+    iconBg: "bg-violet-100",
+    iconColor: "text-violet-600",
+    hoverBorder: "hover:border-violet-500",
+    hoverShadow: "hover:shadow-[0_4px_12px_rgba(139,92,246,0.16)]",
     features: {
       leads: "3,000",
       channels: ["WhatsApp", "E-mail", "Slack", "Webhook"],
@@ -104,20 +116,23 @@ const Pricing = () => {
 
       {/* Plans */}
       <Section alternate>
-        <div className="grid gap-6 lg:grid-cols-3 max-w-6xl mx-auto">
-          {plans.map((plan, i) => (
+        <div className="grid gap-8 lg:grid-cols-3 max-w-6xl mx-auto">
+          {plans.map((plan) => (
             <Card
               key={plan.name}
-              className={`relative ${plan.popular ? "border-t-4 border-t-primary border-2 border-primary shadow-card-hover ring-1 ring-primary/20" : i === 0 ? "card-accent-orange" : i === 2 ? "card-accent-blue" : "card-accent-violet"}`}
+              className={`relative ${plan.hoverBorder} ${plan.hoverShadow}`}
             >
               {plan.popular && (
                 <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                  <span className="bg-primary text-primary-foreground text-xs font-bold px-4 py-1.5 rounded-full shadow-lg">
+                  <span className="bg-orange-500 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-lg">
                     Popular
                   </span>
                 </div>
               )}
-              <CardHeader className="text-center pt-6">
+              <CardHeader className="text-center pt-8">
+                <div className={`mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-xl ${plan.iconBg}`}>
+                  <Check className={`h-5 w-5 ${plan.iconColor}`} />
+                </div>
                 <CardTitle className="text-xl">{plan.name}</CardTitle>
                 <div className="mt-4">
                   <span className="text-4xl font-extrabold text-foreground leading-none">{plan.price}</span>
@@ -126,7 +141,7 @@ const Pricing = () => {
                 <p className="text-xs text-muted-foreground mt-2">{plan.leads}</p>
                 <p className="text-sm text-muted-foreground mt-1.5 leading-snug">{plan.description}</p>
               </CardHeader>
-              <CardContent className="pt-4">
+              <CardContent className="pt-6">
                 <ul className="space-y-2 text-sm">
                   <li className="flex items-center justify-between py-1.5 border-b border-border-card">
                     <span className="text-muted-foreground">Leaduri/luna</span>
@@ -160,7 +175,7 @@ const Pricing = () => {
                   </li>
                 </ul>
               </CardContent>
-              <CardFooter className="pt-3">
+              <CardFooter className="pt-4">
                 <Button
                   className="w-full"
                   variant={plan.popular ? "default" : "outline"}
@@ -177,9 +192,9 @@ const Pricing = () => {
       {/* Add-ons */}
       <Section canvas>
         <SectionHeading title="Suplimente" subtitle="Functionalitati extra pentru echipe avansate" />
-        <div className="grid gap-5 md:grid-cols-2 max-w-3xl mx-auto">
-          {addons.map((addon, i) => (
-            <Card key={addon.name} className={`text-center ${i === 0 ? "card-accent-orange" : "card-accent-blue"}`}>
+        <div className="grid gap-6 lg:gap-8 md:grid-cols-2 max-w-3xl mx-auto">
+          {addons.map((addon) => (
+            <Card key={addon.name} className="text-center">
               <CardHeader>
                 <CardTitle className="text-lg">{addon.name}</CardTitle>
                 <div className="mt-2">
@@ -198,9 +213,9 @@ const Pricing = () => {
       {/* Setup Fees */}
       <Section alternate>
         <SectionHeading title="Configurare" subtitle="Alege nivelul de suport pentru configurare" />
-        <div className="grid gap-5 md:grid-cols-3 max-w-4xl mx-auto">
-          {setupFees.map((setup, i) => (
-            <Card key={setup.name} className={`text-center ${i === 0 ? "card-accent-orange" : i === 1 ? "card-accent-blue" : "card-accent-violet"}`}>
+        <div className="grid gap-6 lg:gap-8 md:grid-cols-3 max-w-4xl mx-auto">
+          {setupFees.map((setup) => (
+            <Card key={setup.name} className="text-center">
               <CardHeader>
                 <CardTitle className="text-lg">{setup.name}</CardTitle>
                 <div className="mt-2">

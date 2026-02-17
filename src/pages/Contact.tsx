@@ -102,8 +102,8 @@ const Contact = () => {
           <div className="lg:pt-24">
             <Card className="shadow-premium">
               <CardHeader>
-                <div className="h-14 w-14 rounded-2xl bg-proof/10 flex items-center justify-center mb-4">
-                  <MessageSquare className="h-7 w-7 text-proof" />
+                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-violet-100">
+                  <MessageSquare className="h-7 w-7 text-violet-600" />
                 </div>
                 <CardTitle className="text-xl">Preferi WhatsApp?</CardTitle>
               </CardHeader>

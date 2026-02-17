@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { Section } from "@/components/layout/Section";
 import { SectionHeading } from "@/components/layout/SectionHeading";
-import { cn } from "@/lib/utils";
 
 const ROW_1 = ["HubSpot", "Pipedrive", "Zoho CRM", "ActiveCampaign"] as const;
 const ROW_2 = ["Google Calendar", "WhatsApp Business", "Slack", "Webhook"] as const;
@@ -15,18 +14,11 @@ export function EcosistemSection() {
         title="Se integrează cu stack-ul tău existent"
         subtitle="Nu înlocuiește CRM-ul — se conectează cu el."
       />
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        {ITEMS.map((name, i) => (
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        {ITEMS.map((name) => (
           <div
             key={name}
-            className={cn(
-              "rounded-2xl bg-white border-2 border-slate-200 p-5 flex flex-col items-center justify-center min-h-[120px]",
-              "shadow-[0_4px_20px_rgba(15,23,42,0.06)] hover:shadow-[0_8px_28px_rgba(15,23,42,0.1)]",
-              "transition-all duration-300",
-              i % 3 === 0 && "hover:border-orange-500",
-              i % 3 === 1 && "hover:border-blue-500",
-              i % 3 === 2 && "hover:border-violet-500"
-            )}
+            className="flex min-h-[120px] flex-col items-center justify-center rounded-xl border border-gray-200 bg-white p-6 md:p-8 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-orange-500 hover:shadow-lg"
           >
             <span className="inline-flex items-center rounded-full bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-600 mb-3">
               Compatibil
@@ -40,7 +32,7 @@ export function EcosistemSection() {
       <div className="mt-5 text-center">
         <Link
           to="/docs"
-          className="text-sm font-semibold text-orange-500 hover:text-orange-600 transition-colors"
+          className="link-underline text-sm font-semibold text-orange-500 transition-colors hover:text-orange-600"
         >
           Vezi toate integrările &rarr;
         </Link>

@@ -26,10 +26,9 @@ export function TopMarqueeBanner() {
     <>
       <div style={{ height: BANNER_HEIGHT }} className="flex-shrink-0" aria-hidden />
       <div
-        className="fixed top-0 left-0 right-0 z-[100] flex items-center overflow-hidden text-white"
+        className="fixed top-0 left-0 right-0 z-[100] flex items-center overflow-hidden text-white bg-accent"
         style={{
           height: BANNER_HEIGHT,
-          background: "linear-gradient(135deg, #1e3a5f 0%, #2d1b4e 100%)",
         }}
       >
         <div className="marquee-inner flex items-center flex-1 min-w-0 h-full">
