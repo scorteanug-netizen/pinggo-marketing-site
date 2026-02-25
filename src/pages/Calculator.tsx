@@ -93,7 +93,6 @@ export default function Calculator() {
       ([entry]) => {
         if (entry.isIntersecting) {
           setHasTriggeredGate(true);
-          setIsGateOpen(true);
           observer.disconnect();
         }
       },
@@ -163,6 +162,9 @@ export default function Calculator() {
                   onChange={(event) => handleInputChange("leads", event.target.value)}
                   className="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-sm font-medium text-gray-900 focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-200"
                 />
+                <p className="mt-1 text-xs text-gray-500">
+                  Numărul total de leaduri noi care intră într-o lună.
+                </p>
               </div>
 
               <div>
@@ -175,6 +177,9 @@ export default function Calculator() {
                   onChange={(event) => handleInputChange("convRate", event.target.value)}
                   className="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-sm font-medium text-gray-900 focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-200"
                 />
+                <p className="mt-1 text-xs text-gray-500">
+                  Procentul de leaduri care devin clienți (ex: 10% = 10 clienți din 100 leaduri).
+                </p>
               </div>
 
               <div>
@@ -186,6 +191,9 @@ export default function Calculator() {
                   onChange={(event) => handleInputChange("avgValue", event.target.value)}
                   className="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-sm font-medium text-gray-900 focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-200"
                 />
+                <p className="mt-1 text-xs text-gray-500">
+                  Suma medie încasată de la un client nou.
+                </p>
               </div>
 
               <div>
@@ -200,6 +208,9 @@ export default function Calculator() {
                   onChange={(event) => handleInputChange("responseRate", event.target.value)}
                   className="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-sm font-medium text-gray-900 focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-200"
                 />
+                <p className="mt-1 text-xs text-gray-500">
+                  Procentul de leaduri la care răspundeți în primele 15 minute.
+                </p>
                 <p className="mt-1 text-xs text-gray-400">Target recomandat cu Pinggo: 95%+.</p>
               </div>
             </div>
@@ -249,6 +260,11 @@ export default function Calculator() {
                       >
                         Vezi rezultatele
                       </Button>
+                      {hasTriggeredGate && (
+                        <p className="mt-2 text-xs text-gray-500">
+                          Popup-ul se deschide doar când apeși butonul.
+                        </p>
+                      )}
                     </div>
                   </div>
                 )}
@@ -261,6 +277,39 @@ export default function Calculator() {
                   <Link to="/contact">Solicită demo gratuit</Link>
                 </Button>
               </div>
+            </div>
+          </div>
+
+          <div className="mx-auto mt-8 max-w-5xl rounded-2xl border border-gray-200 bg-white p-6">
+            <h3 className="mb-4 text-lg font-bold text-gray-900">Cum calculăm rezultatele</h3>
+            <div className="space-y-3 text-sm text-gray-700">
+              <p>
+                1. Calculăm gap-ul de răspuns față de targetul 95%:{" "}
+                <strong>
+                  95% - {Math.round(Math.min(100, Math.max(0, inputs.responseRate)))}% ={" "}
+                  {Math.round(results.responseGap * 100)}%
+                </strong>
+                .
+              </p>
+              <p>
+                2. Estimăm leadurile pierdute lunar:{" "}
+                <strong>
+                  {Math.round(Math.max(0, inputs.leads))} × {Math.round(results.responseGap * 100)}% ={" "}
+                  {Math.round(results.lostLeads)}
+                </strong>
+                .
+              </p>
+              <p>
+                3. Estimăm valoarea pierdută pe lună:{" "}
+                <strong>
+                  {Math.round(results.lostLeads)} × {Math.round(Math.min(100, Math.max(0, inputs.convRate)))}% ×{" "}
+                  {formatRON(Math.max(0, inputs.avgValue))} = {formatRON(results.monthlyLoss)}
+                </strong>
+                .
+              </p>
+              <p>
+                4. Pierderea anuală: <strong>{formatRON(results.monthlyLoss)} × 12 = {formatRON(results.annualLoss)}</strong>.
+              </p>
             </div>
           </div>
 
