@@ -58,6 +58,9 @@ const HUBSPOT_FIELD_MESSAGE = (import.meta.env.VITE_HUBSPOT_FIELD_MESSAGE?.trim(
 const HUBSPOT_FIELD_SOURCE = import.meta.env.VITE_HUBSPOT_FIELD_SOURCE?.trim();
 const HUBSPOT_FIELD_CALCULATOR_SUMMARY = import.meta.env.VITE_HUBSPOT_FIELD_CALCULATOR_SUMMARY?.trim();
 
+const E164_MIN_DIGITS = 9;
+const E164_MAX_DIGITS = 15;
+
 function toStringValue(value: HubspotFieldValue) {
   if (value === null || value === undefined) {
     return null;
@@ -128,6 +131,47 @@ export function splitFullName(value: string): NameParts {
     firstName: parts[0],
     lastName: parts.slice(1).join(" "),
   };
+}
+
+export function normalizePhoneForHubspot(value: string | null | undefined): string | null {
+  if (!value) {
+    return null;
+  }
+
+  const trimmed = value.trim();
+  if (!trimmed) {
+    return null;
+  }
+
+  let digits = trimmed.replace(/\D/g, "");
+  if (!digits) {
+    return null;
+  }
+
+  // Support numbers written with international prefix like 0040...
+  if (digits.startsWith("00")) {
+    digits = digits.slice(2);
+  }
+
+  // Romania-first normalization:
+  // 07xxxxxxxx -> +407xxxxxxxx
+  // 7xxxxxxxx  -> +407xxxxxxxx
+  if (digits.startsWith("0") && digits.length === 10) {
+    digits = `40${digits.slice(1)}`;
+  } else if (digits.length === 9 && !digits.startsWith("40")) {
+    digits = `40${digits}`;
+  }
+
+  if (digits.length < E164_MIN_DIGITS || digits.length > E164_MAX_DIGITS) {
+    return null;
+  }
+
+  return `+${digits}`;
+}
+
+export function isValidPhoneForHubspot(value: string | null | undefined): boolean {
+  const normalized = normalizePhoneForHubspot(value);
+  return Boolean(normalized && /^\+\d{9,15}$/.test(normalized));
 }
 
 export function isHubspotConfigured(formType: HubspotFormType) {
@@ -211,11 +255,12 @@ export async function submitHubspotForm(params: SubmitHubspotFormParams) {
 
 export async function submitContactToHubspot(input: ContactSubmissionInput) {
   const { firstName, lastName } = splitFullName(input.name);
+  const normalizedPhone = normalizePhoneForHubspot(input.phone);
   const fields: HubspotField[] = [
     { name: HUBSPOT_FIELD_FIRST_NAME, value: firstName || input.name },
     { name: HUBSPOT_FIELD_LAST_NAME, value: lastName },
     { name: HUBSPOT_FIELD_EMAIL, value: input.email },
-    { name: HUBSPOT_FIELD_PHONE, value: input.phone },
+    { name: HUBSPOT_FIELD_PHONE, value: normalizedPhone },
     { name: HUBSPOT_FIELD_COMPANY, value: input.company },
     { name: HUBSPOT_FIELD_ROLE, value: input.role },
     { name: HUBSPOT_FIELD_MESSAGE, value: input.message },
@@ -248,11 +293,12 @@ function formatCalculatorSummary(input: CalculatorSubmissionInput) {
 
 export async function submitCalculatorToHubspot(input: CalculatorSubmissionInput) {
   const { firstName, lastName } = splitFullName(input.name);
+  const normalizedPhone = normalizePhoneForHubspot(input.phone);
   const fields: HubspotField[] = [
     { name: HUBSPOT_FIELD_FIRST_NAME, value: firstName || input.name },
     { name: HUBSPOT_FIELD_LAST_NAME, value: lastName },
     { name: HUBSPOT_FIELD_EMAIL, value: input.email },
-    { name: HUBSPOT_FIELD_PHONE, value: input.phone },
+    { name: HUBSPOT_FIELD_PHONE, value: normalizedPhone },
     { name: HUBSPOT_FIELD_COMPANY, value: input.company },
   ];
 

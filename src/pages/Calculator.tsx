@@ -11,7 +11,12 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/use-toast";
-import { isHubspotConfigured, submitCalculatorToHubspot } from "@/lib/hubspot";
+import {
+  isHubspotConfigured,
+  isValidPhoneForHubspot,
+  normalizePhoneForHubspot,
+  submitCalculatorToHubspot,
+} from "@/lib/hubspot";
 import { cn } from "@/lib/utils";
 
 const TARGET_RESPONSE_RATE = 95;
@@ -177,8 +182,13 @@ export default function Calculator() {
       return;
     }
 
-    const phoneDigits = gate.phone.replace(/\D/g, "");
-    if (phoneDigits.length < 9) {
+    if (!isValidPhoneForHubspot(gate.phone)) {
+      setGateError("Număr de telefon invalid.");
+      return;
+    }
+
+    const normalizedPhone = normalizePhoneForHubspot(gate.phone);
+    if (!normalizedPhone) {
       setGateError("Număr de telefon invalid.");
       return;
     }
@@ -199,7 +209,7 @@ export default function Calculator() {
       await submitCalculatorToHubspot({
         name: gate.name,
         email: gate.email,
-        phone: gate.phone,
+        phone: normalizedPhone,
         company: gate.company,
         leads: numericInputs.leads,
         convRate: numericInputs.convRate,

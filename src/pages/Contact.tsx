@@ -7,7 +7,12 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
-import { isHubspotConfigured, submitContactToHubspot } from "@/lib/hubspot";
+import {
+  isHubspotConfigured,
+  isValidPhoneForHubspot,
+  normalizePhoneForHubspot,
+  submitContactToHubspot,
+} from "@/lib/hubspot";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -46,8 +51,13 @@ const Contact = () => {
       return;
     }
 
-    const phoneDigits = phone.replace(/\D/g, "");
-    if (phoneDigits.length < 9) {
+    if (!isValidPhoneForHubspot(phone)) {
+      setSubmitError("Numarul de telefon nu este valid.");
+      return;
+    }
+
+    const normalizedPhone = normalizePhoneForHubspot(phone);
+    if (!normalizedPhone) {
       setSubmitError("Numarul de telefon nu este valid.");
       return;
     }
@@ -57,7 +67,7 @@ const Contact = () => {
       await submitContactToHubspot({
         name,
         company,
-        phone,
+        phone: normalizedPhone,
         email,
       });
 
