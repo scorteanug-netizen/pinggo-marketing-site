@@ -321,6 +321,22 @@
   50%       { box-shadow: 0 0 0 6px rgba(245, 110, 15, 0); }
 }
 
+/* Launch band live dot pulse */
+.launch-live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: #22C55E;
+  flex-shrink: 0;
+  animation: launchLivePulse 1.5s infinite;
+}
+
+@keyframes launchLivePulse {
+  0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6); }
+  70% { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+}
+
 /* Top marquee banner animation */
 @keyframes marquee-scroll {
   0% {
@@ -451,9 +467,11 @@
 
 .stats-card-on-gradient .stat-number {
   margin-bottom: 0.5rem;
-  font-size: 2.5rem;
+  font-family: "Syne", "Inter", system-ui, sans-serif;
+  font-size: 52px;
   line-height: 1;
-  font-weight: 700;
+  font-weight: 800;
+  letter-spacing: -0.02em;
   color: #111827;
 }
 
@@ -500,7 +518,7 @@
   }
 
   .stats-card-on-gradient .stat-number {
-    font-size: 2rem;
+    font-size: 44px;
   }
 }
 
