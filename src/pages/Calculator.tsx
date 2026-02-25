@@ -10,6 +10,8 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { useToast } from "@/hooks/use-toast";
+import { isHubspotConfigured, submitCalculatorToHubspot } from "@/lib/hubspot";
 import { cn } from "@/lib/utils";
 
 const TARGET_RESPONSE_RATE = 95;
@@ -31,6 +33,7 @@ interface NumericCalcInputs {
 interface GateInputs {
   name: string;
   email: string;
+  phone: string;
   company: string;
 }
 
@@ -80,6 +83,7 @@ function compute(inputs: NumericCalcInputs): CalcResults {
 }
 
 export default function Calculator() {
+  const { toast } = useToast();
   const [inputs, setInputs] = useState<CalcInputs>({
     leads: "",
     convRate: "",
@@ -90,6 +94,7 @@ export default function Calculator() {
   const [gate, setGate] = useState<GateInputs>({
     name: "",
     email: "",
+    phone: "",
     company: "",
   });
   const [calculatorError, setCalculatorError] = useState("");
@@ -97,6 +102,7 @@ export default function Calculator() {
   const [isUnlocked, setIsUnlocked] = useState(false);
   const [isGateOpen, setIsGateOpen] = useState(false);
   const [hasTriggeredGate, setHasTriggeredGate] = useState(false);
+  const [isGateSubmitting, setIsGateSubmitting] = useState(false);
 
   const resultsCardRef = useRef<HTMLDivElement>(null);
   const numericInputs = useMemo(() => toNumericInputs(inputs), [inputs]);
@@ -158,11 +164,11 @@ export default function Calculator() {
     setIsGateOpen(true);
   };
 
-  const handleReveal = (event: FormEvent<HTMLFormElement>) => {
+  const handleReveal = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    if (!gate.name.trim() || !gate.email.trim() || !gate.company.trim()) {
-      setGateError("Completează toate câmpurile pentru a vedea rezultatele.");
+    if (!gate.name.trim() || !gate.email.trim() || !gate.phone.trim() || !gate.company.trim()) {
+      setGateError("Completează nume, email, telefon și companie pentru a vedea rezultatele.");
       return;
     }
 
@@ -171,9 +177,51 @@ export default function Calculator() {
       return;
     }
 
+    const phoneDigits = gate.phone.replace(/\D/g, "");
+    if (phoneDigits.length < 9) {
+      setGateError("Număr de telefon invalid.");
+      return;
+    }
+
+    if (!isHubspotConfigured("calculator")) {
+      setGateError("Formularul nu este configurat corect. Lipsesc setarile HubSpot.");
+      toast({
+        variant: "destructive",
+        title: "Configurare lipsa",
+        description: "Seteaza VITE_HUBSPOT_PORTAL_ID si VITE_HUBSPOT_CALCULATOR_FORM_ID.",
+      });
+      return;
+    }
+
+    setIsGateSubmitting(true);
     setGateError("");
-    setIsUnlocked(true);
-    setIsGateOpen(false);
+    try {
+      await submitCalculatorToHubspot({
+        name: gate.name,
+        email: gate.email,
+        phone: gate.phone,
+        company: gate.company,
+        leads: numericInputs.leads,
+        convRate: numericInputs.convRate,
+        avgValue: numericInputs.avgValue,
+        responseRate: numericInputs.responseRate,
+        monthlyLoss: results.monthlyLoss,
+        annualLoss: results.annualLoss,
+      });
+
+      setIsUnlocked(true);
+      setIsGateOpen(false);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "Nu am putut trimite datele.";
+      setGateError(message);
+      toast({
+        variant: "destructive",
+        title: "Eroare la trimitere",
+        description: message,
+      });
+    } finally {
+      setIsGateSubmitting(false);
+    }
   };
 
   return (
@@ -377,7 +425,7 @@ export default function Calculator() {
           <DialogHeader>
             <DialogTitle className="text-gray-900">Rezultatele tale sunt gata</DialogTitle>
             <DialogDescription>
-              Completează nume, email și companie pentru a debloca valorile complete.
+              Completează nume, email, telefon și companie pentru a debloca valorile complete.
             </DialogDescription>
           </DialogHeader>
 
@@ -397,6 +445,13 @@ export default function Calculator() {
               className="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-sm focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-200"
             />
             <input
+              type="tel"
+              placeholder="Telefon"
+              value={gate.phone}
+              onChange={(event) => setGate((current) => ({ ...current, phone: event.target.value }))}
+              className="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-sm focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-200"
+            />
+            <input
               type="text"
               placeholder="Companie"
               value={gate.company}
@@ -405,8 +460,12 @@ export default function Calculator() {
             />
             {gateError && <p className="text-xs text-red-500">{gateError}</p>}
 
-            <Button type="submit" className="w-full bg-violet-600 text-white hover:bg-violet-700">
-              Deblochează rezultatele
+            <Button
+              type="submit"
+              className="w-full bg-violet-600 text-white hover:bg-violet-700"
+              disabled={isGateSubmitting}
+            >
+              {isGateSubmitting ? "Se trimite..." : "Deblochează rezultatele"}
             </Button>
             <p className="text-center text-[11px] text-gray-400">Fără spam · Datele tale sunt în siguranță</p>
           </form>

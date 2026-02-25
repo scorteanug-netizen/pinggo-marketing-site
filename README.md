@@ -90,3 +90,35 @@ In productie, foloseste URL-ul complet al platformei (cu protocol), de exemplu:
 ```sh
 VITE_PLATFORM_URL=https://app.pinggo.ro/login
 ```
+
+## HubSpot forms integration
+
+Marketing forms trimit lead-urile in HubSpot prin endpoint-ul oficial:
+`https://api.hsforms.com/submissions/v3/integration/submit/{portalId}/{formGuid}`
+
+Seteaza in `.env`:
+
+```sh
+VITE_HUBSPOT_PORTAL_ID=123456
+VITE_HUBSPOT_CONTACT_FORM_ID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee
+VITE_HUBSPOT_CALCULATOR_FORM_ID=ffffffff-1111-2222-3333-444444444444
+```
+
+Optional (daca ai campuri custom sau denumiri diferite in HubSpot):
+
+```sh
+VITE_HUBSPOT_FIELD_FIRST_NAME=firstname
+VITE_HUBSPOT_FIELD_LAST_NAME=lastname
+VITE_HUBSPOT_FIELD_EMAIL=email
+VITE_HUBSPOT_FIELD_PHONE=phone
+VITE_HUBSPOT_FIELD_COMPANY=company
+VITE_HUBSPOT_FIELD_ROLE=jobtitle
+VITE_HUBSPOT_FIELD_MESSAGE=message
+VITE_HUBSPOT_FIELD_SOURCE=pinggo_form_source
+VITE_HUBSPOT_FIELD_CALCULATOR_SUMMARY=calculator_summary
+```
+
+Note:
+- `Contact` foloseste `contact form id`.
+- Popup-ul din `Calculator` foloseste `calculator form id`.
+- Daca nu exista setarile minime (`PORTAL_ID` + `FORM_ID`), formularul afiseaza eroare de configurare.
