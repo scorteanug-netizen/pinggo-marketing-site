@@ -293,6 +293,18 @@
   }
 }
 
+/* Hero diagram — responsive zoom so it never overflows its column */
+/* lg (1024-1279px): column ≈ 464px, diagram 560px → zoom 0.82 */
+/* xl (1280px+):     column ≈ 600px, diagram 560px → zoom 1     */
+.hero-diagram {
+  zoom: 0.82;
+}
+@media (min-width: 1280px) {
+  .hero-diagram {
+    zoom: 1;
+  }
+}
+
 /* Hero scarcity dot pulse */
 .scarcity-dot {
   display: inline-block;

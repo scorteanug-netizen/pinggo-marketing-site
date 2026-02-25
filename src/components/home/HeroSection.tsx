@@ -7,7 +7,7 @@ export function HeroSection() {
   return (
     <section className="section-premium bg-background" style={{ paddingBottom: "80px" }}>
       <Container>
-        <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,1.35fr)_minmax(0,0.65fr)]">
+        <div className="grid items-center gap-8 lg:grid-cols-2">
 
           {/* Left Column */}
           <div className="max-w-2xl lg:max-w-none">
@@ -73,12 +73,13 @@ export function HeroSection() {
           </div>
 
           {/* Right Column — Hub & Spoke Diagram */}
-          <div className="mx-auto w-full flex items-center justify-center">
+          <div className="mx-auto w-full flex items-center justify-center overflow-hidden">
             <iframe
               src="/pinggo-diagram.html"
               title="Pinggo — Hub & Spoke Diagram"
-              className="border-0"
-              style={{ width: 560, height: 520, pointerEvents: "none" }}
+              className="hero-diagram border-0 block"
+              style={{ width: 560, height: 520, pointerEvents: "none", flexShrink: 0, background: "transparent" }}
+              allowTransparency={true}
               scrolling="no"
               tabIndex={-1}
               aria-hidden
