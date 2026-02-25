@@ -1,0 +1,315 @@
+import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
+import { Link } from "react-router-dom";
+import { Layout } from "@/components/layout/Layout";
+import { Container } from "@/components/layout/Container";
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { cn } from "@/lib/utils";
+
+const TARGET_RESPONSE_RATE = 95;
+
+interface CalcInputs {
+  leads: number;
+  convRate: number;
+  avgValue: number;
+  responseRate: number;
+}
+
+interface GateInputs {
+  name: string;
+  email: string;
+  company: string;
+}
+
+interface CalcResults {
+  responseGap: number;
+  lostLeads: number;
+  monthlyLoss: number;
+  annualLoss: number;
+  recoveredWithPinggo: number;
+}
+
+function formatRON(value: number): string {
+  return new Intl.NumberFormat("ro-RO", {
+    style: "currency",
+    currency: "RON",
+    maximumFractionDigits: 0,
+  }).format(value);
+}
+
+function compute(inputs: CalcInputs): CalcResults {
+  const leads = Math.max(0, inputs.leads);
+  const convRate = Math.min(100, Math.max(0, inputs.convRate));
+  const avgValue = Math.max(0, inputs.avgValue);
+  const responseRate = Math.min(100, Math.max(0, inputs.responseRate));
+
+  const responseGap = Math.max(0, TARGET_RESPONSE_RATE - responseRate) / 100;
+  const lostLeads = leads * responseGap;
+  const monthlyLoss = lostLeads * (convRate / 100) * avgValue;
+  const annualLoss = monthlyLoss * 12;
+  const recoveredWithPinggo = monthlyLoss;
+
+  return { responseGap, lostLeads, monthlyLoss, annualLoss, recoveredWithPinggo };
+}
+
+export default function Calculator() {
+  const [inputs, setInputs] = useState<CalcInputs>({
+    leads: 200,
+    convRate: 10,
+    avgValue: 1500,
+    responseRate: 40,
+  });
+
+  const [gate, setGate] = useState<GateInputs>({
+    name: "",
+    email: "",
+    company: "",
+  });
+  const [gateError, setGateError] = useState("");
+  const [isUnlocked, setIsUnlocked] = useState(false);
+  const [isGateOpen, setIsGateOpen] = useState(false);
+  const [hasTriggeredGate, setHasTriggeredGate] = useState(false);
+
+  const resultsCardRef = useRef<HTMLDivElement>(null);
+  const results = useMemo(() => compute(inputs), [inputs]);
+
+  useEffect(() => {
+    if (isUnlocked || hasTriggeredGate) {
+      return;
+    }
+
+    const target = resultsCardRef.current;
+    if (!target || typeof IntersectionObserver === "undefined") {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setHasTriggeredGate(true);
+          setIsGateOpen(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.4 },
+    );
+
+    observer.observe(target);
+
+    return () => observer.disconnect();
+  }, [isUnlocked, hasTriggeredGate]);
+
+  const handleInputChange = (field: keyof CalcInputs, rawValue: string) => {
+    const parsedValue = Number(rawValue);
+    if (Number.isNaN(parsedValue)) {
+      return;
+    }
+
+    setInputs((previous) => ({ ...previous, [field]: parsedValue }));
+  };
+
+  const handleReveal = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    if (!gate.name.trim() || !gate.email.trim() || !gate.company.trim()) {
+      setGateError("Completează toate câmpurile pentru a vedea rezultatele.");
+      return;
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(gate.email)) {
+      setGateError("Adresă de email invalidă.");
+      return;
+    }
+
+    setGateError("");
+    setIsUnlocked(true);
+    setIsGateOpen(false);
+  };
+
+  return (
+    <Layout>
+      <div className="min-h-screen bg-white py-16">
+        <Container>
+          <div className="mx-auto mb-12 max-w-2xl text-center">
+            <span className="mb-3 inline-block rounded-full bg-violet-100 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-violet-700">
+              Calculator gratuit
+            </span>
+            <h1 className="mb-4 text-4xl font-extrabold leading-tight text-gray-900">
+              Câți bani pierzi lunar
+              <br />
+              <span className="text-violet-600">din leaduri fără răspuns rapid?</span>
+            </h1>
+            <p className="text-base text-gray-500">
+              Introdu datele echipei tale și vezi impactul real în RON.
+            </p>
+          </div>
+
+          <div className="mx-auto grid max-w-5xl items-start gap-8 md:grid-cols-2">
+            <div className="space-y-6 rounded-2xl border border-gray-200 bg-gray-50 p-8">
+              <h2 className="text-base font-bold uppercase tracking-wide text-gray-800">Date echipă</h2>
+
+              <div>
+                <label className="mb-1 block text-sm font-semibold text-gray-700">Leaduri primite / lună</label>
+                <input
+                  type="number"
+                  min={1}
+                  value={inputs.leads}
+                  onChange={(event) => handleInputChange("leads", event.target.value)}
+                  className="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-sm font-medium text-gray-900 focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-200"
+                />
+              </div>
+
+              <div>
+                <label className="mb-1 block text-sm font-semibold text-gray-700">Rată de conversie (%)</label>
+                <input
+                  type="number"
+                  min={1}
+                  max={100}
+                  value={inputs.convRate}
+                  onChange={(event) => handleInputChange("convRate", event.target.value)}
+                  className="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-sm font-medium text-gray-900 focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-200"
+                />
+              </div>
+
+              <div>
+                <label className="mb-1 block text-sm font-semibold text-gray-700">Valoare medie client (RON)</label>
+                <input
+                  type="number"
+                  min={1}
+                  value={inputs.avgValue}
+                  onChange={(event) => handleInputChange("avgValue", event.target.value)}
+                  className="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-sm font-medium text-gray-900 focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-200"
+                />
+              </div>
+
+              <div>
+                <label className="mb-1 block text-sm font-semibold text-gray-700">
+                  Rata actuală de răspuns în 15 min (%)
+                </label>
+                <input
+                  type="number"
+                  min={0}
+                  max={100}
+                  value={inputs.responseRate}
+                  onChange={(event) => handleInputChange("responseRate", event.target.value)}
+                  className="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-sm font-medium text-gray-900 focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-200"
+                />
+                <p className="mt-1 text-xs text-gray-400">Target recomandat cu Pinggo: 95%+.</p>
+              </div>
+            </div>
+
+            <div className="space-y-5">
+              <div
+                ref={resultsCardRef}
+                className="relative overflow-hidden rounded-2xl border border-violet-200 bg-violet-50 p-6"
+              >
+                <h2 className="mb-4 text-sm font-bold uppercase tracking-wide text-violet-800">Impact financiar estimat</h2>
+
+                <div className={cn("space-y-3 transition duration-300", !isUnlocked && "select-none blur-[3px]")}>
+                  <div className="flex items-center justify-between rounded-xl bg-white/80 px-4 py-3">
+                    <span className="text-sm text-gray-600">Gap de răspuns față de 95%</span>
+                    <span className="text-base font-extrabold text-gray-900">
+                      {Math.round(results.responseGap * 100)}%
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between rounded-xl bg-white/80 px-4 py-3">
+                    <span className="text-sm text-gray-600">Leaduri pierdute / lună</span>
+                    <span className="text-base font-extrabold text-gray-900">{Math.round(results.lostLeads)}</span>
+                  </div>
+                  <div className="flex items-center justify-between rounded-xl bg-white/80 px-4 py-3">
+                    <span className="text-sm text-gray-600">Pierdere lunară estimată</span>
+                    <span className="text-lg font-extrabold text-red-600">{formatRON(results.monthlyLoss)}</span>
+                  </div>
+                  <div className="flex items-center justify-between rounded-xl bg-white/80 px-4 py-3">
+                    <span className="text-sm text-gray-600">Pierdere anuală estimată</span>
+                    <span className="text-xl font-extrabold text-red-700">{formatRON(results.annualLoss)}</span>
+                  </div>
+                  <div className="flex items-center justify-between rounded-xl border border-green-200 bg-green-50 px-4 py-3">
+                    <span className="text-sm text-gray-600">Venit recuperabil cu Pinggo / lună</span>
+                    <span className="text-xl font-extrabold text-green-700">
+                      +{formatRON(results.recoveredWithPinggo)}
+                    </span>
+                  </div>
+                </div>
+
+                {!isUnlocked && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-white/70 p-6 backdrop-blur-[2px]">
+                    <div className="text-center">
+                      <p className="mb-3 text-sm font-semibold text-gray-700">Deblochează rezultatele complete</p>
+                      <Button
+                        type="button"
+                        onClick={() => setIsGateOpen(true)}
+                        className="bg-violet-600 text-white hover:bg-violet-700"
+                      >
+                        Vezi rezultatele
+                      </Button>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              <div className="rounded-2xl bg-gray-900 p-6 text-center">
+                <p className="mb-1 text-base font-semibold text-white">Vrei să recuperezi acești bani?</p>
+                <p className="mb-4 text-sm text-gray-400">Setup în mai puțin de 1 oră. Primul lead automat în aceeași zi.</p>
+                <Button asChild className="bg-orange-500 text-white hover:bg-orange-600">
+                  <Link to="/contact">Solicită demo gratuit</Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+
+          <p className="mx-auto mt-10 max-w-xl text-center text-xs text-gray-400">
+            * Calculul este o estimare orientativă bazată pe datele introduse. Rezultatele reale pot varia în funcție de industrie, echipă și flux de leaduri.
+          </p>
+        </Container>
+      </div>
+
+      <Dialog open={isGateOpen && !isUnlocked} onOpenChange={setIsGateOpen}>
+        <DialogContent className="border-violet-100 bg-white sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle className="text-gray-900">Rezultatele tale sunt gata</DialogTitle>
+            <DialogDescription>
+              Completează nume, email și companie pentru a debloca valorile complete.
+            </DialogDescription>
+          </DialogHeader>
+
+          <form onSubmit={handleReveal} className="space-y-3">
+            <input
+              type="text"
+              placeholder="Nume și prenume"
+              value={gate.name}
+              onChange={(event) => setGate((current) => ({ ...current, name: event.target.value }))}
+              className="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-sm focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-200"
+            />
+            <input
+              type="email"
+              placeholder="Email profesional"
+              value={gate.email}
+              onChange={(event) => setGate((current) => ({ ...current, email: event.target.value }))}
+              className="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-sm focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-200"
+            />
+            <input
+              type="text"
+              placeholder="Companie"
+              value={gate.company}
+              onChange={(event) => setGate((current) => ({ ...current, company: event.target.value }))}
+              className="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-sm focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-200"
+            />
+            {gateError && <p className="text-xs text-red-500">{gateError}</p>}
+
+            <Button type="submit" className="w-full bg-violet-600 text-white hover:bg-violet-700">
+              Deblochează rezultatele
+            </Button>
+            <p className="text-center text-[11px] text-gray-400">Fără spam · Datele tale sunt în siguranță</p>
+          </form>
+        </DialogContent>
+      </Dialog>
+    </Layout>
+  );
+}

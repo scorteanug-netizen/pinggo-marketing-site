@@ -87,6 +87,13 @@ export function Navbar() {
                   {link.label}
                 </Link>
             ))}
+            <Link
+              to="/calculator"
+              onClick={() => handleNavClick("/calculator")}
+              className="inline-flex items-center rounded-lg bg-violet-600 px-3 py-1.5 text-sm font-semibold text-white transition-colors hover:bg-violet-700"
+            >
+              Calculator
+            </Link>
           </div>
 
           {/* Desktop CTAs */}
@@ -131,6 +138,13 @@ export function Navbar() {
                   <span className="link-underline">{link.label}</span>
                 </Link>
               ))}
+            <Link
+              to="/calculator"
+              onClick={() => handleNavClick("/calculator")}
+              className="mt-2 block rounded-lg bg-violet-600 px-4 py-3 text-base font-semibold text-white transition-colors hover:bg-violet-700"
+            >
+              Calculator
+            </Link>
             <div className="flex flex-col gap-3 pt-6">
               <Button variant="outline" asChild className="w-full">
                 <a href={platformLoginUrl} target="_blank" rel="noopener noreferrer">Conectare</a>
