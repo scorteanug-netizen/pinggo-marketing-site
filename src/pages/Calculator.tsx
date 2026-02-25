@@ -15,6 +15,13 @@ import { cn } from "@/lib/utils";
 const TARGET_RESPONSE_RATE = 95;
 
 interface CalcInputs {
+  leads: string;
+  convRate: string;
+  avgValue: string;
+  responseRate: string;
+}
+
+interface NumericCalcInputs {
   leads: number;
   convRate: number;
   avgValue: number;
@@ -43,7 +50,21 @@ function formatRON(value: number): string {
   }).format(value);
 }
 
-function compute(inputs: CalcInputs): CalcResults {
+function toNumericInputs(inputs: CalcInputs): NumericCalcInputs {
+  const leads = Number(inputs.leads);
+  const convRate = Number(inputs.convRate);
+  const avgValue = Number(inputs.avgValue);
+  const responseRate = Number(inputs.responseRate);
+
+  return {
+    leads: Number.isFinite(leads) ? leads : 0,
+    convRate: Number.isFinite(convRate) ? convRate : 0,
+    avgValue: Number.isFinite(avgValue) ? avgValue : 0,
+    responseRate: Number.isFinite(responseRate) ? responseRate : 0,
+  };
+}
+
+function compute(inputs: NumericCalcInputs): CalcResults {
   const leads = Math.max(0, inputs.leads);
   const convRate = Math.min(100, Math.max(0, inputs.convRate));
   const avgValue = Math.max(0, inputs.avgValue);
@@ -60,10 +81,10 @@ function compute(inputs: CalcInputs): CalcResults {
 
 export default function Calculator() {
   const [inputs, setInputs] = useState<CalcInputs>({
-    leads: 200,
-    convRate: 10,
-    avgValue: 1500,
-    responseRate: 40,
+    leads: "",
+    convRate: "",
+    avgValue: "",
+    responseRate: "",
   });
 
   const [gate, setGate] = useState<GateInputs>({
@@ -71,13 +92,31 @@ export default function Calculator() {
     email: "",
     company: "",
   });
+  const [calculatorError, setCalculatorError] = useState("");
   const [gateError, setGateError] = useState("");
   const [isUnlocked, setIsUnlocked] = useState(false);
   const [isGateOpen, setIsGateOpen] = useState(false);
   const [hasTriggeredGate, setHasTriggeredGate] = useState(false);
 
   const resultsCardRef = useRef<HTMLDivElement>(null);
-  const results = useMemo(() => compute(inputs), [inputs]);
+  const numericInputs = useMemo(() => toNumericInputs(inputs), [inputs]);
+  const results = useMemo(() => compute(numericInputs), [numericInputs]);
+  const isCalculatorComplete = useMemo(() => {
+    const { leads, convRate, avgValue, responseRate } = numericInputs;
+
+    return (
+      inputs.leads.trim() !== "" &&
+      inputs.convRate.trim() !== "" &&
+      inputs.avgValue.trim() !== "" &&
+      inputs.responseRate.trim() !== "" &&
+      leads > 0 &&
+      avgValue > 0 &&
+      convRate > 0 &&
+      convRate <= 100 &&
+      responseRate >= 0 &&
+      responseRate <= 100
+    );
+  }, [inputs, numericInputs]);
 
   useEffect(() => {
     if (isUnlocked || hasTriggeredGate) {
@@ -105,12 +144,18 @@ export default function Calculator() {
   }, [isUnlocked, hasTriggeredGate]);
 
   const handleInputChange = (field: keyof CalcInputs, rawValue: string) => {
-    const parsedValue = Number(rawValue);
-    if (Number.isNaN(parsedValue)) {
+    setInputs((previous) => ({ ...previous, [field]: rawValue }));
+    setCalculatorError("");
+  };
+
+  const handleOpenGate = () => {
+    if (!isCalculatorComplete) {
+      setCalculatorError("Completează toate câmpurile din calculator pentru a vedea rezultatele.");
       return;
     }
 
-    setInputs((previous) => ({ ...previous, [field]: parsedValue }));
+    setCalculatorError("");
+    setIsGateOpen(true);
   };
 
   const handleReveal = (event: FormEvent<HTMLFormElement>) => {
@@ -159,6 +204,7 @@ export default function Calculator() {
                   type="number"
                   min={1}
                   value={inputs.leads}
+                  placeholder="Ex: 200"
                   onChange={(event) => handleInputChange("leads", event.target.value)}
                   className="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-sm font-medium text-gray-900 focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-200"
                 />
@@ -174,6 +220,7 @@ export default function Calculator() {
                   min={1}
                   max={100}
                   value={inputs.convRate}
+                  placeholder="Ex: 10"
                   onChange={(event) => handleInputChange("convRate", event.target.value)}
                   className="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-sm font-medium text-gray-900 focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-200"
                 />
@@ -188,6 +235,7 @@ export default function Calculator() {
                   type="number"
                   min={1}
                   value={inputs.avgValue}
+                  placeholder="Ex: 1500"
                   onChange={(event) => handleInputChange("avgValue", event.target.value)}
                   className="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-sm font-medium text-gray-900 focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-200"
                 />
@@ -205,6 +253,7 @@ export default function Calculator() {
                   min={0}
                   max={100}
                   value={inputs.responseRate}
+                  placeholder="Ex: 40"
                   onChange={(event) => handleInputChange("responseRate", event.target.value)}
                   className="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-sm font-medium text-gray-900 focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-200"
                 />
@@ -255,7 +304,8 @@ export default function Calculator() {
                       <p className="mb-3 text-sm font-semibold text-gray-700">Deblochează rezultatele complete</p>
                       <Button
                         type="button"
-                        onClick={() => setIsGateOpen(true)}
+                        onClick={handleOpenGate}
+                        disabled={!isCalculatorComplete}
                         className="bg-violet-600 text-white hover:bg-violet-700"
                       >
                         Vezi rezultatele
@@ -264,6 +314,9 @@ export default function Calculator() {
                         <p className="mt-2 text-xs text-gray-500">
                           Popup-ul se deschide doar când apeși butonul.
                         </p>
+                      )}
+                      {calculatorError && (
+                        <p className="mt-2 text-xs text-red-500">{calculatorError}</p>
                       )}
                     </div>
                   </div>
@@ -286,7 +339,7 @@ export default function Calculator() {
               <p>
                 1. Calculăm gap-ul de răspuns față de targetul 95%:{" "}
                 <strong>
-                  95% - {Math.round(Math.min(100, Math.max(0, inputs.responseRate)))}% ={" "}
+                  95% - {Math.round(Math.min(100, Math.max(0, numericInputs.responseRate)))}% ={" "}
                   {Math.round(results.responseGap * 100)}%
                 </strong>
                 .
@@ -294,7 +347,7 @@ export default function Calculator() {
               <p>
                 2. Estimăm leadurile pierdute lunar:{" "}
                 <strong>
-                  {Math.round(Math.max(0, inputs.leads))} × {Math.round(results.responseGap * 100)}% ={" "}
+                  {Math.round(Math.max(0, numericInputs.leads))} × {Math.round(results.responseGap * 100)}% ={" "}
                   {Math.round(results.lostLeads)}
                 </strong>
                 .
@@ -302,8 +355,8 @@ export default function Calculator() {
               <p>
                 3. Estimăm valoarea pierdută pe lună:{" "}
                 <strong>
-                  {Math.round(results.lostLeads)} × {Math.round(Math.min(100, Math.max(0, inputs.convRate)))}% ×{" "}
-                  {formatRON(Math.max(0, inputs.avgValue))} = {formatRON(results.monthlyLoss)}
+                  {Math.round(results.lostLeads)} × {Math.round(Math.min(100, Math.max(0, numericInputs.convRate)))}% ×{" "}
+                  {formatRON(Math.max(0, numericInputs.avgValue))} = {formatRON(results.monthlyLoss)}
                 </strong>
                 .
               </p>
