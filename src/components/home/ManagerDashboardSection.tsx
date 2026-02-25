@@ -1,4 +1,4 @@
-import { Clock, CheckCircle2, Calendar } from "lucide-react";
+import { Clock, CheckCircle2, TrendingUp } from "lucide-react";
 import { Container } from "@/components/layout/Container";
 import { SectionHeading } from "@/components/layout/SectionHeading";
 
@@ -7,7 +7,7 @@ const KPI_CARDS = [
     icon: Clock,
     value: "0:08",
     label: "Timp mediu de răspuns",
-    sublabel: "Mai rapid decât 95% din echipe",
+    sublabel: "vs. 4h media echipelor fără Pinggo",
     iconBg: "bg-orange-100",
     iconColor: "text-orange-600",
     hoverBorder: "hover:border-orange-500",
@@ -16,15 +16,15 @@ const KPI_CARDS = [
     icon: CheckCircle2,
     value: "94%",
     label: "Contact rate",
-    sublabel: "Fiecare lead primește răspuns",
+    sublabel: "vs. 31% medie industrie*",
     iconBg: "bg-violet-100",
     iconColor: "text-violet-600",
     hoverBorder: "hover:border-violet-500",
   },
   {
-    icon: Calendar,
-    value: "23",
-    label: "Programări săptămâna asta",
+    icon: TrendingUp,
+    value: "3.2×",
+    label: "Programări față de manual",
     sublabel: "Automat, fără intervenție manuală",
     iconBg: "bg-orange-100",
     iconColor: "text-orange-600",
@@ -44,33 +44,17 @@ export function ManagerDashboardSection() {
           className="mb-10 md:mb-12"
         />
 
-        {/* Dashboard screenshot */}
+        {/* Dashboard mockup */}
         <div className="dashboard-screenshot mx-auto mt-8 max-w-5xl">
-          {/* Placeholder — replace with /public/dashboard-preview.png */}
-          <div className="relative flex aspect-[16/9] items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100">
-            <div className="absolute left-0 top-0 h-40 w-40 rounded-full bg-violet-500/10 blur-3xl" />
-            <div className="absolute bottom-0 right-0 h-40 w-40 rounded-full bg-blue-500/10 blur-3xl" />
-
-            <div className="z-10 text-center">
-              <div className="inline-block rounded-lg border border-slate-200 bg-white/90 p-6 backdrop-blur-sm">
-                <p className="text-sm font-medium text-slate-400">
-                  Dashboard Screenshot
-                </p>
-                <p className="mt-1 text-xs text-slate-300">
-                  Înlocuiește cu /public/dashboard-preview.png
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* UNCOMMENT when you have the real screenshot:
-          <img
-            src="/dashboard-preview.png"
-            alt="Pinggo Dashboard — vizualizare leads în timp real"
-            className="w-full h-auto block"
-            loading="lazy"
+          <iframe
+            src="/pinggo-dashboard-mockup.html"
+            title="Pinggo Dashboard Preview"
+            className="w-full block border-0"
+            style={{ height: "560px", pointerEvents: "none" }}
+            scrolling="no"
+            tabIndex={-1}
+            aria-hidden
           />
-          */}
         </div>
 
         {/* KPI cards */}
@@ -89,12 +73,16 @@ export function ManagerDashboardSection() {
               <p className="stat-label">
                 {kpi.label}
               </p>
-              <p className="mt-1 text-xs text-gray-500">
+              <p className="mt-1 text-xs font-semibold text-green-600">
                 {kpi.sublabel}
               </p>
             </div>
           ))}
         </div>
+
+        <p className="mt-6 text-center text-xs text-white/40">
+          *conform Harvard Business Review — "The short life of online sales leads"
+        </p>
       </Container>
     </section>
   );

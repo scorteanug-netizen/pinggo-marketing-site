@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pinggo — Diagram v3</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Mono:wght@500&family=DM+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+body {
+  margin: 0;
+  background: #F7F6F2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* ─────────────────────────────────────────
+   THE COMPONENT
+   560px wide × 520px tall
+   Hub center: (280, 260)
+   ───────────────────────────────────────── */
+.hub-spoke-diagram {
+  position: relative;
+  width: 560px;
+  height: 520px;
+  flex-shrink: 0;
+}
+
+/* ── SVG lines layer ── */
+.hsd-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.line-in {
+  fill: none;
+  stroke: #C8C3BC;
+  stroke-width: 1.5;
+  stroke-dasharray: 5 5;
+  animation: flowIn 2s linear infinite;
+}
+.line-in-2 { animation-delay: .4s; }
+.line-in-3 { animation-delay: .8s; }
+
+.line-out {
+  fill: none;
+  stroke: #F56E0F;
+  stroke-width: 2;
+  stroke-dasharray: 7 5;
+  stroke-linecap: round;
+  animation: flowOut 1.2s linear infinite;
+}
+.line-out-2 { animation-delay: .25s; }
+.line-out-3 { animation-delay: .5s; }
+
+@keyframes flowIn  { to { stroke-dashoffset: -20; } }
+@keyframes flowOut { to { stroke-dashoffset: -24; } }
+
+/* ── Hub ── */
+.hsd-hub {
+  position: absolute;
+  /* center the hub at (280, 260) — hub is 96×96px */
+  left: 232px;
+  top:  212px;
+  width: 96px;
+  height: 96px;
+  z-index: 10;
+}
+
+.hub-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(245,110,15,.18);
+  animation: pulse 2.4s ease-out infinite;
+}
+.hub-ring-1 { inset: -14px; animation-delay: 0s; }
+.hub-ring-2 { inset: -26px; animation-delay: .7s; border-color: rgba(245,110,15,.08); }
+
+@keyframes pulse {
+  0%   { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.12); }
+}
+
+.hub-circle {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: #0D0D0D;
+  box-shadow: 0 0 0 4px rgba(245,110,15,.18), 0 12px 40px rgba(0,0,0,.22);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  z-index: 2;
+}
+
+.hub-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 19px;
+  font-weight: 800;
+  color: white;
+  line-height: 1;
+}
+
+.hub-sub {
+  font-size: 10px;
+  font-weight: 500;
+  color: rgba(255,255,255,.4);
+  letter-spacing: .02em;
+}
+
+/* ── Node ── */
+.hsd-node {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  z-index: 5;
+  /* each node is centered on its anchor with transform */
+  transform: translate(-50%, -50%);
+}
+
+.node-icon {
+  width: 62px;
+  height: 62px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,.09);
+  border: 1.5px solid transparent;
+  position: relative;
+  transition: transform .2s, box-shadow .2s;
+  flex-shrink: 0;
+}
+
+.hsd-node:hover .node-icon {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,.14);
+}
+
+/* Background colors per service */
+.node-icon.facebook  { background: #E8F0FF; border-color: #BFCFFE; }
+.node-icon.google    { background: #F0FDF4; border-color: #BBF7D0; }
+.node-icon.site      { background: #F5F5F4; border-color: #E5E3DF; }
+.node-icon.whatsapp  { background: #ECFDF5; border-color: #86EFAC; }
+.node-icon.calendar  { background: #EFF6FF; border-color: #BFDBFE; }
+.node-icon.alert     { background: #FFF7ED; border-color: #FED7AA; }
+
+.node-icon svg {
+  width: 30px;
+  height: 30px;
+}
+
+.node-label {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #1A1A1A;
+  text-align: center;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+.node-sublabel {
+  font-size: 10.5px;
+  font-weight: 500;
+  color: #A0988F;
+  text-align: center;
+  margin-top: -5px;
+}
+
+/* 15s badge */
+.badge {
+  position: absolute;
+  top: -10px;
+  right: -16px;
+  background: #F56E0F;
+  color: white;
+  font-family: 'DM Mono', monospace;
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 100px;
+  line-height: 1;
+  white-space: nowrap;
+  box-shadow: 0 2px 10px rgba(245,110,15,.45);
+  animation: badgeBeat 2s ease-in-out infinite;
+  z-index: 20;
+}
+@keyframes badgeBeat {
+  0%,100% { transform: scale(1); }
+  50%      { transform: scale(1.07); }
+}
+
+/* ─── Section labels ─── */
+.hsd-label {
+  position: absolute;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  top: 18px;
+}
+.hsd-label.inputs  { left: 60px;  color: #C0B8B0; }
+.hsd-label.outputs { right: 40px; color: rgba(245,110,15,.55); }
+
+/* ─── Vertical divider ─── */
+.hsd-divider {
+  position: absolute;
+  left: 280px;
+  top: 8%;
+  height: 84%;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(0,0,0,.06) 30%, rgba(0,0,0,.06) 70%, transparent);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+</style>
+</head>
+<body>
+
+<div class="hub-spoke-diagram">
+
+  <div class="hsd-label inputs">Surse</div>
+  <div class="hsd-label outputs">Acțiuni</div>
+  <div class="hsd-divider"></div>
+
+  <!--
+    COORDINATE SYSTEM:
+    Diagram: 560 × 520px
+    Hub center: (280, 260)
+
+    Left nodes (input) — anchored at left edge ~90px from hub center:
+      Facebook : (90,  105)
+      Google   : (90,  260)
+      Site     : (90,  415)
+
+    Right nodes (output) — anchored at ~470px:
+      WhatsApp : (470, 105)
+      Calendar : (470, 260)
+      Manager  : (470, 415)
+
+    Lines connect hub edge to node icon center (~31px from node anchor due to icon 62px/2)
+  -->
+
+  <svg class="hsd-svg" viewBox="0 0 560 520">
+    <!-- INPUT lines: node → hub (hub edge approx 48px from center) -->
+    <!-- Facebook (90,105) → hub left edge (232,230) -->
+    <line class="line-in line-in-1"  x1="119" y1="105" x2="234" y2="228"/>
+    <!-- Google (90,260) → hub left edge (232,260) -->
+    <line class="line-in line-in-2"  x1="121" y1="260" x2="232" y2="260"/>
+    <!-- Site (90,415) → hub left edge (234,292) -->
+    <line class="line-in line-in-3"  x1="119" y1="415" x2="234" y2="292"/>
+
+    <!-- OUTPUT lines: hub right edge → node -->
+    <!-- hub (328,228) → WhatsApp (441,105) -->
+    <line class="line-out line-out-1" x1="326" y1="228" x2="441" y2="105"/>
+    <!-- hub (328,260) → Calendar (439,260) -->
+    <line class="line-out line-out-2" x1="328" y1="260" x2="439" y2="260"/>
+    <!-- hub (326,292) → Manager (441,415) -->
+    <line class="line-out line-out-3" x1="326" y1="292" x2="441" y2="415"/>
+  </svg>
+
+  <!-- HUB — centered at (280,260), 96px circle → top-left at (232,212) -->
+  <div class="hsd-hub">
+    <div class="hub-ring hub-ring-1"></div>
+    <div class="hub-ring hub-ring-2"></div>
+    <div class="hub-circle">
+      <div class="hub-name">Pinggo</div>
+      <div class="hub-sub">automează</div>
+    </div>
+  </div>
+
+  <!-- ── INPUT NODES ── -->
+
+  <!-- Facebook: anchor (90, 105) -->
+  <div class="hsd-node" style="left:90px; top:105px;">
+    <div class="node-icon facebook">
+      <svg viewBox="0 0 24 24"><rect width="24" height="24" rx="6" fill="#1877F2"/><path d="M16 8h-2a1 1 0 0 0-1 1v2h3l-.5 3H13v7h-3v-7H8v-3h2V9a4 4 0 0 1 4-4h2v3z" fill="white"/></svg>
+    </div>
+    <div class="node-label">Facebook Lead</div>
+  </div>
+
+  <!-- Google: anchor (90, 260) -->
+  <div class="hsd-node" style="left:90px; top:260px;">
+    <div class="node-icon google">
+      <svg viewBox="0 0 24 24">
+        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+      </svg>
+    </div>
+    <div class="node-label">Google Ad</div>
+  </div>
+
+  <!-- Site: anchor (90, 415) -->
+  <div class="hsd-node" style="left:90px; top:415px;">
+    <div class="node-icon site">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/>
+        <line x1="2" y1="12" x2="22" y2="12"/>
+        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+      </svg>
+    </div>
+    <div class="node-label">Site Form</div>
+  </div>
+
+  <!-- ── OUTPUT NODES ── -->
+
+  <!-- WhatsApp: anchor (470, 105) -->
+  <div class="hsd-node" style="left:470px; top:105px;">
+    <div class="node-icon whatsapp">
+      <div class="badge">⚡ 15s</div>
+      <svg viewBox="0 0 24 24">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z" fill="#25D366"/>
+      </svg>
+    </div>
+    <div class="node-label">WhatsApp</div>
+  </div>
+
+  <!-- Calendar: anchor (470, 260) -->
+  <div class="hsd-node" style="left:470px; top:260px;">
+    <div class="node-icon calendar">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="4" width="20" height="18" rx="3" fill="#4285F4"/>
+        <rect x="2" y="9" width="20" height="13" rx="2" fill="white"/>
+        <rect x="2" y="4" width="20" height="7" rx="3" fill="#4285F4"/>
+        <rect x="2" y="8" width="20" height="3" fill="#4285F4"/>
+        <text x="12" y="19.5" font-size="6.5" font-weight="800" fill="#1A73E8" text-anchor="middle" font-family="sans-serif">17</text>
+        <line x1="7" y1="2" x2="7" y2="6" stroke="#4285F4" stroke-width="2" stroke-linecap="round"/>
+        <line x1="17" y1="2" x2="17" y2="6" stroke="#4285F4" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="node-label">Google Calendar</div>
+  </div>
+
+  <!-- Manager Alert: anchor (470, 415) -->
+  <div class="hsd-node" style="left:470px; top:415px;">
+    <div class="node-icon alert">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" stroke="#F56E0F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M13.73 21a2 2 0 0 1-3.46 0" stroke="#F56E0F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="18" cy="6" r="4" fill="#EF4444"/>
+        <text x="18" y="8.5" font-size="5.5" font-weight="800" fill="white" text-anchor="middle" font-family="sans-serif">!</text>
+      </svg>
+    </div>
+    <div class="node-label">Manager Alert</div>
+    <div class="node-sublabel">dacă nu răspunde</div>
+  </div>
+
+</div>
+
+</body>
+</html>

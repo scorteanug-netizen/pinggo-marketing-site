@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pinggo — Dashboard Mockup</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --orange: #F56E0F;
+  --orange-light: #FFF3EB;
+  --orange-mid: #FDE8D5;
+  --bg: #F4F5F7;
+  --white: #FFFFFF;
+  --sidebar-bg: #FFFFFF;
+  --border: #E8E9EB;
+  --text: #1A1D23;
+  --text2: #5A6072;
+  --text3: #9BA3B4;
+  --green: #22C55E;
+  --green-bg: #EDFDF4;
+  --red: #EF4444;
+  --red-bg: #FEF2F2;
+  --purple: #7C3AED;
+  --purple-bg: #F3EFFE;
+  --blue: #3B82F6;
+  --yellow: #F59E0B;
+  --sans: 'Plus Jakarta Sans', sans-serif;
+  --mono: 'DM Mono', monospace;
+  --radius: 12px;
+  --shadow: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+  --shadow-md: 0 4px 16px rgba(0,0,0,.08);
+}
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 13px;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* ── LAYOUT ── */
+.app { display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
+
+/* ── TOPBAR ── */
+.topbar {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  height: 52px;
+  display: flex; align-items: center;
+  padding: 0 20px 0 0;
+  gap: 12px;
+  flex-shrink: 0;
+  z-index: 10;
+}
+
+.topbar-logo {
+  width: 220px; flex-shrink: 0;
+  display: flex; align-items: center;
+  padding: 0 20px;
+  border-right: 1px solid var(--border);
+  height: 100%;
+}
+
+.logo-icon {
+  width: 30px; height: 30px;
+  background: var(--orange);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  color: white; font-size: 14px; font-weight: 800;
+  flex-shrink: 0;
+  font-family: var(--sans);
+}
+
+.logo-text {
+  font-size: 16px; font-weight: 800;
+  color: var(--text);
+  margin-left: 8px;
+}
+
+.company-selector {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 12px; color: var(--text2);
+  margin-left: 20px;
+}
+
+.company-select {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 5px 10px 5px 10px;
+  font-size: 13px; font-weight: 600;
+  color: var(--text);
+  font-family: var(--sans);
+  display: flex; align-items: center; gap: 6px;
+  cursor: pointer;
+}
+
+.company-select::after { content: '▾'; font-size: 10px; color: var(--text3); margin-left: 4px; }
+
+.topbar-right {
+  margin-left: auto;
+  display: flex; align-items: center; gap: 10px;
+}
+
+.notif-btn {
+  width: 32px; height: 32px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; cursor: pointer; position: relative;
+}
+
+.notif-badge {
+  position: absolute; top: 4px; right: 4px;
+  width: 7px; height: 7px;
+  border-radius: 50%; background: var(--red);
+  border: 1.5px solid var(--white);
+}
+
+.status-pill {
+  display: flex; align-items: center; gap: 5px;
+  background: var(--green-bg);
+  border: 1px solid rgba(34,197,94,.2);
+  border-radius: 100px;
+  padding: 3px 10px;
+  font-size: 11px; font-weight: 600; color: #15803D;
+}
+
+.status-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--green);
+  animation: live 2s infinite;
+}
+
+@keyframes live {
+  0%,100% { box-shadow: 0 0 0 0 rgba(34,197,94,.5); }
+  50% { box-shadow: 0 0 0 4px rgba(34,197,94,0); }
+}
+
+.user-info {
+  font-size: 12px; color: var(--text2);
+  display: flex; align-items: center; gap: 6px;
+}
+
+.user-email { font-size: 12px; font-weight: 500; color: var(--text); }
+
+.role-badge {
+  background: rgba(245,110,15,.1);
+  color: var(--orange);
+  font-size: 10px; font-weight: 700;
+  padding: 2px 7px; border-radius: 4px;
+  letter-spacing: .04em;
+}
+
+.avatar {
+  width: 28px; height: 28px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 700; color: white;
+  flex-shrink: 0;
+}
+
+.decon-btn {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 5px 12px;
+  font-size: 12px; font-weight: 600; color: var(--text2);
+  cursor: pointer; font-family: var(--sans);
+}
+
+/* ── BODY ── */
+.body { display: flex; flex: 1; overflow: hidden; }
+
+/* ── SIDEBAR ── */
+.sidebar {
+  width: 220px; flex-shrink: 0;
+  background: var(--white);
+  border-right: 1px solid var(--border);
+  padding: 12px 10px;
+  overflow-y: auto;
+  display: flex; flex-direction: column; gap: 2px;
+}
+
+.nav-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 13px; font-weight: 500;
+  color: var(--text2);
+  cursor: pointer;
+  transition: all .15s;
+  text-decoration: none;
+  position: relative;
+}
+
+.nav-item:hover { background: var(--bg); color: var(--text); }
+
+.nav-item.active {
+  background: var(--orange-light);
+  color: var(--orange);
+  font-weight: 700;
+}
+
+.nav-item.active::before {
+  content: '';
+  position: absolute; left: 0; top: 50%;
+  transform: translateY(-50%);
+  width: 3px; height: 20px;
+  background: var(--orange);
+  border-radius: 0 3px 3px 0;
+}
+
+.nav-icon { font-size: 15px; flex-shrink: 0; }
+
+.new-badge {
+  margin-left: auto;
+  background: var(--orange);
+  color: white;
+  font-size: 9px; font-weight: 800;
+  padding: 2px 5px; border-radius: 4px;
+  letter-spacing: .04em;
+}
+
+/* ── MAIN CONTENT ── */
+.main { flex: 1; overflow-y: auto; padding: 24px; }
+
+/* Page header */
+.page-header {
+  display: flex; align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.page-title-wrap { display: flex; align-items: center; gap: 10px; }
+.page-title-icon {
+  width: 36px; height: 36px;
+  background: var(--orange-light);
+  border-radius: 9px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 17px;
+}
+
+.page-title { font-size: 22px; font-weight: 800; color: var(--text); line-height: 1; }
+.page-subtitle { font-size: 12px; color: var(--text3); margin-top: 2px; }
+
+.customize-btn {
+  display: flex; align-items: center; gap: 6px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 7px 14px;
+  font-size: 12px; font-weight: 600; color: var(--text2);
+  cursor: pointer; font-family: var(--sans);
+}
+
+/* ── KPI CARDS ── */
+.kpi-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 12px; margin-bottom: 14px;
+}
+
+.kpi-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 18px 16px;
+  box-shadow: var(--shadow);
+  position: relative; overflow: hidden;
+}
+
+.kpi-label {
+  font-size: 10px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .08em;
+  color: var(--text3); margin-bottom: 10px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+
+.kpi-icon { font-size: 16px; }
+.kpi-value { font-size: 32px; font-weight: 800; color: var(--text); line-height: 1; margin-bottom: 5px; }
+.kpi-sub { font-size: 11px; color: var(--text3); }
+.kpi-sub .up { color: var(--green); font-weight: 600; }
+.kpi-sub .target { color: var(--green); font-weight: 600; }
+
+/* ── SLA ALERT ── */
+.sla-alert {
+  background: #FFF5F5;
+  border: 1px solid #FED7D7;
+  border-left: 4px solid var(--red);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 14px;
+}
+
+.sla-alert-icon { font-size: 18px; flex-shrink: 0; }
+.sla-content { flex: 1; }
+.sla-title { font-weight: 700; font-size: 13px; color: #C53030; margin-bottom: 2px; }
+.sla-detail { font-size: 12px; color: #9B4040; }
+.sla-detail strong { color: #C53030; }
+.sla-btn {
+  background: var(--red);
+  color: white;
+  border: none; border-radius: 7px;
+  padding: 7px 14px;
+  font-size: 12px; font-weight: 700;
+  cursor: pointer; font-family: var(--sans);
+  display: flex; align-items: center; gap: 5px;
+  white-space: nowrap; flex-shrink: 0;
+}
+
+/* ── GRID 2 COL ── */
+.grid-2 { display: grid; grid-template-columns: 1fr 320px; gap: 14px; margin-bottom: 14px; }
+.grid-2-equal { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+
+/* ── CARD BASE ── */
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.card-header {
+  padding: 16px 18px 12px;
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: baseline; justify-content: space-between;
+}
+
+.card-title { font-size: 14px; font-weight: 700; color: var(--text); }
+.card-subtitle { font-size: 11px; color: var(--text3); margin-top: 1px; }
+.card-meta { font-size: 11px; color: var(--text3); }
+.card-link { font-size: 12px; font-weight: 600; color: var(--orange); text-decoration: none; cursor: pointer; }
+.card-body { padding: 16px 18px; }
+
+/* ── CHART ── */
+.chart-wrap { padding: 14px 18px 18px; }
+
+.chart-legend {
+  display: flex; gap: 16px;
+  margin-bottom: 14px;
+}
+
+.legend-item {
+  display: flex; align-items: center; gap: 5px;
+  font-size: 11px; font-weight: 600; color: var(--text2);
+}
+
+.legend-dot { width: 8px; height: 8px; border-radius: 50%; }
+
+.chart-area { position: relative; height: 120px; }
+
+.chart-svg { width: 100%; height: 100%; }
+
+/* ── ACTIVITY FEED ── */
+.activity-list { padding: 8px 0; }
+
+.activity-item {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 10px 18px;
+  border-bottom: 1px solid var(--border);
+  transition: background .1s;
+}
+
+.activity-item:last-child { border-bottom: none; }
+.activity-item:hover { background: #FAFAFA; }
+
+.act-icon {
+  width: 28px; height: 28px; border-radius: 7px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; flex-shrink: 0; margin-top: 1px;
+}
+
+.act-icon.alert { background: var(--red-bg); }
+.act-icon.assign { background: var(--purple-bg); }
+.act-icon.calendar { background: var(--green-bg); }
+.act-icon.whatsapp { background: #DCFCE7; }
+
+.act-title { font-size: 12px; font-weight: 600; color: var(--text); margin-bottom: 1px; }
+.act-desc { font-size: 11px; color: var(--text3); }
+.act-time { font-size: 10px; color: var(--text3); margin-left: auto; flex-shrink: 0; white-space: nowrap; padding-top: 1px; }
+
+/* ── TEAM PERFORMANCE ── */
+.agent-row {
+  display: flex; align-items: center; gap: 10px;
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--border);
+}
+
+.agent-avatar {
+  width: 32px; height: 32px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 800; color: white;
+  flex-shrink: 0;
+}
+
+.agent-info { flex: 1; min-width: 0; }
+.agent-name { font-size: 13px; font-weight: 700; color: var(--text); }
+.agent-meta { font-size: 11px; color: var(--text3); display: flex; gap: 8px; margin-top: 2px; }
+
+.sla-bar-wrap { flex: 1; margin: 0 12px; }
+.sla-bar-track {
+  height: 5px; border-radius: 3px;
+  background: var(--bg);
+  overflow: hidden; margin-bottom: 3px;
+}
+
+.sla-bar-fill {
+  height: 100%; border-radius: 3px;
+  transition: width .4s ease;
+}
+
+.sla-pct {
+  font-size: 11px; font-weight: 700;
+  text-align: right;
+}
+
+.team-summary {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  padding: 12px 18px;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+}
+
+.ts-item { text-align: center; }
+.ts-value { font-size: 18px; font-weight: 800; color: var(--text); }
+.ts-label { font-size: 10px; color: var(--text3); text-transform: uppercase; letter-spacing: .06em; margin-top: 1px; }
+
+/* ── FUNNEL ── */
+.funnel-header {
+  padding: 16px 18px 12px;
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+}
+
+.conversion-badge {
+  font-size: 13px; font-weight: 800; color: var(--green);
+}
+
+.funnel-row {
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 18px;
+}
+
+.funnel-bar-wrap { flex: 1; display: flex; align-items: center; gap: 8px; }
+
+.funnel-pill {
+  border-radius: 8px;
+  padding: 7px 14px;
+  font-size: 12px; font-weight: 700; color: white;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 8px; min-width: 0;
+}
+
+.funnel-pct { font-size: 12px; font-weight: 700; color: var(--text2); white-space: nowrap; }
+
+.drop-off {
+  display: flex; align-items: center; gap: 4px;
+  padding: 3px 8px;
+  font-size: 10px; font-weight: 600; color: var(--red);
+  background: var(--red-bg);
+  border-radius: 100px; margin: 0 18px;
+}
+
+.funnel-footer {
+  padding: 10px 18px;
+  border-top: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 11px; color: var(--text3);
+}
+
+/* ── LEADS TABLE ── */
+.leads-table { width: 100%; }
+
+.lt-header {
+  display: grid; grid-template-columns: 1fr 90px 80px 80px;
+  padding: 8px 18px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  font-size: 10px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .08em;
+  color: var(--text3);
+}
+
+.lt-row {
+  display: grid; grid-template-columns: 1fr 90px 80px 80px;
+  padding: 11px 18px;
+  border-bottom: 1px solid var(--border);
+  align-items: center;
+  transition: background .1s;
+  cursor: pointer;
+}
+
+.lt-row:last-child { border-bottom: none; }
+.lt-row:hover { background: #FAFAFA; }
+
+.lt-name { display: flex; align-items: center; gap: 8px; }
+
+.lt-avatar {
+  width: 26px; height: 26px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 700; color: white;
+  flex-shrink: 0;
+}
+
+.lt-name-text { font-size: 12px; font-weight: 600; color: var(--text); }
+.lt-name-meta { font-size: 10px; color: var(--text3); }
+
+.source-badge {
+  display: inline-block;
+  padding: 2px 8px; border-radius: 5px;
+  font-size: 10px; font-weight: 700;
+}
+
+.source-badge.facebook { background: #EFF6FF; color: #3B82F6; }
+.source-badge.google   { background: #F0FDF4; color: #16A34A; }
+.source-badge.site     { background: var(--orange-light); color: var(--orange); }
+.source-badge.whatsapp { background: #DCFCE7; color: #15803D; }
+
+.status-chip {
+  display: inline-block;
+  padding: 2px 8px; border-radius: 5px;
+  font-size: 10px; font-weight: 700;
+}
+
+.status-chip.new    { background: var(--orange-light); color: var(--orange); }
+.status-chip.qual   { background: var(--purple-bg); color: var(--purple); }
+.status-chip.prog   { background: var(--green-bg); color: #15803D; }
+.status-chip.cold   { background: var(--bg); color: var(--text3); }
+
+.time-text { font-size: 11px; color: var(--text3); font-family: var(--mono); }
+.time-text.fast { color: var(--green); font-weight: 600; }
+.time-text.slow { color: var(--red); font-weight: 600; }
+
+/* ── AUTOPILOT CARD ── */
+.autopilot-scenario {
+  margin: 12px 18px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  padding: 12px 14px;
+  display: flex; align-items: center; gap: 10px;
+}
+
+.scenario-name { font-size: 13px; font-weight: 700; flex: 1; }
+.scenario-live {
+  display: flex; align-items: center; gap: 4px;
+  font-size: 11px; font-weight: 700; color: var(--green);
+}
+
+.scenario-meta {
+  display: flex; gap: 16px;
+  padding: 8px 18px 16px;
+  font-size: 11px; color: var(--text3);
+}
+
+.scenario-stat strong { display: block; font-size: 14px; font-weight: 800; color: var(--text); }
+
+/* ── PROGRAMARI ── */
+.programare-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 18px;
+  border-bottom: 1px solid var(--border);
+}
+
+.prog-time {
+  font-family: var(--mono);
+  font-size: 12px; font-weight: 700;
+  color: var(--orange);
+  width: 44px; flex-shrink: 0;
+}
+
+.prog-avatar { width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0; display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:white; }
+.prog-name { font-size: 12px; font-weight: 600; flex: 1; }
+.prog-agent { font-size: 10px; color: var(--text3); }
+.prog-badge {
+  font-size: 10px; font-weight: 700;
+  padding: 2px 7px; border-radius: 5px;
+  background: var(--green-bg); color: #15803D;
+}
+
+/* ── QUICK ACTIONS ── */
+.quick-grid {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 10px; padding: 14px 18px;
+}
+
+.qa-btn {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  padding: 10px 12px;
+  font-size: 12px; font-weight: 600; color: var(--text);
+  cursor: pointer; font-family: var(--sans);
+  transition: all .15s;
+}
+
+.qa-btn:hover { background: var(--white); border-color: var(--orange); color: var(--orange); }
+.qa-btn .qa-icon { font-size: 14px; }
+
+/* ── WATERMARK ── */
+.mockup-banner {
+  background: linear-gradient(135deg, #0A0A0A, #1A1A1A);
+  color: rgba(255,255,255,.6);
+  text-align: center;
+  padding: 8px 20px;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: .08em; text-transform: uppercase;
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+}
+
+.mockup-banner span { color: rgba(245,110,15,.8); }
+</style>
+</head>
+<body>
+<div class="app">
+
+<!-- MOCKUP BANNER -->
+<div class="mockup-banner">
+  🎨 Mockup pentru marketing — <span>pinggo.ro</span> — date fictive ilustrative
+</div>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-logo">
+    <div class="logo-icon">P</div>
+    <div class="logo-text">Pinggo</div>
+  </div>
+
+  <div class="company-selector">
+    <span style="font-size:11px;color:var(--text3);">Companie</span>
+    <div class="company-select">Imobiliare Premium SRL</div>
+  </div>
+
+  <div class="topbar-right">
+    <div class="notif-btn">🔔<div class="notif-badge"></div></div>
+    <div class="status-pill"><div class="status-dot"></div>Disponibil</div>
+    <div class="user-email">andrei.pop@imopremium.ro</div>
+    <div class="role-badge">MANAGER</div>
+    <div class="avatar" style="background: linear-gradient(135deg,#F56E0F,#E0440A);">AP</div>
+    <button class="decon-btn">Deconectare</button>
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="body">
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+  <div class="nav-item active"><span class="nav-icon">⊞</span>Dashboard</div>
+  <div class="nav-item"><span class="nav-icon">👥</span>Leaduri</div>
+  <div class="nav-item"><span class="nav-icon">⚡</span>Autopilot<span class="new-badge">NOU</span></div>
+  <div class="nav-item"><span class="nav-icon">🏢</span>Companii</div>
+  <div class="nav-item"><span class="nav-icon">👤</span>Useri</div>
+  <div class="nav-item"><span class="nav-icon">🔀</span>Fluxuri</div>
+  <div class="nav-item"><span class="nav-icon">⚙️</span>Setari</div>
+  <div class="nav-item"><span class="nav-icon">📊</span>Rapoarte</div>
+  <div class="nav-item"><span class="nav-icon">🔗</span>Integrari</div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="page-title-wrap">
+      <div class="page-title-icon">⊞</div>
+      <div>
+        <div class="page-title">Dashboard</div>
+        <div class="page-subtitle">Control tower pentru monitorizare si executie.</div>
+      </div>
+    </div>
+    <button class="customize-btn">⚙️ Customize Dashboard</button>
+  </div>
+
+  <!-- KPI CARDS -->
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-label">Total Leaduri <span class="kpi-icon">👥</span></div>
+      <div class="kpi-value">1,284</div>
+      <div class="kpi-sub"><span class="up">+18%</span> față de luna trecută</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Leaduri Noi Azi <span class="kpi-icon" style="color:var(--green);">📈</span></div>
+      <div class="kpi-value" style="color:var(--orange);">47</div>
+      <div class="kpi-sub"><span class="up">+12%</span> vs ieri</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Calificate <span class="kpi-icon" style="color:var(--purple);">✅</span></div>
+      <div class="kpi-value">389</div>
+      <div class="kpi-sub">30% conversion rate</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Timp Mediu Răspuns <span class="kpi-icon" style="color:var(--orange);">⏱</span></div>
+      <div class="kpi-value" style="color:var(--green);">0:12</div>
+      <div class="kpi-sub">Target: &lt;15m · <span class="target">✓ OK</span></div>
+    </div>
+  </div>
+
+  <!-- SLA ALERT -->
+  <div class="sla-alert">
+    <div class="sla-alert-icon">⚠️</div>
+    <div class="sla-content">
+      <div class="sla-title">3 Leaduri Cu Breach SLA</div>
+      <div class="sla-detail"><strong>Radu Florescu</strong> · 2h 17m peste target · Neasignat · <strong>Maria Ionescu</strong> +2 altele</div>
+    </div>
+    <button class="sla-btn">⚡ Escaladează acum ↗</button>
+  </div>
+
+  <!-- ROW: CHART + ACTIVITY -->
+  <div class="grid-2" style="margin-bottom:14px;">
+
+    <!-- TREND CHART -->
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Trend Leaduri (7 Zile)</div>
+          <div class="card-subtitle">Evolutia leadurilor noi, calificate si programate.</div>
+        </div>
+        <div class="card-meta">Feb 18 — Feb 25</div>
+      </div>
+      <div class="chart-wrap">
+        <div class="chart-legend">
+          <div class="legend-item"><div class="legend-dot" style="background:#7C3AED;"></div>Calificate</div>
+          <div class="legend-item"><div class="legend-dot" style="background:var(--orange);"></div>Leaduri Noi</div>
+          <div class="legend-item"><div class="legend-dot" style="background:var(--green);"></div>Programate</div>
+        </div>
+        <div class="chart-area">
+          <svg class="chart-svg" viewBox="0 0 540 120" preserveAspectRatio="none">
+            <!-- Grid lines -->
+            <line x1="0" y1="30" x2="540" y2="30" stroke="#F0EEE9" stroke-width="1"/>
+            <line x1="0" y1="60" x2="540" y2="60" stroke="#F0EEE9" stroke-width="1"/>
+            <line x1="0" y1="90" x2="540" y2="90" stroke="#F0EEE9" stroke-width="1"/>
+
+            <!-- Leaduri Noi area + line (orange) -->
+            <polyline points="0,85 77,70 154,55 231,45 308,30 385,40 462,25 540,35"
+              fill="none" stroke="#F56E0F" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+            <polygon points="0,85 77,70 154,55 231,45 308,30 385,40 462,25 540,35 540,120 0,120"
+              fill="rgba(245,110,15,.07)"/>
+
+            <!-- Calificate line (purple) -->
+            <polyline points="0,100 77,92 154,78 231,68 308,58 385,65 462,50 540,55"
+              fill="none" stroke="#7C3AED" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="none"/>
+
+            <!-- Programate line (green) -->
+            <polyline points="0,110 77,105 154,95 231,88 308,72 385,80 462,65 540,72"
+              fill="none" stroke="#22C55E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+
+            <!-- Dots on orange line -->
+            <circle cx="0" cy="85" r="3.5" fill="#F56E0F"/>
+            <circle cx="77" cy="70" r="3.5" fill="#F56E0F"/>
+            <circle cx="154" cy="55" r="3.5" fill="#F56E0F"/>
+            <circle cx="231" cy="45" r="3.5" fill="#F56E0F"/>
+            <circle cx="308" cy="30" r="3.5" fill="#F56E0F"/>
+            <circle cx="385" cy="40" r="3.5" fill="#F56E0F"/>
+            <circle cx="462" cy="25" r="3.5" fill="#F56E0F"/>
+            <circle cx="540" cy="35" r="4.5" fill="white" stroke="#F56E0F" stroke-width="2.5"/>
+          </svg>
+        </div>
+        <div style="display:flex;justify-content:space-between;margin-top:6px;font-size:10px;color:var(--text3);font-family:var(--mono);">
+          <span>Lun</span><span>Mar</span><span>Mie</span><span>Joi</span><span>Vin</span><span>Sam</span><span>Dum</span><span>Azi</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACTIVITY FEED -->
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Activitate Recenta</div>
+          <div class="card-subtitle">Live updates din sistem</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:5px;font-size:11px;font-weight:700;color:var(--green);">
+          <div class="status-dot" style="width:6px;height:6px;flex-shrink:0;"></div>Live
+        </div>
+      </div>
+      <div class="activity-list">
+        <div class="activity-item">
+          <div class="act-icon whatsapp">💬</div>
+          <div style="flex:1;">
+            <div class="act-title">Ionuț Marin — contactat WhatsApp</div>
+            <div class="act-desc">Răspuns automat trimis · Lead de pe Facebook</div>
+          </div>
+          <div class="act-time">acum 12s</div>
+        </div>
+        <div class="activity-item">
+          <div class="act-icon calendar">📅</div>
+          <div style="flex:1;">
+            <div class="act-title">Anca Dumitru — programare confirmată</div>
+            <div class="act-desc">Joi, 27 Feb · 14:00 · Agent: Mihai P.</div>
+          </div>
+          <div class="act-time">3 min</div>
+        </div>
+        <div class="activity-item">
+          <div class="act-icon assign">🔀</div>
+          <div style="flex:1;">
+            <div class="act-title">Lead reasignat automat</div>
+            <div class="act-desc">Tudor Vasile → Cristina A. (SLA breach)</div>
+          </div>
+          <div class="act-time">8 min</div>
+        </div>
+        <div class="activity-item">
+          <div class="act-icon alert">🔔</div>
+          <div style="flex:1;">
+            <div class="act-title">Radu Florescu — alert SLA</div>
+            <div class="act-desc">Neasignat · 2h fără răspuns · Escaladare</div>
+          </div>
+          <div class="act-time">14 min</div>
+        </div>
+        <div class="activity-item">
+          <div class="act-icon whatsapp">💬</div>
+          <div style="flex:1;">
+            <div class="act-title">Georgiana Pop — calificată</div>
+            <div class="act-desc">Autopilot · Buget confirmat 180k€</div>
+          </div>
+          <div class="act-time">22 min</div>
+        </div>
+        <div class="activity-item">
+          <div class="act-icon calendar">📅</div>
+          <div style="flex:1;">
+            <div class="act-title">Bogdan Stancu — interes imobil</div>
+            <div class="act-desc">Lead nou · Google Ads · Asignat: Elena M.</div>
+          </div>
+          <div class="act-time">31 min</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ROW: TEAM PERF + FUNNEL -->
+  <div class="grid-2-equal" style="margin-bottom:14px;">
+
+    <!-- TEAM PERFORMANCE -->
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">👥 Performanta Echipa <span style="font-weight:500;color:var(--text3);font-size:12px;">(Astazi)</span></div>
+        </div>
+      </div>
+      <div class="agent-row">
+        <div class="agent-avatar" style="background:linear-gradient(135deg,#F56E0F,#E04A00);">MP</div>
+        <div class="agent-info">
+          <div class="agent-name">Mihai Popescu</div>
+          <div class="agent-meta">
+            <span>14 leaduri</span>
+            <span>Avg 0:09m</span>
+          </div>
+        </div>
+        <div class="sla-bar-wrap">
+          <div class="sla-bar-track"><div class="sla-bar-fill" style="width:94%;background:var(--green);"></div></div>
+          <div style="font-size:9px;color:var(--text3);text-align:right;">SLA</div>
+        </div>
+        <div class="sla-pct" style="color:var(--green);">94%</div>
+      </div>
+      <div class="agent-row">
+        <div class="agent-avatar" style="background:linear-gradient(135deg,#7C3AED,#5B21B6);">CA</div>
+        <div class="agent-info">
+          <div class="agent-name">Cristina Avram</div>
+          <div class="agent-meta">
+            <span>11 leaduri</span>
+            <span>Avg 0:14m</span>
+          </div>
+        </div>
+        <div class="sla-bar-wrap">
+          <div class="sla-bar-track"><div class="sla-bar-fill" style="width:87%;background:#3B82F6;"></div></div>
+          <div style="font-size:9px;color:var(--text3);text-align:right;">SLA</div>
+        </div>
+        <div class="sla-pct" style="color:#3B82F6;">87%</div>
+      </div>
+      <div class="agent-row">
+        <div class="agent-avatar" style="background:linear-gradient(135deg,#22C55E,#16A34A);">EM</div>
+        <div class="agent-info">
+          <div class="agent-name">Elena Marin</div>
+          <div class="agent-meta">
+            <span>9 leaduri</span>
+            <span>Avg 0:11m</span>
+          </div>
+        </div>
+        <div class="sla-bar-wrap">
+          <div class="sla-bar-track"><div class="sla-bar-fill" style="width:91%;background:var(--green);"></div></div>
+          <div style="font-size:9px;color:var(--text3);text-align:right;">SLA</div>
+        </div>
+        <div class="sla-pct" style="color:var(--green);">91%</div>
+      </div>
+      <div class="agent-row" style="border-bottom:none;">
+        <div class="agent-avatar" style="background:linear-gradient(135deg,#F59E0B,#D97706);">RF</div>
+        <div class="agent-info">
+          <div class="agent-name">Radu Florescu</div>
+          <div class="agent-meta">
+            <span>6 leaduri</span>
+            <span>Avg 1:42m</span>
+          </div>
+        </div>
+        <div class="sla-bar-wrap">
+          <div class="sla-bar-track"><div class="sla-bar-fill" style="width:52%;background:var(--red);"></div></div>
+          <div style="font-size:9px;color:var(--text3);text-align:right;">SLA</div>
+        </div>
+        <div class="sla-pct" style="color:var(--red);">52%</div>
+      </div>
+      <div class="team-summary">
+        <div class="ts-item"><div class="ts-value">40</div><div class="ts-label">Total Leaduri</div></div>
+        <div class="ts-item"><div class="ts-value" style="color:var(--green);">81%</div><div class="ts-label">Avg SLA</div></div>
+        <div class="ts-item"><div class="ts-value">4</div><div class="ts-label">Agenti Activi</div></div>
+      </div>
+    </div>
+
+    <!-- FUNNEL CONVERSIE -->
+    <div class="card">
+      <div class="funnel-header">
+        <div>
+          <div class="card-title">Funnel Conversie</div>
+          <div class="card-subtitle">Luna curenta</div>
+        </div>
+        <div class="conversion-badge">28.4% <span style="font-size:10px;font-weight:500;color:var(--text3);">conv rate</span></div>
+      </div>
+
+      <div class="funnel-row">
+        <div class="funnel-bar-wrap">
+          <div class="funnel-pill" style="background:var(--orange);width:100%;">
+            <span>Leaduri Noi</span><span>284</span>
+          </div>
+        </div>
+        <div class="funnel-pct">100%</div>
+      </div>
+
+      <div class="drop-off">↘ -22% drop-off</div>
+
+      <div class="funnel-row">
+        <div class="funnel-bar-wrap">
+          <div class="funnel-pill" style="background:#FB923C;width:78%;">
+            <span>Contactate</span><span>221</span>
+          </div>
+        </div>
+        <div class="funnel-pct">78%</div>
+      </div>
+
+      <div class="funnel-row">
+        <div class="funnel-bar-wrap">
+          <div class="funnel-pill" style="background:#7C3AED;width:56%;">
+            <span>Calificate</span><span>159</span>
+          </div>
+        </div>
+        <div class="funnel-pct">56%</div>
+      </div>
+
+      <div class="drop-off">↘ -26% drop-off</div>
+
+      <div class="funnel-row">
+        <div class="funnel-bar-wrap">
+          <div class="funnel-pill" style="background:#A78BFA;width:38%;">
+            <span>Programate</span><span>108</span>
+          </div>
+        </div>
+        <div class="funnel-pct">38%</div>
+      </div>
+
+      <div class="funnel-row">
+        <div class="funnel-bar-wrap">
+          <div class="funnel-pill" style="background:var(--green);width:28%;">
+            <span>Closing</span><span>81</span>
+          </div>
+        </div>
+        <div class="funnel-pct" style="color:var(--green);font-weight:700;">28%</div>
+      </div>
+
+      <div class="funnel-footer">
+        <span>Biggest drop-off: Contactate → Calificate (-22%)</span>
+        <a class="card-link">Vezi Detalii →</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- LEADS TABLE -->
+  <div class="card" style="margin-bottom:14px;">
+    <div class="card-header">
+      <div class="card-title">Leaduri Recente</div>
+      <a class="card-link">Vezi Toate →</a>
+    </div>
+    <div class="leads-table">
+      <div class="lt-header">
+        <div>Lead</div>
+        <div>Sursa</div>
+        <div>Status</div>
+        <div>Răspuns</div>
+      </div>
+      <div class="lt-row">
+        <div class="lt-name">
+          <div class="lt-avatar" style="background:linear-gradient(135deg,#F56E0F,#E04A00);">IM</div>
+          <div><div class="lt-name-text">Ionuț Marin</div><div class="lt-name-meta">+40 721 234 567</div></div>
+        </div>
+        <div><span class="source-badge facebook">Facebook</span></div>
+        <div><span class="status-chip new">Nou</span></div>
+        <div><span class="time-text fast">0:12s ⚡</span></div>
+      </div>
+      <div class="lt-row">
+        <div class="lt-name">
+          <div class="lt-avatar" style="background:linear-gradient(135deg,#7C3AED,#5B21B6);">AD</div>
+          <div><div class="lt-name-text">Anca Dumitru</div><div class="lt-name-meta">+40 744 876 543</div></div>
+        </div>
+        <div><span class="source-badge google">Google Ads</span></div>
+        <div><span class="status-chip prog">Programat</span></div>
+        <div><span class="time-text fast">0:09s ⚡</span></div>
+      </div>
+      <div class="lt-row">
+        <div class="lt-name">
+          <div class="lt-avatar" style="background:linear-gradient(135deg,#22C55E,#16A34A);">GP</div>
+          <div><div class="lt-name-text">Georgiana Pop</div><div class="lt-name-meta">+40 765 432 198</div></div>
+        </div>
+        <div><span class="source-badge site">Site Form</span></div>
+        <div><span class="status-chip qual">Calificat</span></div>
+        <div><span class="time-text fast">0:15s</span></div>
+      </div>
+      <div class="lt-row">
+        <div class="lt-name">
+          <div class="lt-avatar" style="background:linear-gradient(135deg,#F59E0B,#D97706);">BS</div>
+          <div><div class="lt-name-text">Bogdan Stancu</div><div class="lt-name-meta">+40 758 111 222</div></div>
+        </div>
+        <div><span class="source-badge google">Google Ads</span></div>
+        <div><span class="status-chip new">Nou</span></div>
+        <div><span class="time-text fast">0:11s ⚡</span></div>
+      </div>
+      <div class="lt-row">
+        <div class="lt-name">
+          <div class="lt-avatar" style="background:linear-gradient(135deg,#EF4444,#DC2626);">RF</div>
+          <div><div class="lt-name-text">Radu Florescu</div><div class="lt-name-meta">+40 733 999 888</div></div>
+        </div>
+        <div><span class="source-badge whatsapp">WhatsApp</span></div>
+        <div><span class="status-chip cold">⚠️ SLA Breach</span></div>
+        <div><span class="time-text slow">2h 17m</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AUTOPILOT + PROGRAMARI + QUICK ACTIONS -->
+  <div class="grid-3">
+
+    <!-- AUTOPILOT -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">⚡ Autopilot</div>
+        <a class="card-link">Configureaza ↗</a>
+      </div>
+      <div class="autopilot-scenario">
+        <span style="font-size:16px;">🤖</span>
+        <div class="scenario-name">Standard Imobiliare</div>
+        <div class="scenario-live"><div class="status-dot"></div>Live</div>
+      </div>
+      <div class="scenario-meta">
+        <div class="scenario-stat"><strong style="color:var(--orange);">47</strong>leaduri azi</div>
+        <div class="scenario-stat"><strong style="color:var(--green);">91%</strong>booking rate</div>
+        <div class="scenario-stat"><strong>0:12s</strong>avg răspuns</div>
+      </div>
+    </div>
+
+    <!-- PROGRAMARI -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">📅 Programari Astazi</div>
+        <a class="card-link">Calendar ↗</a>
+      </div>
+      <div class="programare-item">
+        <div class="prog-time">09:30</div>
+        <div class="prog-avatar" style="background:linear-gradient(135deg,#F56E0F,#E04A00);">IM</div>
+        <div style="flex:1;">
+          <div class="prog-name">Ionuț Marin</div>
+          <div class="prog-agent">Agent: Mihai P.</div>
+        </div>
+        <div class="prog-badge">Confirmat</div>
+      </div>
+      <div class="programare-item">
+        <div class="prog-time">11:00</div>
+        <div class="prog-avatar" style="background:linear-gradient(135deg,#7C3AED,#5B21B6);">AD</div>
+        <div style="flex:1;">
+          <div class="prog-name">Anca Dumitru</div>
+          <div class="prog-agent">Agent: Cristina A.</div>
+        </div>
+        <div class="prog-badge">Confirmat</div>
+      </div>
+      <div class="programare-item" style="border:none;">
+        <div class="prog-time">15:30</div>
+        <div class="prog-avatar" style="background:linear-gradient(135deg,#22C55E,#16A34A);">GP</div>
+        <div style="flex:1;">
+          <div class="prog-name">Georgiana Pop</div>
+          <div class="prog-agent">Agent: Elena M.</div>
+        </div>
+        <div class="prog-badge">Confirmat</div>
+      </div>
+    </div>
+
+    <!-- QUICK ACTIONS -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Actiuni Rapide</div>
+      </div>
+      <div class="quick-grid">
+        <button class="qa-btn"><span class="qa-icon">👤</span>+ Lead Manual</button>
+        <button class="qa-btn"><span class="qa-icon">⚡</span>+ Scenariu</button>
+        <button class="qa-btn"><span class="qa-icon">🔀</span>Fluxuri</button>
+        <button class="qa-btn"><span class="qa-icon">📄</span>Raport Zilnic</button>
+        <button class="qa-btn"><span class="qa-icon">🔔</span>Notificari</button>
+        <button class="qa-btn"><span class="qa-icon">⚙️</span>Setari SLA</button>
+      </div>
+    </div>
+
+  </div>
+
+</div><!-- /main -->
+</div><!-- /body -->
+</div><!-- /app -->
+</body>
+</html>
