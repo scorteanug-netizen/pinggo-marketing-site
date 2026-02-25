@@ -36,7 +36,7 @@ const faqs = [
 
 export function FAQSection() {
   return (
-    <Section>
+    <Section secondary>
       <SectionHeading
         title="Intrebari frecvente"
       />

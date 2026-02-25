@@ -55,7 +55,7 @@ const ITEMS = [
 
 export function UnSingurSistemSection() {
   return (
-    <Section alternate canvas>
+    <Section alternate canvas secondary>
       <SectionHeading
         title="In sfarsit, un singur sistem care nu lasa leadurile sa se piarda."
         subtitle="Răspuns instant, programare automată și escaladare. Ca să fie execuție, nu presupuneri."

@@ -17,8 +17,8 @@ const Index = () => {
       <HeroSection />
       <ProblemSection />
       <HowItWorksSection />
-      <ManagerDashboardSection />
       <UnSingurSistemSection />
+      <ManagerDashboardSection />
       <EcosistemSection />
       {/* TODO: Add real testimonials */}
       {/* <SocialProofSection /> */}

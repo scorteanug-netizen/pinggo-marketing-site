@@ -68,7 +68,7 @@
     --radius-card: 1rem;
     --section-py: 4rem;
     --section-py-md: 5rem;
-    --section-py-lg: 6rem;
+    --section-py-lg: 5rem;
     --heading-mb: 1.25rem;
     --content-gap: 1.5rem;
     --canvas-opacity: 0.09;
@@ -248,7 +248,7 @@
 }
 
 @layer utilities {
-  /* Premium section spacing */
+  /* Premium section spacing — major sections (80px at lg) */
   .section-premium {
     padding-top: var(--section-py);
     padding-bottom: var(--section-py);
@@ -264,6 +264,12 @@
       padding-top: var(--section-py-lg);
       padding-bottom: var(--section-py-lg);
     }
+  }
+
+  /* Secondary section spacing — 64px fixed */
+  .section-secondary {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
   }
 
   .prose-width {

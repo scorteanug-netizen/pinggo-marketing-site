@@ -9,7 +9,7 @@ const ITEMS = [...ROW_1, ...ROW_2];
 
 export function EcosistemSection() {
   return (
-    <Section canvas>
+    <Section canvas secondary>
       <SectionHeading
         title="Se integrează cu stack-ul tău existent"
         subtitle="Nu înlocuiește CRM-ul — se conectează cu el."

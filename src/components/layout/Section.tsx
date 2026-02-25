@@ -7,16 +7,18 @@ interface SectionProps {
   alternate?: boolean;
   canvas?: boolean;
   highlightBlue?: boolean;
+  secondary?: boolean;
   id?: string;
 }
 
-export function Section({ 
-  children, 
-  className, 
-  alternate = false, 
+export function Section({
+  children,
+  className,
+  alternate = false,
   canvas = false,
   highlightBlue = false,
-  id 
+  secondary = false,
+  id
 }: SectionProps) {
   if (highlightBlue) {
     return (
@@ -37,7 +39,7 @@ export function Section({
     <section
       id={id}
       className={cn(
-        "section-premium",
+        secondary ? "section-secondary" : "section-premium",
         alternate ? "bg-secondary" : "bg-background",
         canvas && "bg-canvas",
         className
