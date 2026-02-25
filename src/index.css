@@ -637,12 +637,21 @@
   }
 }
 
+/* Paused by default — start only when section enters viewport */
 .how-chat-message {
   animation: pinggo-how-bubble 8.8s cubic-bezier(0.2, 0.7, 0.2, 1) infinite both;
+  animation-play-state: paused;
 }
 
 .how-flow-step {
   animation: pinggo-how-step 8.8s ease-in-out infinite both;
+  animation-play-state: paused;
+}
+
+/* Triggered by IntersectionObserver */
+.chat-section-visible .how-chat-message,
+.chat-section-visible .how-flow-step {
+  animation-play-state: running;
 }
 
 .how-flow-live-dot {
