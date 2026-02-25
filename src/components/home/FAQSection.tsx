@@ -32,6 +32,10 @@ const faqs = [
     question: "Putem seta termene diferite pe tipuri de leaduri?",
     answer: "Da. Poti defini termene diferite pe sursa (Facebook, Google, site), tip (intent ridicat sau scazut), valoare estimata sau orice camp din payload.",
   },
+  {
+    question: "Cât durează să fiu live cu Pinggo?",
+    answer: "Mai puțin de 1 oră. Tu ne trimiți informațiile despre echipă și fluxul de leaduri, noi facem configurarea. Integrarea cu CRM-ul (HubSpot, Pipedrive, Zoho etc.) o faci tu prin ghid pas cu pas — durează 10–15 minute. Înainte de prânz ești live.",
+  },
 ];
 
 export function FAQSection() {

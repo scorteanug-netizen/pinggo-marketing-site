@@ -8,6 +8,7 @@ import { EcosistemSection } from "@/components/home/EcosistemSection";
 // TODO: Add real testimonials before re-enabling
 // import { SocialProofSection } from "@/components/home/SocialProofSection";
 import { PricingTeaserSection } from "@/components/home/PricingTeaserSection";
+import { TestimonialeSection } from "@/components/home/TestimonialeSection";
 import { FAQSection } from "@/components/home/FAQSection";
 import { FinalCTASection } from "@/components/home/FinalCTASection";
 
@@ -20,9 +21,8 @@ const Index = () => {
       <UnSingurSistemSection />
       <ManagerDashboardSection />
       <EcosistemSection />
-      {/* TODO: Add real testimonials */}
-      {/* <SocialProofSection /> */}
       <PricingTeaserSection />
+      <TestimonialeSection />
       <FAQSection />
       <FinalCTASection />
     </Layout>
