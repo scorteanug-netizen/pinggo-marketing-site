@@ -323,47 +323,47 @@ export default function Calculator() {
                 )}
               </div>
 
-              <div className="rounded-2xl bg-gray-900 p-6 text-center">
-                <p className="mb-1 text-base font-semibold text-white">Vrei să recuperezi acești bani?</p>
-                <p className="mb-4 text-sm text-gray-400">Setup în mai puțin de 1 oră. Primul lead automat în aceeași zi.</p>
-                <Button asChild className="bg-orange-500 text-white hover:bg-orange-600">
-                  <Link to="/contact">Solicită demo gratuit</Link>
-                </Button>
+              <div className="rounded-2xl border border-gray-200 bg-white p-6">
+                <h3 className="mb-4 text-lg font-bold text-gray-900">Cum calculăm rezultatele</h3>
+                <div className="space-y-3 text-sm text-gray-700">
+                  <p>
+                    1. Calculăm gap-ul de răspuns față de targetul 95%:{" "}
+                    <strong>
+                      95% - {Math.round(Math.min(100, Math.max(0, numericInputs.responseRate)))}% ={" "}
+                      {Math.round(results.responseGap * 100)}%
+                    </strong>
+                    .
+                  </p>
+                  <p>
+                    2. Estimăm leadurile pierdute lunar:{" "}
+                    <strong>
+                      {Math.round(Math.max(0, numericInputs.leads))} × {Math.round(results.responseGap * 100)}% ={" "}
+                      {Math.round(results.lostLeads)}
+                    </strong>
+                    .
+                  </p>
+                  <p>
+                    3. Estimăm valoarea pierdută pe lună:{" "}
+                    <strong>
+                      {Math.round(results.lostLeads)} × {Math.round(Math.min(100, Math.max(0, numericInputs.convRate)))}% ×{" "}
+                      {formatRON(Math.max(0, numericInputs.avgValue))} = {formatRON(results.monthlyLoss)}
+                    </strong>
+                    .
+                  </p>
+                  <p>
+                    4. Pierderea anuală: <strong>{formatRON(results.monthlyLoss)} × 12 = {formatRON(results.annualLoss)}</strong>.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
 
-          <div className="mx-auto mt-8 max-w-5xl rounded-2xl border border-gray-200 bg-white p-6">
-            <h3 className="mb-4 text-lg font-bold text-gray-900">Cum calculăm rezultatele</h3>
-            <div className="space-y-3 text-sm text-gray-700">
-              <p>
-                1. Calculăm gap-ul de răspuns față de targetul 95%:{" "}
-                <strong>
-                  95% - {Math.round(Math.min(100, Math.max(0, numericInputs.responseRate)))}% ={" "}
-                  {Math.round(results.responseGap * 100)}%
-                </strong>
-                .
-              </p>
-              <p>
-                2. Estimăm leadurile pierdute lunar:{" "}
-                <strong>
-                  {Math.round(Math.max(0, numericInputs.leads))} × {Math.round(results.responseGap * 100)}% ={" "}
-                  {Math.round(results.lostLeads)}
-                </strong>
-                .
-              </p>
-              <p>
-                3. Estimăm valoarea pierdută pe lună:{" "}
-                <strong>
-                  {Math.round(results.lostLeads)} × {Math.round(Math.min(100, Math.max(0, numericInputs.convRate)))}% ×{" "}
-                  {formatRON(Math.max(0, numericInputs.avgValue))} = {formatRON(results.monthlyLoss)}
-                </strong>
-                .
-              </p>
-              <p>
-                4. Pierderea anuală: <strong>{formatRON(results.monthlyLoss)} × 12 = {formatRON(results.annualLoss)}</strong>.
-              </p>
-            </div>
+          <div className="mx-auto mt-8 max-w-3xl text-center">
+            <p className="mb-2 text-base font-semibold text-gray-900">Vrei să recuperezi acești bani?</p>
+            <p className="mb-4 text-sm text-gray-500">Setup în mai puțin de 1 oră. Primul lead automat în aceeași zi.</p>
+            <Button asChild className="bg-orange-500 text-white hover:bg-orange-600">
+              <Link to="/contact">Solicită demo</Link>
+            </Button>
           </div>
 
           <p className="mx-auto mt-10 max-w-xl text-center text-xs text-gray-400">
