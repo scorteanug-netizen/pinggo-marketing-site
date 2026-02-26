@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MessageSquare, Send } from "lucide-react";
+import { MessageSquare, Send, Mail, MapPin, Building } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
 import { Section } from "@/components/layout/Section";
 import { Button } from "@/components/ui/button";
@@ -97,10 +97,10 @@ const Contact = () => {
           {/* Form */}
           <div>
             <h1 className="text-foreground mb-5">
-              Contacteaza-ne
+              Contactează-ne
             </h1>
             <p className="text-lg text-muted-foreground mb-10 leading-relaxed">
-              Completeaza formularul sau scrie-ne direct. Raspundem in 24 ore.
+              Completează formularul sau scrie-ne direct. Răspundem în 24 ore.
             </p>
 
             {isSubmitted ? (
@@ -111,10 +111,10 @@ const Contact = () => {
                       <Send className="h-10 w-10 text-primary" />
                     </div>
                     <h3 className="text-2xl font-bold text-foreground mb-3">
-                      Multumim!
+                      Mulțumim!
                     </h3>
                     <p className="text-muted-foreground text-lg">
-                      Revenim in maximum 24 de ore.
+                      Revenim în maximum 24 de ore.
                     </p>
                   </div>
                 </CardContent>
@@ -149,8 +149,51 @@ const Contact = () => {
             )}
           </div>
 
-          {/* WhatsApp Alternative */}
-          <div className="lg:pt-24">
+          {/* Sidebar */}
+          <div className="lg:pt-24 space-y-8">
+            {/* Business Details Card */}
+            <Card className="shadow-premium">
+              <CardHeader>
+                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10">
+                  <Building className="h-7 w-7 text-primary" />
+                </div>
+                <CardTitle className="text-xl">Date de identificare</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-4 text-muted-foreground">
+                  <li className="flex items-start gap-3">
+                    <Building className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                    <div>
+                      <p className="font-semibold text-foreground text-sm">Denumire</p>
+                      <p className="text-sm">SCORȚEANU GABRIEL-ION PERSOANĂ FIZICĂ AUTORIZATĂ</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Building className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                    <div>
+                      <p className="font-semibold text-foreground text-sm">Nr. înregistrare</p>
+                      <p className="text-sm">F2025037426001</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <MapPin className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                    <div>
+                      <p className="font-semibold text-foreground text-sm">Sediu</p>
+                      <p className="text-sm">B-dul Bucureștii Noi, 136, et. Parter, ap. 5, Sector 1, București</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Mail className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                    <div>
+                      <p className="font-semibold text-foreground text-sm">Email</p>
+                      <a href="mailto:contact@pinggo.ro" className="text-sm text-primary hover:underline">contact@pinggo.ro</a>
+                    </div>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            {/* WhatsApp Alternative */}
             <Card className="shadow-premium">
               <CardHeader>
                 <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-violet-100">
@@ -160,7 +203,7 @@ const Contact = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground mb-5 leading-relaxed">
-                  Scrie-ne direct pe WhatsApp pentru un raspuns mai rapid.
+                  Scrie-ne direct pe WhatsApp pentru un răspuns mai rapid.
                 </p>
                 <Button variant="outline" asChild className="w-full">
                   <a
@@ -174,8 +217,8 @@ const Contact = () => {
               </CardContent>
             </Card>
 
-            <div className="mt-8 p-6 rounded-2xl bg-secondary border border-border/50 shadow-soft">
-              <h3 className="font-bold text-foreground mb-5 text-lg">De ce sa vorbim?</h3>
+            <div className="p-6 rounded-2xl bg-secondary border border-border/50 shadow-soft">
+              <h3 className="font-bold text-foreground mb-5 text-lg">De ce să vorbim?</h3>
               <ul className="space-y-3 text-muted-foreground">
                 <li className="flex items-start gap-3">
                   <span className="h-1.5 w-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
@@ -183,15 +226,15 @@ const Contact = () => {
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="h-1.5 w-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                  Intrebari despre preturi si functionalitati
+                  Întrebări despre prețuri și funcționalități
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="h-1.5 w-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                  Suport pentru integrari personalizate
+                  Suport pentru integrări personalizate
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="h-1.5 w-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                  Oportunitati de parteneriat
+                  Oportunități de parteneriat
                 </li>
               </ul>
             </div>

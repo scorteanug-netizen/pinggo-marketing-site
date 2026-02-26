@@ -9,8 +9,9 @@ const footerLinks = {
   ],
   company: [
     { href: "/contact", label: "Contact" },
-    { href: "/terms", label: "Terms" },
-    { href: "/privacy", label: "Privacy" },
+    { href: "/terms", label: "Termeni și Condiții" },
+    { href: "/privacy", label: "Politica de Confidențialitate" },
+    { href: "/cookies", label: "Politica Cookies" },
   ],
 };
 
@@ -68,7 +69,7 @@ export function Footer() {
           {/* Bottom */}
           <div className="mt-14 pt-8 border-t border-border/50">
             <p className="text-sm text-muted-foreground">
-              &copy; {new Date().getFullYear()} Pinggo. Romania-first, EU-ready.
+              &copy; {new Date().getFullYear()} Pinggo — SCORȚEANU GABRIEL-ION PFA | F2025037426001
             </p>
           </div>
         </div>
