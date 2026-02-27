@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { MessageSquare, Send, Mail, MapPin, Building } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
+import { SEOHead } from "@/components/SEOHead";
 import { Section } from "@/components/layout/Section";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -92,6 +93,11 @@ const Contact = () => {
 
   return (
     <Layout>
+      <SEOHead
+        title="Contact Pinggo"
+        description="Ia legătura cu echipa Pinggo pentru demo, întrebări comerciale sau suport de implementare."
+        path="/contact"
+      />
       <Section>
         <div className="grid gap-12 lg:grid-cols-2 max-w-5xl mx-auto">
           {/* Form */}

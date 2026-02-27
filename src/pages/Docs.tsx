@@ -1,4 +1,5 @@
 import { Layout } from "@/components/layout/Layout";
+import { SEOHead } from "@/components/SEOHead";
 import { Section } from "@/components/layout/Section";
 import { SectionHeading } from "@/components/layout/SectionHeading";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -135,6 +136,11 @@ Pentru formate specifice, configureaza reguli custom in Settings > Email Parsing
 const Docs = () => {
   return (
     <Layout>
+      <SEOHead
+        title="Documentație Pinggo"
+        description="Ghiduri tehnice pentru integrarea Pinggo: webhook, Slack, WhatsApp și email forwarding."
+        path="/docs"
+      />
       {/* Hero */}
       <Section>
         <div className="text-center max-w-3xl mx-auto">

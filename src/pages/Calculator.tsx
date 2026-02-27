@@ -2,6 +2,7 @@ import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Container } from "@/components/layout/Container";
+import { SEOHead } from "@/components/SEOHead";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -236,6 +237,11 @@ export default function Calculator() {
 
   return (
     <Layout>
+      <SEOHead
+        title="Calculator pierderi lead-uri"
+        description="Estimează rapid cât pierzi lunar din lead-uri necontactate la timp și ce poți recupera cu Pinggo."
+        path="/calculator"
+      />
       <div className="min-h-screen bg-white py-16">
         <Container>
           <div className="mx-auto mb-12 max-w-2xl text-center">

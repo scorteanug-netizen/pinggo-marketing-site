@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Webhook, Clock, CheckCircle, ArrowRight, Check } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
+import { SEOHead } from "@/components/SEOHead";
 import { Section } from "@/components/layout/Section";
 import { SectionHeading } from "@/components/layout/SectionHeading";
 import { Button } from "@/components/ui/button";
@@ -66,6 +67,11 @@ const benefits = [
 const Product = () => {
   return (
     <Layout>
+      <SEOHead
+        title="Cum funcționează Pinggo"
+        description="Descoperă modulele Pinggo pentru intake, reguli de răspuns și confirmare contact, astfel încât niciun lead să nu fie pierdut."
+        path="/product"
+      />
       {/* Hero */}
       <Section>
         <div className="text-center max-w-3xl mx-auto">

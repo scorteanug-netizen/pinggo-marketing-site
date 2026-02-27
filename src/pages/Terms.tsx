@@ -1,10 +1,16 @@
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
+import { SEOHead } from "@/components/SEOHead";
 import { Section } from "@/components/layout/Section";
 
 const Terms = () => {
   return (
     <Layout>
+      <SEOHead
+        title="Termeni și condiții"
+        description="Termenii și condițiile de utilizare pentru platforma și site-ul Pinggo."
+        path="/terms"
+      />
       <Section>
         <div className="max-w-3xl mx-auto">
           <h1 className="text-foreground mb-4">

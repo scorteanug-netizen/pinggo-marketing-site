@@ -1,10 +1,16 @@
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
+import { SEOHead } from "@/components/SEOHead";
 import { Section } from "@/components/layout/Section";
 
 const Cookies = () => {
   return (
     <Layout>
+      <SEOHead
+        title="Politica de cookie-uri"
+        description="Detalii despre cookie-urile folosite de Pinggo și opțiunile tale de control al acestora."
+        path="/cookies"
+      />
       <Section>
         <div className="max-w-3xl mx-auto">
           <h1 className="text-foreground mb-4">

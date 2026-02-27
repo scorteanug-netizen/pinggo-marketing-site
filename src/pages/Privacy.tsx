@@ -1,9 +1,15 @@
 import { Layout } from "@/components/layout/Layout";
+import { SEOHead } from "@/components/SEOHead";
 import { Section } from "@/components/layout/Section";
 
 const Privacy = () => {
   return (
     <Layout>
+      <SEOHead
+        title="Politica de confidențialitate"
+        description="Află cum prelucrăm datele personale pe site-ul și în platforma Pinggo, conform GDPR."
+        path="/privacy"
+      />
       <Section>
         <div className="max-w-3xl mx-auto">
           <h1 className="text-foreground mb-4">

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Check, X } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
+import { SEOHead } from "@/components/SEOHead";
 import { Section } from "@/components/layout/Section";
 import { SectionHeading } from "@/components/layout/SectionHeading";
 import { Button } from "@/components/ui/button";
@@ -102,6 +103,11 @@ const setupFees = [
 const Pricing = () => {
   return (
     <Layout>
+      <SEOHead
+        title="Prețuri Pinggo"
+        description="Alege planul Pinggo potrivit pentru echipa ta: monitorizare lead-uri, alocare automată, escaladare și rapoarte."
+        path="/pricing"
+      />
       {/* Hero */}
       <Section>
         <div className="text-center max-w-2xl mx-auto">

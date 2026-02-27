@@ -1,4 +1,5 @@
 import { Layout } from "@/components/layout/Layout";
+import { SEOHead } from "@/components/SEOHead";
 import { HeroSection } from "@/components/home/HeroSection";
 import { LaunchBandSection } from "@/components/home/LaunchBandSection";
 import { ProblemSection } from "@/components/home/ProblemSection";
@@ -16,6 +17,11 @@ import { FinalCTASection } from "@/components/home/FinalCTASection";
 const Index = () => {
   return (
     <Layout>
+      <SEOHead
+        title="Răspuns în 15 secunde, programare automată"
+        description="Pinggo preia fiecare lead pe WhatsApp, îl programează automat și escaladează dacă nimeni nu răspunde. Setup în mai puțin de 1 oră."
+        path="/"
+      />
       <HeroSection />
       <LaunchBandSection />
       <ProblemSection />
