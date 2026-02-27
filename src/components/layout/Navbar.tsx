@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Container } from "./Container";
 import { cn } from "@/lib/utils";
@@ -66,6 +65,10 @@ export function Navbar() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location.pathname]);
 
   const handleNavClick = (href: string) => {
     setIsOpen(false);
@@ -133,21 +136,40 @@ export function Navbar() {
           <button
             className="md:hidden rounded-xl p-2 transition-all duration-200 hover:scale-105 hover:bg-secondary"
             onClick={() => setIsOpen(!isOpen)}
+            aria-expanded={isOpen}
+            aria-controls="mobile-nav-panel"
             aria-label="Toggle menu"
           >
-            {isOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
+            <span className="relative block h-5 w-6">
+              <span
+                className={cn(
+                  "absolute left-0 top-0 block h-0.5 w-6 rounded-full bg-foreground transition-transform duration-300 ease-in-out",
+                  isOpen ? "translate-y-[9px] rotate-45" : "translate-y-0 rotate-0"
+                )}
+              />
+              <span
+                className={cn(
+                  "absolute left-0 top-[9px] block h-0.5 w-6 rounded-full bg-foreground transition-all duration-300 ease-in-out",
+                  isOpen ? "opacity-0" : "opacity-100"
+                )}
+              />
+              <span
+                className={cn(
+                  "absolute left-0 top-[18px] block h-0.5 w-6 rounded-full bg-foreground transition-transform duration-300 ease-in-out",
+                  isOpen ? "-translate-y-[9px] -rotate-45" : "translate-y-0 rotate-0"
+                )}
+              />
+            </span>
           </button>
         </nav>
 
         {/* Mobile Navigation */}
         <div
+          id="mobile-nav-panel"
+          aria-hidden={!isOpen}
           className={cn(
-            "md:hidden",
-            isOpen ? "block" : "hidden"
+            "md:hidden overflow-hidden transition-[max-height,opacity,transform] duration-300 ease-in-out",
+            isOpen ? "max-h-[640px] opacity-100 translate-y-0" : "max-h-0 opacity-0 -translate-y-1 pointer-events-none"
           )}
         >
           <div className="space-y-1 pb-6">
