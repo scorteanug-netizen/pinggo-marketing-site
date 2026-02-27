@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Container } from "@/components/layout/Container";
 import { SEOHead } from "@/components/SEOHead";
+import { HOME_FAQ_ITEMS } from "@/content/faqs";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -18,6 +19,7 @@ import {
   normalizePhoneForHubspot,
   submitCalculatorToHubspot,
 } from "@/lib/hubspot";
+import { buildFAQSchema } from "@/lib/structuredData";
 import { cn } from "@/lib/utils";
 
 const TARGET_RESPONSE_RATE = 95;
@@ -238,9 +240,10 @@ export default function Calculator() {
   return (
     <Layout>
       <SEOHead
-        title="Calculator pierderi lead-uri"
+        title="Calculezi pierderea din lead-uri necontactate"
         description="Estimează rapid cât pierzi lunar din lead-uri necontactate la timp și ce poți recupera cu Pinggo."
         path="/calculator"
+        structuredData={buildFAQSchema(HOME_FAQ_ITEMS)}
       />
       <div className="min-h-screen bg-white py-16">
         <Container>

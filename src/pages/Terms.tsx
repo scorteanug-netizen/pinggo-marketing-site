@@ -7,7 +7,7 @@ const Terms = () => {
   return (
     <Layout>
       <SEOHead
-        title="Termeni și condiții"
+        title="Înțelegi clar condițiile de utilizare"
         description="Termenii și condițiile de utilizare pentru platforma și site-ul Pinggo."
         path="/terms"
       />

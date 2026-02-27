@@ -6,7 +6,7 @@ const Privacy = () => {
   return (
     <Layout>
       <SEOHead
-        title="Politica de confidențialitate"
+        title="Protejezi datele personale conform GDPR"
         description="Află cum prelucrăm datele personale pe site-ul și în platforma Pinggo, conform GDPR."
         path="/privacy"
       />

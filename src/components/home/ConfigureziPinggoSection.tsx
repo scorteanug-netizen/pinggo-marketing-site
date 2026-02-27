@@ -61,7 +61,7 @@ export function ConfigureziPinggoSection() {
         <div className="flex flex-col items-center">
           <img
             src="/form_routing.png"
-            alt="Flux de lucru Pinggo"
+            alt="Workflow Pinggo pentru automatizare WhatsApp si routing lead-uri"
             className="w-full max-w-4xl h-auto object-contain block my-8"
           />
           <p className="mt-4 text-center text-slate-600 text-sm md:text-base max-w-xl mx-auto leading-snug">

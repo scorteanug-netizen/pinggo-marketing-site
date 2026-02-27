@@ -9,6 +9,7 @@ import Pricing from "./pages/Pricing";
 import Docs from "./pages/Docs";
 import Contact from "./pages/Contact";
 import Calculator from "./pages/Calculator";
+import Faq from "./pages/Faq";
 import Terms from "./pages/Terms";
 import Privacy from "./pages/Privacy";
 import Cookies from "./pages/Cookies";
@@ -29,6 +30,7 @@ const App = () => (
           <Route path="/docs" element={<Docs />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/calculator" element={<Calculator />} />
+          <Route path="/faq" element={<Faq />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/cookies" element={<Cookies />} />

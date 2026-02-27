@@ -3,6 +3,7 @@ import { MessageSquare, Send, Mail, MapPin, Building } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
 import { SEOHead } from "@/components/SEOHead";
 import { Section } from "@/components/layout/Section";
+import { HOME_FAQ_ITEMS } from "@/content/faqs";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -14,6 +15,7 @@ import {
   normalizePhoneForHubspot,
   submitContactToHubspot,
 } from "@/lib/hubspot";
+import { buildFAQSchema } from "@/lib/structuredData";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -94,9 +96,10 @@ const Contact = () => {
   return (
     <Layout>
       <SEOHead
-        title="Contact Pinggo"
+        title="Primești demo personalizat pentru echipa ta"
         description="Ia legătura cu echipa Pinggo pentru demo, întrebări comerciale sau suport de implementare."
         path="/contact"
+        structuredData={buildFAQSchema(HOME_FAQ_ITEMS)}
       />
       <Section>
         <div className="grid gap-12 lg:grid-cols-2 max-w-5xl mx-auto">

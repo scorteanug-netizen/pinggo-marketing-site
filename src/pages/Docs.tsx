@@ -2,7 +2,9 @@ import { Layout } from "@/components/layout/Layout";
 import { SEOHead } from "@/components/SEOHead";
 import { Section } from "@/components/layout/Section";
 import { SectionHeading } from "@/components/layout/SectionHeading";
+import { HOME_FAQ_ITEMS } from "@/content/faqs";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { buildFAQSchema } from "@/lib/structuredData";
 
 const webhookPayload = `{
   "event": "lead.created",
@@ -137,9 +139,10 @@ const Docs = () => {
   return (
     <Layout>
       <SEOHead
-        title="Documentație Pinggo"
+        title="Integrezi rapid webhook, WhatsApp și Slack"
         description="Ghiduri tehnice pentru integrarea Pinggo: webhook, Slack, WhatsApp și email forwarding."
         path="/docs"
+        structuredData={buildFAQSchema(HOME_FAQ_ITEMS)}
       />
       {/* Hero */}
       <Section>

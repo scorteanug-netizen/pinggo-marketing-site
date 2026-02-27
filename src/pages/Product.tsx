@@ -4,8 +4,10 @@ import { Layout } from "@/components/layout/Layout";
 import { SEOHead } from "@/components/SEOHead";
 import { Section } from "@/components/layout/Section";
 import { SectionHeading } from "@/components/layout/SectionHeading";
+import { HOME_FAQ_ITEMS } from "@/content/faqs";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { buildFAQSchema } from "@/lib/structuredData";
 
 const modules = [
   {
@@ -68,9 +70,10 @@ const Product = () => {
   return (
     <Layout>
       <SEOHead
-        title="Cum funcționează Pinggo"
+        title="Controlezi fiecare lead într-un singur sistem"
         description="Descoperă modulele Pinggo pentru intake, reguli de răspuns și confirmare contact, astfel încât niciun lead să nu fie pierdut."
         path="/product"
+        structuredData={buildFAQSchema(HOME_FAQ_ITEMS)}
       />
       {/* Hero */}
       <Section>

@@ -68,7 +68,7 @@ function MarqueeContent() {
       <span className="flex items-center gap-1.5 text-xs sm:text-sm font-medium">
         <img
           src="/PINGGO_LOGO.png?v=2"
-          alt="Pinggo"
+          alt="Logo Pinggo pentru automatizare WhatsApp"
           className="h-3.5 w-auto sm:h-4 flex-shrink-0"
           loading="eager"
         />

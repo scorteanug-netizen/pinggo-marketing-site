@@ -12,7 +12,7 @@ const NotFound = () => {
   return (
     <div className="flex min-h-screen items-center justify-center bg-muted">
       <SEOHead
-        title="404 - Pagina nu a fost găsită"
+        title="Revii rapid la paginile importante"
         description="Pagina solicitată nu există."
         noindex
       />

@@ -47,6 +47,7 @@ const navLinks = [
   { href: "/#how-it-works", label: "Cum functioneaza" },
   { href: "/pricing", label: "Preturi" },
   { href: "/docs", label: "Documentatie" },
+  { href: "/faq", label: "FAQ" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -90,7 +91,11 @@ export function Navbar() {
         <nav className="flex h-12 items-center justify-between py-2">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <img src="/PINGGO_LOGO.png?v=2" alt="Pinggo" className="h-8 w-auto" />
+            <img
+              src="/PINGGO_LOGO.png?v=2"
+              alt="Pinggo - WhatsApp Automation Romania"
+              className="h-8 w-auto"
+            />
           </Link>
 
           {/* Desktop Navigation */}

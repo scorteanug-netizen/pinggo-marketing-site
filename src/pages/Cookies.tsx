@@ -7,7 +7,7 @@ const Cookies = () => {
   return (
     <Layout>
       <SEOHead
-        title="Politica de cookie-uri"
+        title="Controlezi cookie-urile și trackingul"
         description="Detalii despre cookie-urile folosite de Pinggo și opțiunile tale de control al acestora."
         path="/cookies"
       />

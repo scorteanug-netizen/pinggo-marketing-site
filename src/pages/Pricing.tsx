@@ -4,8 +4,10 @@ import { Layout } from "@/components/layout/Layout";
 import { SEOHead } from "@/components/SEOHead";
 import { Section } from "@/components/layout/Section";
 import { SectionHeading } from "@/components/layout/SectionHeading";
+import { HOME_FAQ_ITEMS } from "@/content/faqs";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { buildFAQSchema } from "@/lib/structuredData";
 
 const plans = [
   {
@@ -104,9 +106,10 @@ const Pricing = () => {
   return (
     <Layout>
       <SEOHead
-        title="Prețuri Pinggo"
+        title="Scalezi fără lead-uri pierdute, la cost predictibil"
         description="Alege planul Pinggo potrivit pentru echipa ta: monitorizare lead-uri, alocare automată, escaladare și rapoarte."
         path="/pricing"
+        structuredData={buildFAQSchema(HOME_FAQ_ITEMS)}
       />
       {/* Hero */}
       <Section>
