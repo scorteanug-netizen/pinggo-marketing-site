@@ -6,6 +6,7 @@ export type BlogPostSection = {
 
 export type BlogPost = {
   slug: string;
+  href?: string;
   title: string;
   excerpt: string;
   publishedAt: string;
@@ -17,7 +18,8 @@ export type BlogPost = {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
-    slug: "cat-costa-un-lead-pierdut",
+    slug: "cat-costa-un-lead-pierdut-romania",
+    href: "/blog/cat-costa-un-lead-pierdut",
     title: "Cât costă un lead pierdut? Calculul pe care niciun owner din România nu vrea să-l facă",
     excerpt:
       "Un lead pierdut nu înseamnă doar un client în minus. Înseamnă buget de marketing irosit, timp pierdut și un concurent care a câștigat în locul tău.",

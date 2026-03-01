@@ -24,9 +24,19 @@ function usePrefersReducedMotion() {
     const handleChange = () => setReducedMotion(mediaQuery.matches);
 
     handleChange();
-    mediaQuery.addEventListener("change", handleChange);
+    if (typeof mediaQuery.addEventListener === "function") {
+      mediaQuery.addEventListener("change", handleChange);
+    } else {
+      mediaQuery.addListener(handleChange);
+    }
 
-    return () => mediaQuery.removeEventListener("change", handleChange);
+    return () => {
+      if (typeof mediaQuery.removeEventListener === "function") {
+        mediaQuery.removeEventListener("change", handleChange);
+      } else {
+        mediaQuery.removeListener(handleChange);
+      }
+    };
   }, []);
 
   return reducedMotion;

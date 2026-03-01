@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, Navigate, useParams } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { SEOHead } from "@/components/SEOHead";
 import { Section } from "@/components/layout/Section";
@@ -9,6 +9,11 @@ import NotFound from "./NotFound";
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
+
+  if (slug === "cat-costa-un-lead-pierdut" || slug === "cat-costa-un-lead-pierdut-romania") {
+    return <Navigate to="/blog/cat-costa-un-lead-pierdut" replace />;
+  }
+
   const post = slug ? getBlogPostBySlug(slug) : undefined;
 
   if (!post) {
