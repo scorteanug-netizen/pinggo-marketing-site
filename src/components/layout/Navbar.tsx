@@ -46,6 +46,7 @@ const navLinks = [
   { href: "/#how-it-works", label: "Cum functioneaza" },
   { href: "/pricing", label: "Preturi" },
   { href: "/docs", label: "Documentatie" },
+  { href: "/blog", label: "Blog" },
   { href: "/faq", label: "FAQ" },
   { href: "/contact", label: "Contact" },
 ];
