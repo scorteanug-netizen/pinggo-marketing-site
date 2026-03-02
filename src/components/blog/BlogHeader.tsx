@@ -1,6 +1,31 @@
 import { Helmet } from "react-helmet-async";
 import { useEffect, useMemo, useState } from "react";
 
+export interface BlogHeaderSeoMeta {
+  titleTag: string;
+  description: string;
+  canonical: string;
+  robots?: string;
+  keywords?: string[];
+  locale?: string;
+  ogType?: "article" | "website";
+  ogTitle?: string;
+  ogDescription?: string;
+  ogUrl?: string;
+  ogImage?: string;
+  ogImageWidth?: number;
+  ogImageHeight?: number;
+  ogSiteName?: string;
+  articlePublishedTime?: string;
+  articleModifiedTime?: string;
+  articleAuthor?: string;
+  articleTags?: string[];
+  twitterCard?: "summary" | "summary_large_image";
+  twitterTitle?: string;
+  twitterDescription?: string;
+  twitterImage?: string;
+}
+
 interface BlogHeaderProps {
   title: string;
   description: string;
@@ -8,6 +33,7 @@ interface BlogHeaderProps {
   date: string;
   tags: string[];
   readingTime: string;
+  seo: BlogHeaderSeoMeta;
 }
 
 const dateFormatter = new Intl.DateTimeFormat("ro-RO", {
@@ -16,7 +42,7 @@ const dateFormatter = new Intl.DateTimeFormat("ro-RO", {
   year: "numeric",
 });
 
-export function BlogHeader({ title, description, author, date, tags, readingTime }: BlogHeaderProps) {
+export function BlogHeader({ title, description, author, date, tags, readingTime, seo }: BlogHeaderProps) {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -40,44 +66,35 @@ export function BlogHeader({ title, description, author, date, tags, readingTime
   return (
     <>
       <Helmet>
-        {/* ===== PRIMARY SEO ===== */}
-        <title>Cât costă un lead pierdut? Calculul real pentru afaceri din România | Pinggo</title>
-        <meta
-          name="description"
-          content="Un lead pierdut înseamnă bani aruncați pe reclamă. Calculează exact cât pierde afacerea ta pe lună când nu răspunzi în timp util pe WhatsApp. Date reale pentru clinici, solar și imobiliare."
-        />
-        <link rel="canonical" href="https://pinggo.ro/blog/cat-costa-un-lead-pierdut" />
+        <html lang={seo.locale === "ro_RO" ? "ro" : seo.locale ?? "ro"} />
+        <title>{seo.titleTag}</title>
+        <meta name="description" content={seo.description} />
+        <meta name="robots" content={seo.robots ?? "index, follow"} />
+        {seo.keywords && seo.keywords.length > 0 ? (
+          <meta name="keywords" content={seo.keywords.join(", ")} />
+        ) : null}
+        <link rel="canonical" href={seo.canonical} />
 
-        {/* ===== OPEN GRAPH (Facebook, LinkedIn) ===== */}
-        <meta property="og:type" content="article" />
-        <meta
-          property="og:title"
-          content="Cât costă un lead pierdut? Calculul pe care niciun owner nu vrea să-l facă"
-        />
-        <meta
-          property="og:description"
-          content="Calculează exact cât pierde afacerea ta lunar din leads nepreluate la timp. Date concrete pentru clinici dentare, solar și imobiliare."
-        />
-        <meta property="og:url" content="https://pinggo.ro/blog/cat-costa-un-lead-pierdut" />
-        <meta property="og:image" content="https://pinggo.ro/og/cat-costa-un-lead-pierdut.png" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:locale" content="ro_RO" />
-        <meta property="og:site_name" content="Pinggo" />
-        <meta property="article:published_time" content="2026-03-01T09:00:00+02:00" />
-        <meta property="article:author" content="Echipa Pinggo" />
-        <meta property="article:tag" content="leaduri" />
-        <meta property="article:tag" content="WhatsApp" />
-        <meta property="article:tag" content="cost per lead" />
+        <meta property="og:type" content={seo.ogType ?? "article"} />
+        <meta property="og:title" content={seo.ogTitle ?? seo.titleTag} />
+        <meta property="og:description" content={seo.ogDescription ?? seo.description} />
+        <meta property="og:url" content={seo.ogUrl ?? seo.canonical} />
+        {seo.ogImage ? <meta property="og:image" content={seo.ogImage} /> : null}
+        {seo.ogImageWidth ? <meta property="og:image:width" content={String(seo.ogImageWidth)} /> : null}
+        {seo.ogImageHeight ? <meta property="og:image:height" content={String(seo.ogImageHeight)} /> : null}
+        <meta property="og:locale" content={seo.locale ?? "ro_RO"} />
+        <meta property="og:site_name" content={seo.ogSiteName ?? "Pinggo"} />
+        {seo.articlePublishedTime ? <meta property="article:published_time" content={seo.articlePublishedTime} /> : null}
+        {seo.articleModifiedTime ? <meta property="article:modified_time" content={seo.articleModifiedTime} /> : null}
+        {seo.articleAuthor ? <meta property="article:author" content={seo.articleAuthor} /> : null}
+        {seo.articleTags?.map((tag) => (
+          <meta key={tag} property="article:tag" content={tag} />
+        ))}
 
-        {/* ===== TWITTER / X ===== */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Cât costă un lead pierdut în România?" />
-        <meta
-          name="twitter:description"
-          content="Calculul real pe care niciun owner nu vrea să-l facă. Date concrete pentru clinici, solar, imobiliare."
-        />
-        <meta name="twitter:image" content="https://pinggo.ro/og/cat-costa-un-lead-pierdut.png" />
+        <meta name="twitter:card" content={seo.twitterCard ?? "summary_large_image"} />
+        <meta name="twitter:title" content={seo.twitterTitle ?? seo.titleTag} />
+        <meta name="twitter:description" content={seo.twitterDescription ?? seo.description} />
+        {seo.twitterImage || seo.ogImage ? <meta name="twitter:image" content={seo.twitterImage ?? seo.ogImage} /> : null}
       </Helmet>
 
       <div className="fixed left-0 right-0 top-16 z-[70] h-1 bg-secondary/80">

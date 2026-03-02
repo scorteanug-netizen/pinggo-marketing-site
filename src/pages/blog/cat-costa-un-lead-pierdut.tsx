@@ -38,6 +38,31 @@ export default function BlogLeadCostPage() {
           date={articleMetadata.date}
           tags={[...articleMetadata.tags]}
           readingTime={articleMetadata.readingTime}
+          seo={{
+            titleTag: "Cât costă un lead pierdut? Calculul real pentru afaceri din România | Pinggo",
+            description: articleMetadata.description,
+            canonical: articleMetadata.canonicalUrl,
+            robots: "index, follow",
+            locale: "ro_RO",
+            ogType: "article",
+            ogTitle: "Cât costă un lead pierdut? Calculul pe care niciun owner nu vrea să-l facă",
+            ogDescription:
+              "Calculează exact cât pierde afacerea ta lunar din leads nepreluate la timp. Date concrete pentru clinici dentare, solar și imobiliare.",
+            ogUrl: articleMetadata.canonicalUrl,
+            ogImage: articleMetadata.ogImage,
+            ogImageWidth: 1200,
+            ogImageHeight: 630,
+            ogSiteName: "Pinggo",
+            articlePublishedTime: articleMetadata.publishedAtIso,
+            articleModifiedTime: articleMetadata.publishedAtIso,
+            articleAuthor: articleMetadata.author,
+            articleTags: ["leaduri", "WhatsApp", "cost per lead"],
+            twitterCard: "summary_large_image",
+            twitterTitle: "Cât costă un lead pierdut în România?",
+            twitterDescription:
+              "Calculul real pe care niciun owner nu vrea să-l facă. Date concrete pentru clinici, solar, imobiliare.",
+            twitterImage: articleMetadata.ogImage,
+          }}
         />
 
         <FadeInSection>

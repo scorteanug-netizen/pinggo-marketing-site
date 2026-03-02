@@ -16,6 +16,7 @@ import Cookies from "./pages/Cookies";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import BlogLeadCost from "./pages/blog/cat-costa-un-lead-pierdut";
+import BlogPacienti from "./pages/blog/pacient-nou-pierdut-clinica-whatsapp";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -36,6 +37,8 @@ const App = () => (
           <Route path="/faq" element={<Faq />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/cat-costa-un-lead-pierdut" element={<BlogLeadCost />} />
+          <Route path="/blog/cat-costa-un-lead-pierdut-romania" element={<BlogLeadCost />} />
+          <Route path="/blog/pacient-nou-pierdut-clinica-whatsapp" element={<BlogPacienti />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/privacy" element={<Privacy />} />
