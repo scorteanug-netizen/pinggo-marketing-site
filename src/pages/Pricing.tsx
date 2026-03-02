@@ -3,7 +3,6 @@ import { Check, X } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
 import { SEOHead } from "@/components/SEOHead";
 import { Section } from "@/components/layout/Section";
-import { SectionHeading } from "@/components/layout/SectionHeading";
 import { HOME_FAQ_ITEMS } from "@/content/faqs";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -206,10 +205,6 @@ const Pricing = () => {
 
       {/* Plans */}
       <Section alternate>
-        <SectionHeading
-          title="Planurile Pinggo"
-          subtitle="Fără limită la utilizatori. Fără gating pe numere WhatsApp. Alegi planul după volumul lunar de lead-uri și nivelul de control operațional."
-        />
         <div className="grid gap-8 xl:grid-cols-4 md:grid-cols-2 max-w-7xl mx-auto">
           {plans.map((plan) => (
             <Card
@@ -272,10 +267,6 @@ const Pricing = () => {
 
       {/* Comparison Table */}
       <Section canvas>
-        <SectionHeading
-          title="Comparație rapidă"
-          subtitle="Ce deblochează fiecare plan pe măsură ce scalezi operațiunea."
-        />
         <div className="max-w-7xl mx-auto rounded-xl border border-gray-200 bg-white shadow-sm overflow-x-auto">
           <table className="w-full min-w-[760px] text-sm">
             <thead className="bg-secondary">
