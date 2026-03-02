@@ -2,6 +2,7 @@ import { BlogHeader } from "@/components/blog/BlogHeader";
 import { BlogLayout, FadeInSection } from "@/components/blog/BlogLayout";
 import { BlogTable } from "@/components/blog/BlogTable";
 import { SchemaMarkup } from "@/components/blog/SchemaMarkup";
+import { Link } from "react-router-dom";
 import {
   articleMetadata,
   articleSchema,
@@ -40,7 +41,7 @@ export default function BlogPacientiPage() {
           tags={[...articleMetadata.tags]}
           readingTime={`${articleMetadata.readingTime} min`}
           seo={{
-            titleTag: `${articleMetadata.titleTag} | Pinggo`,
+            titleTag: articleMetadata.titleTag,
             description: articleMetadata.description,
             canonical: articleMetadata.canonical,
             robots: articleMetadata.robots,
@@ -123,12 +124,12 @@ export default function BlogPacientiPage() {
                 {paragraph}
               </p>
             ))}
-            <a
-              href="/blog/cat-costa-un-lead-pierdut-romania"
+            <Link
+              to="/blog/cat-costa-un-lead-pierdut-romania"
               className="inline-flex rounded-xl bg-orange-500 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-orange-600"
             >
               Calculează exact pierderea clinicii tale →
-            </a>
+            </Link>
           </section>
         </FadeInSection>
 
@@ -231,14 +232,17 @@ export default function BlogPacientiPage() {
               </p>
             ))}
             <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
-              Citește și: <a href="/blog/cat-costa-un-lead-pierdut-romania" className="font-semibold text-orange-700 underline">Cât costă un lead pierdut în România — calculul complet pe nișe</a>
+              Citește și:{" "}
+              <Link to="/blog/cat-costa-un-lead-pierdut-romania" className="font-semibold text-orange-700 underline">
+                Cât costă un lead pierdut în România — calculul complet pe nișe
+              </Link>
             </p>
-            <a
-              href="/contact"
+            <Link
+              to="/contact"
               className="inline-flex rounded-xl bg-orange-500 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-orange-600"
             >
               Solicită un demo gratuit →
-            </a>
+            </Link>
           </section>
         </FadeInSection>
       </article>
