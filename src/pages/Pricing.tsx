@@ -28,27 +28,6 @@ type ComparisonRow = {
   enterprise: string;
 };
 
-const coreRules = [
-  "Singurul gate real între planuri: număr de lead-uri procesate lunar + acces la Control Tower.",
-  "Utilizatori nelimitați la toate planurile. Onboarding-ul este făcut de Pinggo, nu există limitare pe seats.",
-  "Clientul conectează propriul număr WhatsApp prin Meta Direct. Numărul de numere reflectă dimensiunea business-ului, nu planul.",
-];
-
-const autopilotModes = [
-  {
-    title: "Booking",
-    description: "Clinici dentare, saloane, educație: programare directă în calendar.",
-  },
-  {
-    title: "Handover",
-    description: "Solar, imobiliare: lead calificat trimis agentului cu context complet.",
-  },
-  {
-    title: "Nurture",
-    description: "Lead valid dar nu e gata: marcat, urmărit și recontactat automat.",
-  },
-];
-
 const plans: Plan[] = [
   {
     name: "Starter",
@@ -219,68 +198,11 @@ const Pricing = () => {
   return (
     <Layout>
       <SEOHead
-        title="Strategia de Pricing Pinggo v2.0"
-        description="Planuri simple pentru România: Starter, Pro, Business, Enterprise. Diferența reală: lead-uri procesate lunar și capabilități Control Tower."
+        title="Prețuri Pinggo"
+        description="Planurile Pinggo pentru România: Starter, Pro, Business și Enterprise, plus tabel comparativ complet."
         path="/pricing"
         structuredData={buildFAQSchema(HOME_FAQ_ITEMS)}
       />
-      {/* Hero */}
-      <Section>
-        <div className="text-center max-w-3xl mx-auto">
-          <h1 className="text-foreground tracking-[-0.02em] leading-[1.0]">
-            Strategia de pricing Pinggo, <span className="text-orange-500 font-extrabold">v2.0</span>
-          </h1>
-          <p className="mt-4 text-base md:text-lg text-muted-foreground leading-snug">
-            Model flat monthly pentru piața din România. Diferența între planuri este clară: volum lunar de lead-uri și accesul la capabilitățile Control Tower.
-          </p>
-          <div className="mt-5 flex flex-wrap items-center justify-center gap-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-            <span className="rounded-full border border-gray-200 px-3 py-1">Flat Monthly</span>
-            <span className="rounded-full border border-gray-200 px-3 py-1">România</span>
-            <span className="rounded-full border border-gray-200 px-3 py-1">Martie 2026</span>
-          </div>
-        </div>
-      </Section>
-
-      {/* Core Logic */}
-      <Section canvas>
-        <SectionHeading
-          title="Logica de bază a planurilor"
-          subtitle="Aceeași fundație AI în toate planurile. Deblochezi capabilități operaționale pe măsură ce crește volumul."
-        />
-        <div className="max-w-5xl mx-auto grid gap-6 md:grid-cols-2">
-          <Card>
-            <CardHeader>
-              <CardTitle>Ce rămâne fix în toate planurile</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-3 text-sm">
-                {coreRules.map((rule) => (
-                  <li key={rule} className="flex items-start gap-2">
-                    <Check className="h-4 w-4 mt-0.5 text-orange-500 flex-shrink-0" />
-                    <span>{rule}</span>
-                  </li>
-                ))}
-              </ul>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardHeader>
-              <CardTitle>Autopilotul execută end-state-ul configurat</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-muted-foreground mb-4">Flux standard: preia lead-ul, îl califică și îl duce în următorul pas setat la onboarding.</p>
-              <ul className="space-y-3 text-sm">
-                {autopilotModes.map((mode) => (
-                  <li key={mode.title}>
-                    <span className="font-semibold text-foreground">{mode.title}</span>
-                    <span className="text-muted-foreground">: {mode.description}</span>
-                  </li>
-                ))}
-              </ul>
-            </CardContent>
-          </Card>
-        </div>
-      </Section>
 
       {/* Plans */}
       <Section alternate>
@@ -377,21 +299,6 @@ const Pricing = () => {
               ))}
             </tbody>
           </table>
-        </div>
-      </Section>
-
-      {/* CTA */}
-      <Section highlightBlue>
-        <div className="text-center max-w-2xl mx-auto">
-          <h2 className="text-white font-extrabold mb-3 leading-[1.05]">
-            Vrei să validăm planul potrivit pentru echipa ta?
-          </h2>
-          <p className="text-white/80 mb-6 text-base leading-snug">
-            Îți recomandăm planul în funcție de volumul actual de lead-uri și fluxul de lucru dorit: booking, handover sau nurture.
-          </p>
-          <Button size="lg" variant="outlineWhite" asChild>
-            <Link to="/contact">Programează un demo</Link>
-          </Button>
         </div>
       </Section>
     </Layout>
