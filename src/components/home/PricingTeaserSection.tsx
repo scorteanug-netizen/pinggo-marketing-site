@@ -7,10 +7,10 @@ import { AccentCard } from "@/components/AccentCard";
 
 const plans = [
   {
-    name: "Pornire",
-    price: "149",
-    leads: "Până la 100 leaduri/lună",
-    features: ["WhatsApp inclus", "Răspuns automat", "Raport săptămânal"],
+    name: "Starter",
+    price: "€99/lună",
+    leads: "200 lead-uri AI/lună",
+    features: ["AI Setter complet", "Onboarding complet în 48h", "Utilizatori nelimitați"],
     accent: "orange" as const,
     iconBg: "bg-orange-100",
     iconColor: "text-orange-600",
@@ -18,10 +18,10 @@ const plans = [
     hoverShadow: "hover:shadow-[0_4px_12px_rgba(249,115,22,0.15)]",
   },
   {
-    name: "Creștere",
-    price: "249",
-    leads: "Până la 500 leaduri/lună",
-    features: ["WhatsApp + E-mail", "Escaladare automată la manager", "Rapoarte săptămânale email"],
+    name: "Pro",
+    price: "€199/lună",
+    leads: "500 lead-uri AI/lună",
+    features: ["Routing automat", "SLA enforcement", "Escaladare 1 nivel"],
     popular: true,
     accent: "orange" as const,
     iconBg: "bg-orange-100",
@@ -30,15 +30,26 @@ const plans = [
     hoverShadow: "hover:shadow-[0_4px_12px_rgba(249,115,22,0.15)]",
   },
   {
-    name: "Avansat",
-    price: "499",
-    leads: "Până la 3,000 leaduri/lună",
-    features: ["Alocare avansată + reguli", "Lanț complet de escaladare", "Manager dedicat"],
+    name: "Business",
+    price: "€399/lună",
+    leads: "2000 lead-uri AI/lună",
+    features: ["Routing avansat", "Escaladare multi-nivel", "API + webhooks"],
     accent: "violet" as const,
     iconBg: "bg-violet-100",
     iconColor: "text-violet-600",
     hoverBorder: "hover:border-violet-500",
     hoverShadow: "hover:shadow-[0_4px_12px_rgba(139,92,246,0.16)]",
+  },
+  {
+    name: "Enterprise",
+    price: "Preț personalizat",
+    leads: "de la €799/lună",
+    features: ["Lead-uri nelimitate", "Multi-workspace", "White-label + CSM dedicat"],
+    accent: "blue" as const,
+    iconBg: "bg-sky-100",
+    iconColor: "text-sky-600",
+    hoverBorder: "hover:border-sky-500",
+    hoverShadow: "hover:shadow-[0_4px_12px_rgba(14,165,233,0.16)]",
   },
 ];
 
@@ -46,10 +57,10 @@ export function PricingTeaserSection() {
   return (
     <Section alternate>
       <SectionHeading
-        title="Pret simplu, fara surprize"
-        subtitle="Toate planurile includ testare 14 zile."
+        title="Pricing Pinggo v2.0"
+        subtitle="Model flat monthly pentru România. Utilizatori nelimitați în toate planurile."
       />
-      <div className="grid gap-6 lg:gap-8 md:grid-cols-3 max-w-5xl mx-auto">
+      <div className="grid gap-6 lg:gap-8 md:grid-cols-2 xl:grid-cols-4 max-w-7xl mx-auto">
         {plans.map((plan) => (
           <AccentCard
             key={plan.name}
@@ -67,10 +78,9 @@ export function PricingTeaserSection() {
             <div className="text-center pb-2 pt-8">
               <h3 className="text-xl font-extrabold leading-tight tracking-tight text-foreground">{plan.name}</h3>
               <div className="mt-4">
-                <span className="text-4xl font-extrabold text-foreground leading-none">{plan.price}</span>
-                <span className="text-muted-foreground font-medium text-sm"> EUR/luna</span>
+                <span className="text-3xl font-extrabold text-foreground leading-none">{plan.price}</span>
               </div>
-              <p className="text-xs text-muted-foreground mt-2">{plan.leads}</p>
+              <p className="text-xs text-muted-foreground mt-2 font-medium">{plan.leads}</p>
             </div>
             <ul className="space-y-3 pt-4">
               {plan.features.map((feature) => (
@@ -96,11 +106,7 @@ export function PricingTeaserSection() {
       </div>
 
       <div className="mt-6 text-center">
-        <div className="inline-flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-6 py-4 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-orange-500 hover:shadow-lg">
-          <span className="text-muted-foreground text-sm">Supliment:</span>
-          <span className="font-bold text-foreground text-sm">AI Pack - 49 EUR/luna</span>
-          <span className="text-muted-foreground text-sm">(conversație ghidată + programare automată)</span>
-        </div>
+        <p className="text-sm text-muted-foreground">Starter, Pro și Business au opțiune anuală cu 2 luni gratuite.</p>
         <div className="mt-4">
           <Button variant="link" asChild className="text-orange-500 font-semibold hover:text-orange-600">
             <Link to="/pricing">Vezi pricing complet</Link>

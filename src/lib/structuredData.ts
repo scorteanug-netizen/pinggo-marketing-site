@@ -101,7 +101,7 @@ export function buildSoftwareApplicationSchema(): JsonLdObject {
     url: getAbsoluteSiteUrl("/"),
     offers: {
       "@type": "Offer",
-      price: "149",
+      price: "99",
       priceCurrency: "EUR",
       availability: "https://schema.org/InStock",
       url: getAbsoluteSiteUrl("/pricing"),
