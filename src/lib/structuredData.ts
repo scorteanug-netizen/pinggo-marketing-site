@@ -81,7 +81,7 @@ export function buildOrganizationSchema(): JsonLdObject {
       {
         "@type": "ContactPoint",
         contactType: "sales",
-        email: "contact@pinggo.ro",
+        email: "gabriel@pinggo.ro",
         availableLanguage: ["ro", "en"],
         areaServed: "RO",
         url: getAbsoluteSiteUrl("/contact"),

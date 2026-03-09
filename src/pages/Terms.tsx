@@ -30,7 +30,7 @@ const Terms = () => {
                 <li><strong className="text-foreground">Denumire:</strong> SCORȚEANU GABRIEL-ION PERSOANĂ FIZICĂ AUTORIZATĂ</li>
                 <li><strong className="text-foreground">Nr. înregistrare:</strong> F2025037426001</li>
                 <li><strong className="text-foreground">Sediu:</strong> B-dul Bucureștii Noi, 136, et. Parter, ap. 5, Sector 1, București</li>
-                <li><strong className="text-foreground">Email:</strong> <a href="mailto:contact@pinggo.ro" className="text-primary hover:underline">contact@pinggo.ro</a></li>
+                <li><strong className="text-foreground">Email:</strong> <a href="mailto:gabriel@pinggo.ro" className="text-primary hover:underline">gabriel@pinggo.ro</a></li>
               </ul>
             </div>
 
@@ -94,7 +94,7 @@ const Terms = () => {
                 Conform OUG 34/2014 privind drepturile consumatorilor, aveți dreptul de a vă retrage din contract în termen de 14 zile calendaristice de la data încheierii contractului, fără a fi necesar să invocați vreun motiv.
               </p>
               <p className="text-muted-foreground leading-relaxed mt-3">
-                Pentru exercitarea dreptului de retragere, ne puteți contacta la adresa <a href="mailto:contact@pinggo.ro" className="text-primary hover:underline">contact@pinggo.ro</a>. Rambursarea se va efectua în maximum 14 zile de la primirea notificării de retragere.
+                Pentru exercitarea dreptului de retragere, ne puteți contacta la adresa <a href="mailto:gabriel@pinggo.ro" className="text-primary hover:underline">gabriel@pinggo.ro</a>. Rambursarea se va efectua în maximum 14 zile de la primirea notificării de retragere.
               </p>
             </div>
 
@@ -165,7 +165,7 @@ const Terms = () => {
             <div className="p-6 rounded-2xl bg-secondary/50 border border-border/50">
               <h2 className="text-2xl font-bold text-foreground mb-4">12. Rezilierea</h2>
               <p className="text-muted-foreground leading-relaxed">
-                Puteți rezilia contul în orice moment din setările platformei sau contactându-ne la <a href="mailto:contact@pinggo.ro" className="text-primary hover:underline">contact@pinggo.ro</a>.
+                Puteți rezilia contul în orice moment din setările platformei sau contactându-ne la <a href="mailto:gabriel@pinggo.ro" className="text-primary hover:underline">gabriel@pinggo.ro</a>.
               </p>
               <p className="text-muted-foreground leading-relaxed mt-3">
                 Ne rezervăm dreptul de a suspenda sau rezilia accesul dumneavoastră în caz de:
@@ -200,7 +200,7 @@ const Terms = () => {
                 Pentru orice întrebări legate de acești Termeni și Condiții, ne puteți contacta la:
               </p>
               <ul className="list-disc pl-5 mt-3 space-y-2 text-muted-foreground">
-                <li><strong className="text-foreground">Email:</strong> <a href="mailto:contact@pinggo.ro" className="text-primary hover:underline">contact@pinggo.ro</a></li>
+                <li><strong className="text-foreground">Email:</strong> <a href="mailto:gabriel@pinggo.ro" className="text-primary hover:underline">gabriel@pinggo.ro</a></li>
                 <li><strong className="text-foreground">Adresă:</strong> B-dul Bucureștii Noi, 136, et. Parter, ap. 5, Sector 1, București</li>
               </ul>
             </div>

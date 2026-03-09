@@ -39,7 +39,7 @@ const Privacy = () => {
                 <li><strong className="text-foreground">Denumire:</strong> SCORȚEANU GABRIEL-ION PERSOANĂ FIZICĂ AUTORIZATĂ</li>
                 <li><strong className="text-foreground">Nr. înregistrare:</strong> F2025037426001</li>
                 <li><strong className="text-foreground">Sediu:</strong> B-dul Bucureștii Noi, 136, et. Parter, ap. 5, Sector 1, București</li>
-                <li><strong className="text-foreground">Email:</strong> contact@pinggo.ro</li>
+                <li><strong className="text-foreground">Email:</strong> gabriel@pinggo.ro</li>
               </ul>
             </div>
 
@@ -137,7 +137,7 @@ const Privacy = () => {
                 <li><strong className="text-foreground">Dreptul de a retrage consimțământul</strong> — în orice moment, fără a afecta legalitatea prelucrării anterioare</li>
               </ul>
               <p className="text-muted-foreground leading-relaxed mt-3">
-                Pentru exercitarea acestor drepturi, ne puteți contacta la adresa <a href="mailto:contact@pinggo.ro" className="text-primary hover:underline">contact@pinggo.ro</a>.
+                Pentru exercitarea acestor drepturi, ne puteți contacta la adresa <a href="mailto:gabriel@pinggo.ro" className="text-primary hover:underline">gabriel@pinggo.ro</a>.
               </p>
             </div>
 
@@ -178,7 +178,7 @@ const Privacy = () => {
                 Pentru orice întrebări legate de această politică de confidențialitate sau de prelucrarea datelor dumneavoastră personale, ne puteți contacta la:
               </p>
               <ul className="list-disc pl-5 mt-3 space-y-2 text-muted-foreground">
-                <li><strong className="text-foreground">Email:</strong> <a href="mailto:contact@pinggo.ro" className="text-primary hover:underline">contact@pinggo.ro</a></li>
+                <li><strong className="text-foreground">Email:</strong> <a href="mailto:gabriel@pinggo.ro" className="text-primary hover:underline">gabriel@pinggo.ro</a></li>
                 <li><strong className="text-foreground">Adresă:</strong> B-dul Bucureștii Noi, 136, et. Parter, ap. 5, Sector 1, București</li>
               </ul>
             </div>

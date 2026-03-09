@@ -200,7 +200,7 @@ const Cookies = () => {
                 Pentru orice întrebări legate de utilizarea cookie-urilor pe site-ul nostru, ne puteți contacta la:
               </p>
               <ul className="list-disc pl-5 mt-3 space-y-2 text-muted-foreground">
-                <li><strong className="text-foreground">Email:</strong> <a href="mailto:contact@pinggo.ro" className="text-primary hover:underline">contact@pinggo.ro</a></li>
+                <li><strong className="text-foreground">Email:</strong> <a href="mailto:gabriel@pinggo.ro" className="text-primary hover:underline">gabriel@pinggo.ro</a></li>
                 <li><strong className="text-foreground">Adresă:</strong> B-dul Bucureștii Noi, 136, et. Parter, ap. 5, Sector 1, București</li>
               </ul>
             </div>
