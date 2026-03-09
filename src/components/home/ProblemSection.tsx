@@ -17,7 +17,7 @@ export function ProblemSection() {
       <SectionHeading
         title={
           <>
-            Leadurile nu se pierd din lipsa de trafic. Se pierd din lipsa de <Accent>executie.</Accent>
+            Leadurile nu se pierd din lipsa de trafic. Se pierd din lipsa de <Accent>execuție.</Accent>
           </>
         }
       />

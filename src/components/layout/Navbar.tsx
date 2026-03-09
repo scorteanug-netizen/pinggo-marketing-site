@@ -42,10 +42,8 @@ function getPlatformLoginUrl() {
 }
 
 const navLinks = [
-  { href: "/product", label: "Produs" },
-  { href: "/#how-it-works", label: "Cum functioneaza" },
-  { href: "/pricing", label: "Preturi" },
-  { href: "/docs", label: "Documentatie" },
+  { href: "/#how-it-works", label: "Cum funcționează" },
+  { href: "/preturi", label: "Prețuri" },
   { href: "/blog", label: "Blog" },
   { href: "/faq", label: "FAQ" },
   { href: "/contact", label: "Contact" },
@@ -97,7 +95,7 @@ export function Navbar() {
           <Link to="/" className="flex items-center">
             <img
               src="/PINGGO_LOGO.png?v=2"
-              alt="Pinggo - WhatsApp Automation Romania"
+              alt="Pinggo - WhatsApp Automation România"
               className="h-8 w-auto"
             />
           </Link>
@@ -129,7 +127,7 @@ export function Navbar() {
               <a href={platformLoginUrl} target="_blank" rel="noopener noreferrer">Conectare</a>
             </Button>
             <Button asChild className="shadow-md hover:shadow-lg hover:brightness-105 transition-all">
-              <Link to="/contact">Solicita demo</Link>
+              <Link to="/contact">Solicită demo</Link>
             </Button>
           </div>
 
@@ -196,7 +194,7 @@ export function Navbar() {
                 <a href={platformLoginUrl} target="_blank" rel="noopener noreferrer">Conectare</a>
               </Button>
               <Button asChild className="w-full">
-                <Link to="/contact">Solicita demo</Link>
+                <Link to="/contact">Solicită demo</Link>
               </Button>
             </div>
           </div>

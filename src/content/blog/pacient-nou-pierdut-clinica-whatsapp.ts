@@ -34,7 +34,7 @@ export const articleMetadata = {
     "răspuns automat clinică WhatsApp",
     "pacienți noi clinică pierdere",
     "automatizare programări clinică dentară",
-    "WhatsApp clinică medicală Romania",
+    "WhatsApp clinică medicală România",
     "timp răspuns pacient nou clinică",
   ],
   robots: "index, follow",

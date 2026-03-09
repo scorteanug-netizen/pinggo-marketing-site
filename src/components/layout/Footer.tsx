@@ -4,7 +4,7 @@ import { Container } from "./Container";
 const footerLinks = {
   product: [
     { href: "/product", label: "Product" },
-    { href: "/pricing", label: "Pricing" },
+    { href: "/preturi", label: "Prețuri" },
     { href: "/blog", label: "Blog" },
     { href: "/faq", label: "FAQ" },
     { href: "/docs", label: "Docs" },
@@ -29,7 +29,7 @@ export function Footer() {
                 <span className="text-2xl font-extrabold text-foreground tracking-tight">Pinggo</span>
               </Link>
               <p className="mt-4 text-muted-foreground max-w-md leading-relaxed">
-                Romania-first, EU-ready. Garantăm că fiecare lead este contactat la timp, cu dovadă de contact și escaladare automată.
+                România-first, EU-ready. Garantăm că fiecare lead este contactat la timp, cu dovadă de contact și escaladare automată.
               </p>
             </div>
 

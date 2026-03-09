@@ -6,8 +6,8 @@ import { cn } from "@/lib/utils";
 
 const MODULES = [
   { id: "intrare", label: "Intrare lead", caption: "Leaduri din formular, WhatsApp, e-mail sau webhook." },
-  { id: "repartizare", label: "Repartizare", caption: "Repartizare dupa agent, program sau regula." },
-  { id: "termen", label: "Termen", caption: "Termen diferit in functie de intent si sursa." },
+  { id: "repartizare", label: "Repartizare", caption: "Repartizare după agent, program sau regulă." },
+  { id: "termen", label: "Termen", caption: "Termen diferit în funcție de intenție și sursă." },
   { id: "escaladare", label: "Escaladare", caption: "Memento, reasignare, alerta manager." },
   { id: "dovada", label: "Confirmare", caption: "Cronometrul se oprește doar la dovada de contact." },
 ] as const;
@@ -29,7 +29,7 @@ export function ConfigureziPinggoSection() {
             Configurezi Pinggo cum vrei.
           </h2>
           <p className="mt-2.5 text-slate-600 text-base md:text-lg max-w-2xl mx-auto leading-snug">
-            Setezi reguli, termene si escaladari pentru fiecare tip de lead. Fara cod.
+            Setezi reguli, termene și escaladări pentru fiecare tip de lead. Fără cod.
           </p>
         </div>
 
@@ -53,7 +53,7 @@ export function ConfigureziPinggoSection() {
             ))}
           </div>
           <Button asChild size="sm" className="flex-shrink-0 w-full sm:w-auto bg-orange-500 hover:bg-orange-600 text-white shadow-md">
-            <Link to="/contact">Solicita demo</Link>
+            <Link to="/contact">Solicită demo</Link>
           </Button>
         </div>
 
@@ -61,7 +61,7 @@ export function ConfigureziPinggoSection() {
         <div className="flex flex-col items-center">
           <img
             src="/form_routing.png"
-            alt="Workflow Pinggo pentru automatizare WhatsApp si routing lead-uri"
+            alt="Workflow Pinggo pentru automatizare WhatsApp și routing lead-uri"
             className="w-full max-w-4xl h-auto object-contain block my-8"
           />
           <p className="mt-4 text-center text-slate-600 text-sm md:text-base max-w-xl mx-auto leading-snug">

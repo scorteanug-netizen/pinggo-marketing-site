@@ -285,7 +285,7 @@ function formatCalculatorSummary(input: CalculatorSubmissionInput) {
     `Leads/luna: ${Math.round(input.leads)}`,
     `Conversie (%): ${Math.round(input.convRate)}`,
     `Valoare medie (RON): ${Math.round(input.avgValue)}`,
-    `Raspuns in 15 min (%): ${Math.round(input.responseRate)}`,
+    `Răspuns în 15 min (%): ${Math.round(input.responseRate)}`,
     `Pierdere lunara (RON): ${Math.round(input.monthlyLoss)}`,
     `Pierdere anuala (RON): ${Math.round(input.annualLoss)}`,
   ].join(" | ");

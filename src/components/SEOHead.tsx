@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { buildOrganizationSchema, type JsonLdObject } from "@/lib/structuredData";
 
-const TITLE_SUFFIX = "Pinggo — WhatsApp Automation Romania";
+const TITLE_SUFFIX = "Pinggo — WhatsApp Automation România";
 const DEFAULT_BENEFIT = "Răspunzi la lead-uri în 15 secunde";
 const DEFAULT_SITE_URL = "https://pinggo.ro";
 const DEFAULT_DESCRIPTION =

@@ -197,11 +197,11 @@ export default function Calculator() {
     }
 
     if (!isHubspotConfigured("calculator")) {
-      setGateError("Formularul nu este configurat corect. Lipsesc setarile HubSpot.");
+      setGateError("Formularul nu este configurat corect. Lipsesc setările HubSpot.");
       toast({
         variant: "destructive",
-        title: "Configurare lipsa",
-        description: "Seteaza VITE_HUBSPOT_PORTAL_ID si VITE_HUBSPOT_CALCULATOR_FORM_ID.",
+        title: "Configurare lipsă",
+        description: "Setează VITE_HUBSPOT_PORTAL_ID și VITE_HUBSPOT_CALCULATOR_FORM_ID.",
       });
       return;
     }
@@ -377,11 +377,6 @@ export default function Calculator() {
                       >
                         Vezi rezultatele
                       </Button>
-                      {hasTriggeredGate && (
-                        <p className="mt-2 text-xs text-gray-500">
-                          Popup-ul se deschide doar când apeși butonul.
-                        </p>
-                      )}
                       {calculatorError && (
                         <p className="mt-2 text-xs text-red-500">{calculatorError}</p>
                       )}

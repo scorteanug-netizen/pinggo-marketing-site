@@ -29,7 +29,7 @@ const docs = [
     id: "webhook",
     title: "Webhook Integration",
     content: `
-Pinggo accepta leaduri prin webhook POST request. Trimite un JSON payload la endpoint-ul tau dedicat.
+Pinggo acceptă leaduri prin webhook POST request. Trimite un JSON payload la endpoint-ul tău dedicat.
 
 **Endpoint:** \`https://api.pinggo.io/v1/leads/{your_api_key}\`
 
@@ -44,7 +44,7 @@ Pinggo accepta leaduri prin webhook POST request. Trimite un JSON payload la end
 **Optional fields:**
 - name, source, campaign, message, custom_fields
 
-Raspunsul va fi un JSON cu lead_id si status.
+Răspunsul va fi un JSON cu lead_id și status.
     `,
     hasCode: true,
   },
@@ -52,15 +52,15 @@ Raspunsul va fi un JSON cu lead_id si status.
     id: "slack",
     title: "Slack Integration",
     content: `
-Conecteaza Slack pentru a primi notificari in timp real.
+Conectează Slack pentru a primi notificări în timp real.
 
-**Pasi de instalare:**
+**Pași de instalare:**
 
-1. In Pinggo, navigheaza la Settings > Integrations
+1. În Pinggo, navighează la Settings > Integrations
 2. Click pe "Add Slack"
-3. Autorizeaza aplicatia Pinggo in workspace-ul tau
-4. Selecteaza channel-ul pentru notificari
-5. Configureaza ce tipuri de alerte vrei sa primesti:
+3. Autorizează aplicația Pinggo în workspace-ul tău
+4. Selectează channel-ul pentru notificări
+5. Configurează ce tipuri de alerte vrei să primești:
    - New lead assigned
    - Avertizare termen (50%)
    - Termen aproape depășit (75%)
@@ -79,13 +79,13 @@ Conecteaza Slack pentru a primi notificari in timp real.
     content: `
 Integrează WhatsApp Business pentru confirmare automată de contact.
 
-**Pasi de conectare:**
+**Pași de conectare:**
 
 1. Ai nevoie de un cont WhatsApp Business API (prin provider: Twilio, MessageBird, 360dialog)
-2. In Pinggo, navigheaza la Settings > Integrations > WhatsApp
+2. În Pinggo, navighează la Settings > Integrations > WhatsApp
 3. Introdu API credentials de la provider
-4. Configureaza webhook-ul din provider catre Pinggo
-5. Mapeaza numarul de telefon al agentilor
+4. Configurează webhook-ul din provider către Pinggo
+5. Mapează numărul de telefon al agenților
 
 **Cum funcționează confirmarea:**
 
@@ -110,8 +110,8 @@ Trimite leaduri la Pinggo prin email forwarding.
 
 **Setup:**
 
-1. Primesti un email dedicat: \`leads-{your_id}@inbound.pinggo.io\`
-2. Configureaza forwarding din sursa ta:
+1. Primești un email dedicat: \`leads-{your_id}@inbound.pinggo.io\`
+2. Configurează forwarding din sursa ta:
    - Gmail: Settings > Forwarding
    - CRM: automation rule
    - Form builder: notification email
@@ -121,13 +121,13 @@ Trimite leaduri la Pinggo prin email forwarding.
 Pinggo extrage automat:
 - From: sursa lead-ului
 - Subject: devine titlu
-- Body: se parseaza pentru email, telefon, nume
+- Body: se parsează pentru email, telefon, nume
 
 **Custom parsing:**
 
-Pentru formate specifice, configureaza reguli custom in Settings > Email Parsing.
+Pentru formate specifice, configurează reguli custom în Settings > Email Parsing.
 
-**Limitari:**
+**Limitări:**
 - Max 10MB per email
 - Attachments sunt ignorate (doar text)
     `,
@@ -151,7 +151,7 @@ const Docs = () => {
             Documentation
           </h1>
           <p className="mt-6 text-lg md:text-xl text-muted-foreground leading-relaxed">
-            Ghiduri de integrare si referinta tehnica pentru Pinggo.
+            Ghiduri de integrare și referință tehnică pentru Pinggo.
           </p>
         </div>
       </Section>

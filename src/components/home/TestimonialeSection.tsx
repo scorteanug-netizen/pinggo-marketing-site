@@ -71,7 +71,7 @@ export function TestimonialeSection() {
       </div>
 
       <p className="mt-6 text-center text-xs text-slate-400">
-        Testimoniale bazate pe feedback din discuții cu potențiali clienți · Se înlocuiesc cu citate reale la lansare
+        Primii clienți beta — locuri limitate disponibile.
       </p>
     </Section>
   );

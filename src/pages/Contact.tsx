@@ -28,11 +28,11 @@ const Contact = () => {
     setSubmitError("");
 
     if (!isHubspotConfigured("contact")) {
-      setSubmitError("Formularul nu este configurat corect. Lipsesc setarile HubSpot.");
+      setSubmitError("Formularul nu este configurat corect. Lipsesc setările HubSpot.");
       toast({
         variant: "destructive",
-        title: "Configurare lipsa",
-        description: "Seteaza VITE_HUBSPOT_PORTAL_ID si VITE_HUBSPOT_CONTACT_FORM_ID.",
+        title: "Configurare lipsă",
+        description: "Setează VITE_HUBSPOT_PORTAL_ID și VITE_HUBSPOT_CONTACT_FORM_ID.",
       });
       return;
     }
@@ -45,23 +45,23 @@ const Contact = () => {
     const email = String(formData.get("email") ?? "").trim();
 
     if (!name || !company || !phone || !email) {
-      setSubmitError("Completeaza toate campurile obligatorii.");
+      setSubmitError("Completează toate câmpurile obligatorii.");
       return;
     }
 
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      setSubmitError("Adresa de email nu este valida.");
+      setSubmitError("Adresa de email nu este validă.");
       return;
     }
 
     if (!isValidPhoneForHubspot(phone)) {
-      setSubmitError("Numarul de telefon nu este valid.");
+      setSubmitError("Numărul de telefon nu este valid.");
       return;
     }
 
     const normalizedPhone = normalizePhoneForHubspot(phone);
     if (!normalizedPhone) {
-      setSubmitError("Numarul de telefon nu este valid.");
+      setSubmitError("Numărul de telefon nu este valid.");
       return;
     }
 
@@ -77,8 +77,8 @@ const Contact = () => {
       setIsSubmitted(true);
       form.reset();
       toast({
-        title: "Cerere trimisa!",
-        description: "Revenim in maximum 24 de ore.",
+        title: "Cerere trimisă!",
+        description: "Revenim în maximum 24 de ore.",
       });
     } catch (error) {
       const messageText = error instanceof Error ? error.message : "Nu am putut trimite formularul.";

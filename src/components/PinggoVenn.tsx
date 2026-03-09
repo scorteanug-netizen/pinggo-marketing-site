@@ -9,7 +9,7 @@ const MID_IDS = ["repartizare", "escaladare", "dovada"] as const;
 const CIRCLES = [
   { id: "intrare", cx: 306, cy: 125, r: 92, label: "Intrare lead", color: "blue" },
   { id: "repartizare", cx: 387, cy: 205, r: 92, label: "Repartizare", color: "violet" },
-  { id: "termen", cx: 383, cy: 299, r: 92, label: "Timp raspuns", color: "indigo" },
+  { id: "termen", cx: 383, cy: 299, r: 92, label: "Timp răspuns", color: "indigo" },
   { id: "escaladare", cx: 211, cy: 307, r: 92, label: "Escaladare", color: "teal" },
   { id: "dovada", cx: 213, cy: 203, r: 92, label: "Dovada", color: "emerald" },
 ] as const;
@@ -18,7 +18,7 @@ const CIRCLES = [
 const PILLS: { id: string; x: number; y: number; label: string; color: keyof typeof COLOR_MAP }[] = [
   { id: "intrare", x: 338, y: 68, label: "Intrare lead", color: "blue" },
   { id: "repartizare", x: 448, y: 212, label: "Repartizare", color: "violet" },
-  { id: "termen", x: 388, y: 378, label: "Timp raspuns", color: "indigo" },
+  { id: "termen", x: 388, y: 378, label: "Timp răspuns", color: "indigo" },
   { id: "escaladare", x: 172, y: 378, label: "Escaladare", color: "teal" },
   { id: "dovada", x: 102, y: 212, label: "Dovada", color: "emerald" },
 ];
@@ -91,7 +91,7 @@ export function PinggoVenn() {
           viewBox={`${scaledViewBox.x} ${scaledViewBox.y} ${scaledViewBox.w} ${scaledViewBox.h}`}
           className="w-full h-auto min-h-[420px] lg:min-h-[460px] pinggo-venn-svg"
           preserveAspectRatio="xMidYMid meet"
-          aria-label="Diagrama Pinggo: Intrare lead, Repartizare, Timp raspuns, Escaladare, Dovada"
+          aria-label="Diagrama Pinggo: Intrare lead, Repartizare, Timp răspuns, Escaladare, Dovadă"
           role="img"
         >
           <defs>

@@ -199,7 +199,7 @@ const Pricing = () => {
       <SEOHead
         title="Prețuri Pinggo"
         description="Planurile Pinggo pentru România: Starter, Pro, Business și Enterprise, plus tabel comparativ complet."
-        path="/pricing"
+        path="/preturi"
         structuredData={buildFAQSchema(HOME_FAQ_ITEMS)}
       />
 

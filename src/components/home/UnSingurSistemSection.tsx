@@ -57,7 +57,7 @@ export function UnSingurSistemSection() {
   return (
     <Section alternate canvas secondary>
       <SectionHeading
-        title="In sfarsit, un singur sistem care nu lasa leadurile sa se piarda."
+        title="În sfârșit, un singur sistem care nu lasă leadurile să se piardă."
         subtitle="Răspuns instant, programare automată și escaladare. Ca să fie execuție, nu presupuneri."
       />
       <div className="grid gap-6 lg:gap-8 sm:grid-cols-2 lg:grid-cols-3">

@@ -104,7 +104,7 @@ export function buildSoftwareApplicationSchema(): JsonLdObject {
       price: "99",
       priceCurrency: "EUR",
       availability: "https://schema.org/InStock",
-      url: getAbsoluteSiteUrl("/pricing"),
+      url: getAbsoluteSiteUrl("/preturi"),
     },
   };
 }

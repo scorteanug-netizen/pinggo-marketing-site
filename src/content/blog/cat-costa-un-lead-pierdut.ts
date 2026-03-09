@@ -253,7 +253,7 @@ export const articleSchema = {
       mainEntityOfPage: "https://pinggo.ro/blog/cat-costa-un-lead-pierdut",
       keywords: [
         "lead pierdut",
-        "cost lead Romania",
+        "cost lead România",
         "WhatsApp business",
         "clinici dentare",
         "solar Casa Verde",

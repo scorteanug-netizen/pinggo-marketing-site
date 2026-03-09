@@ -41,7 +41,7 @@ export function TopMarqueeBanner() {
           type="button"
           onClick={handleClose}
           className="flex-shrink-0 p-2 h-full flex items-center justify-center text-white/80 hover:text-white hover:bg-white/10 transition-colors"
-          aria-label="Inchide banner"
+          aria-label="Închide banner"
         >
           <span className="text-lg leading-none font-bold">&#215;</span>
         </button>
@@ -54,13 +54,13 @@ function MarqueeContent() {
   return (
     <div className="flex items-center gap-4 sm:gap-6 px-4 sm:px-6 whitespace-nowrap h-full">
       <span className="text-xs sm:text-sm font-medium">
-        Raspuns lent inseamna leaduri pierdute
+        Răspuns lent înseamnă leaduri pierdute
       </span>
       <span className="text-orange-400" aria-hidden>
         <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
       </span>
       <span className="text-xs sm:text-sm font-medium">
-        Calculeaza pierderea (gratis)
+        Calculează pierderea (gratis)
       </span>
       <span className="text-white/50 text-sm" aria-hidden>
         |

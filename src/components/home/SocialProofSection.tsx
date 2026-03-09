@@ -7,12 +7,12 @@ import { Accent } from "@/components/Accent";
 const industries = [
   {
     icon: Building2,
-    title: "Agentii",
+    title: "Agenții",
     accent: "orange" as const,
     iconBg: "bg-orange-100",
     iconColor: "text-orange-600",
     benefits: [
-      "Termene diferite pe client si campanie. Dovada pe fiecare lead pentru raportare.",
+      "Termene diferite pe client și campanie. Dovadă pe fiecare lead pentru raportare.",
     ],
   },
   {
@@ -22,7 +22,7 @@ const industries = [
     iconBg: "bg-violet-100",
     iconColor: "text-violet-600",
     benefits: [
-      "Contactare rapida, fara leaduri uitate. Escaladare automata la manager.",
+      "Contactare rapidă, fără leaduri uitate. Escaladare automată la manager.",
     ],
   },
   {
@@ -32,7 +32,7 @@ const industries = [
     iconBg: "bg-orange-100",
     iconColor: "text-orange-600",
     benefits: [
-      "Repartizare pe zona sau tip proprietate. Reasignare automata daca nu exista raspuns.",
+      "Repartizare pe zonă sau tip proprietate. Reasignare automată dacă nu există răspuns.",
     ],
   },
 ];
@@ -41,7 +41,7 @@ export function SocialProofSection() {
   return (
     <Section highlightBlue>
       <SectionHeading
-        title={<>Construit pentru echipe care vand din <Accent>leaduri inbound</Accent></>}
+        title={<>Construit pentru echipe care vând din <Accent>leaduri inbound</Accent></>}
         light
       />
       <div className="grid gap-6 lg:gap-8 md:grid-cols-3">

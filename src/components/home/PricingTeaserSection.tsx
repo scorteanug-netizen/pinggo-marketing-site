@@ -57,7 +57,7 @@ export function PricingTeaserSection() {
   return (
     <Section alternate>
       <SectionHeading
-        title="Pricing Pinggo v2.0"
+        title="Alege planul potrivit echipei tale"
         subtitle="Model flat monthly pentru România. Utilizatori nelimitați în toate planurile."
       />
       <div className="grid gap-6 lg:gap-8 md:grid-cols-2 xl:grid-cols-4 max-w-7xl mx-auto">
@@ -98,7 +98,7 @@ export function PricingTeaserSection() {
                 variant={plan.popular ? "default" : "outline"}
                 asChild
               >
-                <Link to="/pricing">Vezi detalii</Link>
+                <Link to="/preturi">Vezi detalii</Link>
               </Button>
             </div>
           </AccentCard>
@@ -109,7 +109,7 @@ export function PricingTeaserSection() {
         <p className="text-sm text-muted-foreground">Starter, Pro și Business au opțiune anuală cu 2 luni gratuite.</p>
         <div className="mt-4">
           <Button variant="link" asChild className="text-orange-500 font-semibold hover:text-orange-600">
-            <Link to="/pricing">Vezi pricing complet</Link>
+            <Link to="/preturi">Vezi pricing complet</Link>
           </Button>
         </div>
       </div>

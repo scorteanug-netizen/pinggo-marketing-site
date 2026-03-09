@@ -13,7 +13,7 @@ export function LaunchBandSection() {
 
         <div className="flex items-center gap-2 text-[13px] text-white/70">
           <span>
-            <strong className="text-white">Primele 20 de echipe</strong> - setup prioritar + pret de lansare
+            <strong className="text-white">Primele 20 de echipe</strong> - setup prioritar + preț de lansare
           </span>
         </div>
 
@@ -23,7 +23,7 @@ export function LaunchBandSection() {
           to="/contact"
           className="whitespace-nowrap rounded-lg border border-[rgba(245,110,15,0.4)] bg-[rgba(245,110,15,0.15)] px-4 py-1.5 text-[13px] font-bold text-[#FB923C] transition-colors hover:bg-[rgba(245,110,15,0.25)]"
         >
-          Rezerva un loc {"->"}
+          Rezervă un loc {"->"}
         </Link>
       </div>
     </section>

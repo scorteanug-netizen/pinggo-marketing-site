@@ -54,12 +54,17 @@ function getSiteOrigin() {
 }
 
 function extractRoutes(appSource) {
-  const routeRegex = /<Route[^>]*\bpath=["']([^"']+)["']/g;
   const uniqueRoutes = new Set();
 
-  for (const match of appSource.matchAll(routeRegex)) {
+  for (const line of appSource.split(/\r?\n/)) {
+    const match = line.match(/<Route[^>]*\bpath=["']([^"']+)["']/);
+    if (!match) continue;
+
     const path = match[1]?.trim();
+    const routeDeclaration = line.trim();
     if (!path || path === "*" || path.includes(":")) continue;
+    // Redirect aliases should not be indexed in the sitemap.
+    if (routeDeclaration.includes("element={<Navigate")) continue;
     uniqueRoutes.add(path);
   }
 

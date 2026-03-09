@@ -42,7 +42,7 @@ const BlogPost = () => {
       <Section canvas>
         <div className="mx-auto max-w-3xl">
           <Link to="/blog" className="inline-flex text-sm font-semibold text-primary transition-colors hover:text-primary/80">
-            ← Inapoi la Blog
+            ← Înapoi la Blog
           </Link>
           <p className="mt-6 text-sm font-medium text-muted-foreground">
             {post.category} • {formatBlogDate(post.publishedAt)} • {post.readingTime}
@@ -82,13 +82,13 @@ const BlogPost = () => {
 
       <Section>
         <div className="mx-auto max-w-3xl rounded-2xl border border-border/60 bg-background p-8 text-center shadow-sm">
-          <h2 className="text-3xl font-extrabold text-foreground">Vrei sa aplici acelasi proces in echipa ta?</h2>
+          <h2 className="text-3xl font-extrabold text-foreground">Vrei să aplici același proces în echipa ta?</h2>
           <p className="mt-4 text-muted-foreground">
-            Programeaza un demo si vezi cum arata fluxul complet pentru leadurile tale.
+            Programează un demo și vezi cum arată fluxul complet pentru leadurile tale.
           </p>
           <div className="mt-6">
             <Button asChild>
-              <Link to="/contact">Solicita demo</Link>
+              <Link to="/contact">Solicită demo</Link>
             </Button>
           </div>
         </div>

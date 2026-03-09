@@ -15,8 +15,8 @@ export function IntegrationsSection() {
   return (
     <Section highlightBlue>
       <SectionHeading
-        title="Integrari din prima zi"
-        subtitle="CRM optional. Conectezi HubSpot, Pipedrive sau Zoho prin Make sau Zapier in versiunea initiala."
+        title="Integrări din prima zi"
+        subtitle="CRM opțional. Conectezi HubSpot, Pipedrive sau Zoho prin Make sau Zapier în versiunea inițială."
         light
       />
       <div className="flex flex-wrap justify-center gap-4">

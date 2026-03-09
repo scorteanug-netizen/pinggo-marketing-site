@@ -9,8 +9,8 @@ const Blog = () => {
   return (
     <Layout>
       <SEOHead
-        title="Blog Pinggo pentru vanzari si operatiuni"
-        description="Citeste articole practice despre raspuns rapid la leaduri, automatizari WhatsApp si procese de follow-up."
+        title="Blog Pinggo pentru vânzări și operațiuni"
+        description="Citește articole practice despre răspuns rapid la leaduri, automatizări WhatsApp și procese de follow-up."
         path="/blog"
       />
 
@@ -19,10 +19,9 @@ const Blog = () => {
           <p className="inline-flex rounded-full bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">
             Blog Pinggo
           </p>
-          <h1 className="mt-6 text-foreground">Articole si tactici practice</h1>
+          <h1 className="mt-6 text-foreground">Articole și tactici practice</h1>
           <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-            Toate titlurile blogului sunt listate mai jos. Apasa pe un articol ca sa vezi pagina dedicata cu
-            continutul complet.
+            Ghiduri practice pentru echipe de vânzări și operațiuni din România.
           </p>
         </div>
       </Section>
@@ -55,7 +54,7 @@ const Blog = () => {
                       to={postHref}
                       className="mt-4 inline-flex text-sm font-semibold text-primary transition-colors hover:text-primary/80"
                     >
-                      Citeste articolul
+                      Citește articolul
                     </Link>
                   </CardContent>
                 </Card>

@@ -12,7 +12,7 @@ export function FAQSection() {
   return (
     <Section secondary>
       <SectionHeading
-        title="Intrebari frecvente"
+        title="Întrebări frecvente"
       />
       <div className="max-w-3xl mx-auto">
         <Accordion type="single" collapsible className="w-full space-y-4">

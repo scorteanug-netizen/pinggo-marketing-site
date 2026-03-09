@@ -79,7 +79,7 @@ const Product = () => {
       <Section>
         <div className="text-center max-w-3xl mx-auto">
           <h1 className="text-foreground">
-            Cum functioneaza <span className="text-highlight">Pinggo</span>
+            Cum funcționează <span className="text-highlight">Pinggo</span>
           </h1>
           <p className="mt-6 text-lg md:text-xl text-muted-foreground leading-relaxed">
             Trei module care lucrează împreună pentru a garanta că fiecare lead este contactat la timp, cu dovadă de contact.
@@ -166,14 +166,14 @@ const Product = () => {
       <Section highlightBlue>
         <div className="text-center">
           <h2 className="text-white font-extrabold mb-5">
-            Incepe cu Pinggo
+            Începe cu Pinggo
           </h2>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" asChild>
-              <Link to="/contact">Solicita demo</Link>
+              <Link to="/contact">Solicită demo</Link>
             </Button>
             <Button size="lg" variant="outlineWhite" asChild>
-              <Link to="/pricing">Vezi pricing</Link>
+              <Link to="/preturi">Vezi pricing</Link>
             </Button>
           </div>
         </div>

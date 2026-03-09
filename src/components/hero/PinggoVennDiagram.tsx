@@ -19,7 +19,7 @@ const ORANGE = "#ff5621";
 const OUTER_CIRCLES = [
   { id: "intrare", cx: 360, cy: 170, label: "Intrare lead", color: "blue" as keyof typeof COLORS },
   { id: "repartizare", cx: 480, cy: 290, label: "Repartizare", color: "purple" as keyof typeof COLORS },
-  { id: "termen", cx: 410, cy: 390, label: "Termen de raspuns", color: "indigo" as keyof typeof COLORS },
+  { id: "termen", cx: 410, cy: 390, label: "Termen de răspuns", color: "indigo" as keyof typeof COLORS },
   { id: "escaladare", cx: 270, cy: 390, label: "Escaladare", color: "teal" as keyof typeof COLORS },
   { id: "dovada", cx: 220, cy: 280, label: "Dovada", color: "green" as keyof typeof COLORS },
 ] as const;
@@ -39,7 +39,7 @@ const LABELS: {
 }[] = [
   { id: "intrare", x: 360, y: 125, label: "Intrare lead", color: "blue", textAnchor: "middle" },
   { id: "repartizare", x: 605, y: 290, label: "Repartizare", color: "purple", textAnchor: "end" },
-  { id: "termen", x: 430, y: 445, label: "Termen de raspuns", color: "indigo", textAnchor: "middle" },
+  { id: "termen", x: 430, y: 445, label: "Termen de răspuns", color: "indigo", textAnchor: "middle" },
   { id: "escaladare", x: 255, y: 445, label: "Escaladare", color: "teal", textAnchor: "middle" },
   { id: "dovada", x: 108, y: 280, label: "Dovada", color: "green", textAnchor: "start" },
 ];
@@ -78,7 +78,7 @@ export default function PinggoVennDiagram({ className }: { className?: string })
         preserveAspectRatio="xMidYMid meet"
         className="block w-full h-auto min-h-[260px] pinggo-venn-diagram [&_.venn-label]:text-[18px] md:[&_.venn-label]:text-[26px] [&_.venn-center-text]:text-[28px] md:[&_.venn-center-text]:text-[34px]"
         style={{ display: "block" }}
-        aria-label="Diagrama Pinggo: Intrare lead, Repartizare, Termen de raspuns, Escaladare, Dovada"
+        aria-label="Diagrama Pinggo: Intrare lead, Repartizare, Termen de răspuns, Escaladare, Dovadă"
         role="img"
       >
         <defs>
