@@ -14,10 +14,12 @@ export function HeroSection() {
 
             {/* Eyebrow pill */}
             <div
-              className="inline-block mb-[14px] px-[14px] py-1 rounded-full text-[12px] font-bold tracking-[.08em] uppercase text-[#C2410C]"
+              className="mb-[14px] inline-flex max-w-full items-center justify-center rounded-full px-4 py-2.5 text-center text-[12px] font-semibold leading-[1.35] text-[#C2410C] sm:text-[13px]"
               style={{ background: "#FFF3E0", border: "1px solid #FDBA74" }}
             >
-              ⚡ Lead automation · Setup în mai puțin de 1h
+              <span className="max-w-[30ch] text-balance sm:max-w-none">
+                🇷🇴 Prima platformă speed-to-lead din România.
+              </span>
             </div>
 
             {/* Headline */}
