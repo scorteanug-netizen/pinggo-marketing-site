@@ -1,0 +1,56 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="72" y1="54" x2="1110" y2="612" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F172A" />
+      <stop offset="1" stop-color="#111827" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#FB923C" />
+      <stop offset="1" stop-color="#EA580C" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" rx="32" fill="url(#bg)" />
+  <circle cx="1038" cy="108" r="176" fill="#1F2937" opacity="0.55" />
+  <circle cx="1078" cy="530" r="148" fill="#111827" stroke="#374151" stroke-width="2" />
+  <rect x="72" y="72" width="1056" height="486" rx="28" fill="#111827" stroke="#1F2937" stroke-width="2" />
+
+  <g opacity="0.95">
+    <rect x="92" y="94" width="14" height="14" rx="4" fill="url(#accent)" />
+    <text x="122" y="107" fill="#F9FAFB" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" letter-spacing="0.2em">
+      PINGGO
+    </text>
+  </g>
+
+  <text x="92" y="185" fill="#E5E7EB" font-family="Arial, Helvetica, sans-serif" font-size="64" font-weight="700">
+    17 statistici
+  </text>
+
+  <text x="92" y="348" fill="url(#accent)" font-family="Arial, Helvetica, sans-serif" font-size="192" font-weight="800">
+    78%
+  </text>
+
+  <text x="92" y="422" fill="#F9FAFB" font-family="Arial, Helvetica, sans-serif" font-size="46" font-weight="700">
+    cumpără de la prima firmă
+  </text>
+  <text x="92" y="478" fill="#F9FAFB" font-family="Arial, Helvetica, sans-serif" font-size="46" font-weight="700">
+    care răspunde
+  </text>
+
+  <text x="92" y="535" fill="#9CA3AF" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="400">
+    Statistici despre viteza de răspuns la lead-uri
+  </text>
+
+  <rect x="796" y="210" width="250" height="114" rx="24" fill="#0B1220" stroke="#374151" />
+  <text x="838" y="258" fill="#FB923C" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">
+    Speed to lead
+  </text>
+  <text x="838" y="298" fill="#F9FAFB" font-family="Arial, Helvetica, sans-serif" font-size="48" font-weight="800">
+    sub 5 min
+  </text>
+
+  <rect x="840" y="404" width="188" height="56" rx="28" fill="#1F2937" />
+  <text x="886" y="441" fill="#E5E7EB" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">
+    pinggo.ro
+  </text>
+</svg>
